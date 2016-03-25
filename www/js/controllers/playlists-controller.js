@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('PlaylistsController', [])
 
 
 .controller('PlaylistsCtrl', function($scope) {
