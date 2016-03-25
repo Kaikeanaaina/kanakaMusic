@@ -23,11 +23,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   });
 })
 
-<<<<<<< HEAD
-.config(function($stateProvider, $urlRouterProvider) {
-=======
+
 .config(['$stateProvider', '$urlRouterProvider',function( $stateProvider, $urlRouterProvider) {
->>>>>>> kai_branch
+
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
