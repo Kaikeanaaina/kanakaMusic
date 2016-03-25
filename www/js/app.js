@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'AppController','PlaylistsController','PlaylistController'])
+angular.module('starter', ['ionic', 'AppController','SongsController','PlaylistController'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -49,18 +49,18 @@ angular.module('starter', ['ionic', 'AppController','PlaylistsController','Playl
         }
       }
     })
-    .state('app.playlists', {
-      url: '/playlists',
+    .state('app.songs', {
+      url: '/songs',
       views: {
         'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
+          templateUrl: 'templates/songs.html',
+          controller: 'SongsController'
         }
       }
     })
 
   .state('app.single', {
-    url: '/playlists/:playlistId',
+    url: '/songs/:songId',
     views: {
       'menuContent': {
         templateUrl: 'templates/playlist.html',
@@ -69,5 +69,5 @@ angular.module('starter', ['ionic', 'AppController','PlaylistsController','Playl
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/songs');
 });

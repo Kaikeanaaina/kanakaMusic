@@ -1,8 +1,8 @@
-angular.module('PlaylistsController', [])
+angular.module('SongsController', [])
 
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
+.controller('SongsController', function($scope) {
+  $scope.songs = [
     { title: 'Reggae', id: 1 },
     { title: 'Chill', id: 2 },
     { title: 'Dubstep', id: 3 },
