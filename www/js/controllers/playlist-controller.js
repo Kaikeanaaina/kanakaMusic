@@ -1,6 +1,6 @@
-angular.module('PlaylistController', [])
+angular.module('starter.controllers', [])
 
 
-.controller('PlaylistCtrl', function($scope) {
+.controller('PlaylistController', function($scope) {
 
 });

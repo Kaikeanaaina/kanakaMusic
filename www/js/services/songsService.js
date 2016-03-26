@@ -1,5 +1,6 @@
-angular.module('starter')
-  .service('SongsService', ['$http', function($http){
+angular.module('starter.services', [])
+
+  .service("SongsService", ['$http', function($http){
     this.getAllSongs = function(){
       return $http.get('/songs/');
     };
@@ -13,4 +14,5 @@ angular.module('starter')
     //   return $http.post('/product/new', product);
     // };
 
-  }]);
+  }
+  ]);
