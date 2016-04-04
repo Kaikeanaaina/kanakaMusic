@@ -1,4 +1,5 @@
 var express = require('express');
+var app = express();
 var router = express.Router();
 var bodyParser = require('body-parser');
 var db = require('./../models');
@@ -8,10 +9,11 @@ var Song = db.Song;
 router.use(bodyParser.json({ extended : false }));
 
 router.get('/',function(req, res){
-  Song.findAll()
-  .then(function(songs){
-    res.json(songs);
-  });
+  console.log(33333333);
+  // Song.findAll()
+  // .then(function(songs){
+  //   res.json(songs);
+  // });
 });
 
 
@@ -20,16 +22,16 @@ router.get('/new', function(req, res) {
   res.render('song/new');
 });
 
-router.get('/:id', function(req, res) {
-  Song.findOne({
-    where: {
-      urlTitle: encodeURI(req.params.id)
-    }
-  })
-  .then(function(song){
-    res.json(song);
-  });
-});
+// router.get('/:id', function(req, res) {
+//   Song.findOne({
+//     where: {
+//       urlTitle: encodeURI(req.params.id)
+//     }
+//   })
+//   .then(function(song){
+//     res.json(song);
+//   });
+// });
 
 
 router.post('/', function (req, res) {

@@ -41,7 +41,7 @@ app.get('/', function(req,res){
     });
 });
 
-app.use('/song', require('./routes/song.js') );
+app.use('/songs', require('./routes/song.js') );
 app.use('/artist', require('./routes/artist.js'));
 app.use('/album', require('./routes/album.js'));
 app.use('/recordLabel', require('./routes/recordLabel.js'));

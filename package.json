@@ -41,7 +41,7 @@
     "pg": "^4.4.4",
     "pg-hstore": "^2.3.2",
     "pg-promise": "^3.1.6",
-    "sequelize": "^3.18.0",
+    "sequelize": "^3.21.0",
     "shelljs": "^0.3.0"
   },
   "cordovaPlugins": [
