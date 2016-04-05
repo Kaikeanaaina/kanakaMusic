@@ -41,6 +41,15 @@ app.get('/', function(req,res){
     });
 });
 
+//         this is for error access control error, if appears
+app.all('/*', function(req, res, next) {
+ res.header("Access-Control-Allow-Origin", "*");
+ res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
+ res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
+ next();
+
+});
+
 app.use('/songs', require('./routes/song.js') );
 app.use('/artist', require('./routes/artist.js'));
 app.use('/album', require('./routes/album.js'));
@@ -48,14 +57,6 @@ app.use('/recordLabel', require('./routes/recordLabel.js'));
 app.use('/publisher', require('./routes/publisher.js'));
 
 
-//         this is for error access control error, if appears
-// app.all('/*', function(req, res, next) {
-//  res.header("Access-Control-Allow-Origin", "*");
-//  res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
-//  res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
-//  next();
-
-// });
 
 var server = app.listen(4000, function(){
   db.sequelize.sync();
