@@ -49,15 +49,26 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.AppControlle
         }
       }
     })
-    .state('app.songs', {
-      url: '/songs',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/songs.html',
-          controller: 'SongsController'
-        }
+
+  .state('app.songs', {
+    url: '/songs',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/songs.html',
+        controller: 'SongsController'
       }
-    })
+    }
+  })
+
+  .state('app.addSong',{
+    url: '/addSong',
+    views: {
+      'song-tab': {
+        templateUrl: 'templates/addSong.html',
+        controller: 'SongsController'
+      }
+    }
+  })
 
   .state('app.single', {
     url: '/songs/:songId',

@@ -9,31 +9,11 @@ var Song = db.Song;
 router.use(bodyParser.json({ extended : false }));
 
 router.get('/',function(req, res){
-  console.log(33333333);
   Song.findAll()
   .then(function(songs){
-    console.log(44444444, songs);
     return res.json(songs);
   });
 });
-
-
-
-router.get('/new', function(req, res) {
-  res.render('song/new');
-});
-
-// router.get('/:id', function(req, res) {
-//   Song.findOne({
-//     where: {
-//       urlTitle: encodeURI(req.params.id)
-//     }
-//   })
-//   .then(function(song){
-//     res.json(song);
-//   });
-// });
-
 
 router.post('/', function (req, res) {
   var urltitle = (encodeURI(req.body.title)).toString();
@@ -77,6 +57,24 @@ router.post('/', function (req, res) {
       return res.json(data);
     });
 });
+
+
+router.get('/new', function(req, res) {
+  res.render('song/new');
+});
+
+// router.get('/:id', function(req, res) {
+//   Song.findOne({
+//     where: {
+//       urlTitle: encodeURI(req.params.id)
+//     }
+//   })
+//   .then(function(song){
+//     res.json(song);
+//   });
+// });
+
+
 
 router.get('/:id/edit', function(req, res){
   Song.findAll({

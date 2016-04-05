@@ -1,5 +1,12 @@
-<ion-view view-title="Songs">
+<ion-view ng-init="getAllSongs()" view-title="Songs">
   <ion-content>
+    <div class='list'>
+      <div class='item'>
+        <a href="#/app/addSong">
+          Add New Song
+        </a>
+      </div>
+    </div>
     <ion-list>
       <ion-item ng-repeat="song in songs" href="#/app/songs/{{song.id}}">
         {{song.title}}

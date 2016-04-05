@@ -11,7 +11,6 @@ angular.module('starter.services', [])
     }
 
     this.getAllSongs = function(){
-      console.log(2222222222);
       return $http.get(domain + '/songs');
     };
     // this.getProduct = function(id){
