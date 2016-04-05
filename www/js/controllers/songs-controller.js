@@ -3,10 +3,11 @@ angular.module('starter.controllers', [])
 
 .controller('SongsController', function($scope, SongsService) {
   console.log(11111111111);
-  SongsService.getAllSongs();
-  // .success(function(data){
-
-  // });
+  SongsService.getAllSongs()
+  .success(function(data){
+    console.log(555555555);
+    $scope.songs = data;
+  });
 
   // $scope.songs = [
   //   { title: 'Reggae', id: 1 },

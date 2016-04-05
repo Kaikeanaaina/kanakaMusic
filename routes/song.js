@@ -10,10 +10,11 @@ router.use(bodyParser.json({ extended : false }));
 
 router.get('/',function(req, res){
   console.log(33333333);
-  // Song.findAll()
-  // .then(function(songs){
-  //   res.json(songs);
-  // });
+  Song.findAll()
+  .then(function(songs){
+    console.log(44444444, songs);
+    return res.json(songs);
+  });
 });
 
 
