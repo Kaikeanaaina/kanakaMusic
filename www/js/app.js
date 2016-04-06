@@ -1,10 +1,10 @@
-// Ionic Starter App
+// Ionic kanakamusic App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.AppController', 'starter.services'])
+angular.module('kanakamusic', ['ionic', 'kanakamusic.controllers', 'kanakamusic.AppController', 'kanakamusic.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

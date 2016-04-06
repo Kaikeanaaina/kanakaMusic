@@ -1,4 +1,4 @@
-angular.module('starter.services', [])
+angular.module('kanakamusic.services', [])
 
   .service("SongsService", ['$http', function($http){
     var isCordovaApp = document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') === -1;

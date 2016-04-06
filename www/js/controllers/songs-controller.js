@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('kanakamusic.controllers', [])
 
 
 .controller('SongsController', function($scope, SongsService) {
@@ -11,9 +11,9 @@ angular.module('starter.controllers', [])
     });
   };
 
-  $scope.addNewSong = function(song){
-    console.log(111111111111);
-  };
+  // $scope.addNewSong = function(song){
+  //   console.log(111111111111);
+  // };
 
 
 

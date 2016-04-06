@@ -1,4 +1,4 @@
-angular.module('starter.AppController', [])
+angular.module('kanakamusic.AppController', [])
 
 .controller('AppController', function($scope, $ionicModal, $timeout) {
 
