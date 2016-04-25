@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives','app.homeController'])
+angular.module('app', ['ionic', 'app.routes', 'app.services', 'app.directives','app.songController','app.gigController', 'app.artistController','app.recordLabelController','app.albumController','app.settingController','app.bandMemberController'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -37,7 +37,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     views: {
       'side-menu21': {
         templateUrl: 'templates/home.html',
-        controller: 'homeCtrl'
+        controller: 'songCtrl'
       }
     }
   })
@@ -47,7 +47,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     views: {
       'side-menu21': {
         templateUrl: 'templates/gigs.html',
-        controller: 'gigsCtrl'
+        controller: 'gigCtrl'
       }
     }
   })
@@ -55,7 +55,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
   .state('gigsCalendar', {
     url: '/gigs/calendar',
     templateUrl: 'templates/gigsCalendar.html',
-    controller: 'gigsCalendarCtrl'
+    controller: 'gigsCtrl'
   })
 
   .state('menu', {
@@ -69,7 +69,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     views: {
       'side-menu21': {
         templateUrl: 'templates/addNewSong.html',
-        controller: 'addNewSongCtrl'
+        controller: 'songCtrl'
       }
     }
   })
@@ -79,7 +79,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     views: {
       'side-menu21': {
         templateUrl: 'templates/editSong.html',
-        controller: 'editSongCtrl'
+        controller: 'songCtrl'
       }
     }
   })
@@ -89,7 +89,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     views: {
       'side-menu21': {
         templateUrl: 'templates/addNewArtist.html',
-        controller: 'addNewArtistCtrl'
+        controller: 'artistCtrl'
       }
     }
   })
@@ -99,7 +99,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     views: {
       'side-menu21': {
         templateUrl: 'templates/editArtist.html',
-        controller: 'editArtistCtrl'
+        controller: 'artistCtrl'
       }
     }
   })
@@ -107,7 +107,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
   .state('addRecordLabel', {
     url: '/addRecordLabel',
     templateUrl: 'templates/addRecordLabel.html',
-    controller: 'addRecordLabelCtrl'
+    controller: 'recordLabelCtrl'
   })
 
   .state('menu.editRecordLabel', {
@@ -115,7 +115,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     views: {
       'side-menu21': {
         templateUrl: 'templates/editRecordLabel.html',
-        controller: 'editRecordLabelCtrl'
+        controller: 'recordLabelCtrl'
       }
     }
   })
@@ -125,7 +125,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     views: {
       'side-menu21': {
         templateUrl: 'templates/addNewAlbum.html',
-        controller: 'addNewAlbumCtrl'
+        controller: 'albumCtrl'
       }
     }
   })
@@ -135,7 +135,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     views: {
       'side-menu21': {
         templateUrl: 'templates/editAlbum.html',
-        controller: 'editAlbumCtrl'
+        controller: 'albumCtrl'
       }
     }
   })
@@ -145,7 +145,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     views: {
       'side-menu21': {
         templateUrl: 'templates/songContent.html',
-        controller: 'songContentCtrl'
+        controller: 'songCtrl'
       }
     }
   })
@@ -155,7 +155,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     views: {
       'side-menu21': {
         templateUrl: 'templates/gigDetails.html',
-        controller: 'gigDetailsCtrl'
+        controller: 'gigCtrl'
       }
     }
   })
@@ -165,7 +165,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     views: {
       'side-menu21': {
         templateUrl: 'templates/addNewGig.html',
-        controller: 'addNewGigCtrl'
+        controller: 'gigCtrl'
       }
     }
   })
@@ -175,7 +175,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     views: {
       'side-menu21': {
         templateUrl: 'templates/artistInformation.html',
-        controller: 'artistInformationCtrl'
+        controller: 'artistCtrl'
       }
     }
   })
@@ -185,7 +185,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     views: {
       'side-menu21': {
         templateUrl: 'templates/artistContext.html',
-        controller: 'artistContextCtrl'
+        controller: 'artistCtrl'
       }
     }
   })
@@ -195,7 +195,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     views: {
       'side-menu21': {
         templateUrl: 'templates/albumPage.html',
-        controller: 'albumPageCtrl'
+        controller: 'albumCtrl'
       }
     }
   })
@@ -205,7 +205,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     views: {
       'side-menu21': {
         templateUrl: 'templates/settings.html',
-        controller: 'settingsCtrl'
+        controller: 'settingCtrl'
       }
     }
   })
@@ -215,7 +215,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     views: {
       'side-menu21': {
         templateUrl: 'templates/recordLabels.html',
-        controller: 'recordLabelsCtrl'
+        controller: 'recordLabelCtrl'
       }
     }
   })
@@ -225,7 +225,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     views: {
       'side-menu21': {
         templateUrl: 'templates/privacyPolicy.html',
-        controller: 'privacyPolicyCtrl'
+        controller: 'settingCtrl'
       }
     }
   })
@@ -235,7 +235,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     views: {
       'side-menu21': {
         templateUrl: 'templates/serviceTerms.html',
-        controller: 'serviceTermsCtrl'
+        controller: 'settingCtrl'
       }
     }
   })
@@ -243,7 +243,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
   .state('dateOfTheGigs', {
     url: '/gigs/day/:id',
     templateUrl: 'templates/dateOfTheGigs.html',
-    controller: 'dateOfTheGigsCtrl'
+    controller: 'gigCtrl'
   })
 
   .state('menu.bandMembers', {
@@ -251,7 +251,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     views: {
       'side-menu21': {
         templateUrl: 'templates/bandMembers.html',
-        controller: 'bandMembersCtrl'
+        controller: 'bandMemberCtrl'
       }
     }
   })
@@ -261,12 +261,12 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
     views: {
       'side-menu21': {
         templateUrl: 'templates/login.html',
-        controller: 'loginCtrl'
+        controller: 'settingCtrl'
       }
     }
-  })
+  });
 
-$urlRouterProvider.otherwise('/side-menu/home')
+$urlRouterProvider.otherwise('/side-menu/songs');
 
 
 
