@@ -1,6 +1,6 @@
 angular.module('app.songController', [])
 
-.controller('songCtrl', function($scope, songService) {
+.controller('songCtrl', function($scope,$location, songService) {
   $scope.Songs = [];
 
   $scope.getAllSongs = function(){
@@ -11,11 +11,9 @@ angular.module('app.songController', [])
   };
 
   $scope.addSong = function(song){
-    console.log('11111111',song);
     songService.addSong(song)
     .success(function(data){
-      console.log(55555555 , data);
-
+      $location.url('/');
     });
   };
 
