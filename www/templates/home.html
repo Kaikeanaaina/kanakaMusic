@@ -20,16 +20,32 @@
 
         <ion-list>
             <ion-item class="item-divider">#</ion-item>
-            <ion-item class="item-divider">A</ion-item>
+            <ion-item collection-repeat="song in Songs | orderBy:'title'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{song.title}}</a>
+                </div>
+              </div>
+
+            </ion-item>
+
+
         </ion-list>
+
         <ion-list>
+            <ion-item class="item-divider">A</ion-item>
+
             <ion-item ui-sref="menu.songContent">Song 1</ion-item>
             <ion-item ui-sref="menu.songContent">Song 2</ion-item>
+
             <ion-item class="item-divider">B</ion-item>
-            <ion-item ui-sref="menu.songContent">Song 3</ion-item>
+
+            <ion-item ui-sref="menu.songContent">Song 3</ion-item>''
             <ion-item class="item-divider">C</ion-item>
             <ion-item class="item-divider">D</ion-item>
+
             <ion-item ui-sref="menu.artistContext">Artist 1</ion-item>
+
             <ion-item class="item-divider">E</ion-item>
             <ion-item class="item-divider">F</ion-item>
             <ion-item class="item-divider">G</ion-item>
