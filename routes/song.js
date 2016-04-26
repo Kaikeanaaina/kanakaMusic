@@ -9,8 +9,10 @@ var Song = db.Song;
 router.use(bodyParser.json({ extended : false }));
 
 router.get('/',function(req, res){
+  console.log(444444444);
   Song.findAll()
   .then(function(songs){
+    console.log(5555555555);
     return res.json(songs);
   });
 });
