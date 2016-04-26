@@ -14,5 +14,10 @@ angular.module('app.songServices', [])
     console.log(333333333);
     return $http.get(domain + '/songs');
   };
+
+  this.addSong = function(){
+    console.log(33333333);
+  };
+
 }]);
 
