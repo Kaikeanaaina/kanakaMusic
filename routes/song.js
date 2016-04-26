@@ -9,15 +9,14 @@ var Song = db.Song;
 router.use(bodyParser.json({ extended : false }));
 
 router.get('/',function(req, res){
-  console.log(444444444);
   Song.findAll()
   .then(function(songs){
-    console.log(5555555555);
     return res.json(songs);
   });
 });
 
 router.post('/', function (req, res) {
+  console.log(33333333, req.body);
   var urltitle = (encodeURI(req.body.title)).toString();
   Song.create({
     title : req.body.title,
@@ -56,6 +55,7 @@ router.post('/', function (req, res) {
     urlTitle : urltitle
     })
     .then(function (data) {
+      console.log(4444444444444, data);
       return res.json(data);
     });
 });
