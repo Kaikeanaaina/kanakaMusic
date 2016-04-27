@@ -99,8 +99,64 @@ angular.module('app.songController', [])
   $scope.addSong = function(song){
     songService.addSong(song)
     .success(function(data){
-      $location.url('/');
+      $scope.getAllSongs();
+      // var splitNewSongTitle= data.title.toUpperCase().split("");
+      // if(splitNewSongTitle[0]==="A"){
+      //     $scope.ASong.push(data);
+      //   } else if(splitNewSongTitle[0]==="B"){
+      //     $scope.BSong.push(data);
+      //   } else if(splitNewSongTitle[0]==="C"){
+      //     $scope.CSong.push(data);
+      //   } else if(splitNewSongTitle[0]==="D"){
+      //     $scope.DSong.push(data);
+      //   } else if(splitNewSongTitle[0]==="E"){
+      //     $scope.ESong.push(data);
+      //   } else if(splitNewSongTitle[0]==="F"){
+      //     $scope.FSong.push(data);
+      //   } else if(splitNewSongTitle[0]==="G"){
+      //     $scope.GSong.push(data);
+      //   } else if(splitNewSongTitle[0]==="H"){
+      //     $scope.HSong.push(data);
+      //   } else if(splitNewSongTitle[0]==="I"){
+      //     $scope.ISong.push(data);
+      //   } else if(splitNewSongTitle[0]==="J"){
+      //     $scope.JSong.push(data);
+      //   } else if(splitNewSongTitle[0]==="K"){
+      //     $scope.KSong.push(data);
+      //   } else if(splitNewSongTitle[0]==="L"){
+      //     $scope.MSong.push(data);
+      //   } else if(splitNewSongTitle[0]==="M"){
+      //     $scope.MSong.push(data);
+      //   } else if(splitNewSongTitle[0]==="N"){
+      //     $scope.NSong.push(data);
+      //   } else if(splitNewSongTitle[0]==="O"){
+      //     $scope.OSong.push(data);
+      //   } else if(splitNewSongTitle[0]==="P"){
+      //     $scope.PSong.push(data);
+      //   } else if(splitNewSongTitle[0]==="Q"){
+      //     $scope.QSong.push(data);
+      //   } else if(splitNewSongTitle[0]==="R"){
+      //     $scope.RSong.push(data);
+      //   } else if(splitNewSongTitle[0]==="S"){
+      //     $scope.SSong.push(data);
+      //   } else if(splitNewSongTitle[0]==="T"){
+      //     $scope.TSong.push(data);
+      //   } else if(splitNewSongTitle[0]==="U"){
+      //     $scope.USong.push(data);
+      //   } else if(splitNewSongTitle[0]==="V"){
+      //     $scope.VSong.push(data);
+      //   } else if(splitNewSongTitle[0]==="W"){
+      //     $scope.WSong.push(data);
+      //   } else if(splitNewSongTitle[0]==="X"){
+      //     $scope.XSong.push(data);
+      //   } else if(splitNewSongTitle[0]==="Y"){
+      //     $scope.YSong.push(data);
+      //   } else if(splitNewSongTitle[0]==="Z"){
+      //     $scope.ZSong.push(data);
+      //   } else {
+      //     $scope.NumberSong.push(data);
+      //   }
+      $location.url('/home');
     });
   };
-
 });

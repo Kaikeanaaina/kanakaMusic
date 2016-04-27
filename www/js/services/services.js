@@ -15,7 +15,6 @@ angular.module('app.songServices', [])
   };
 
   this.addSong = function(song){
-    console.log(222222,song);
     return $http.post(domain + '/songs', song);
   };
 

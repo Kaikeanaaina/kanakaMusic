@@ -35,7 +35,7 @@
             <ion-item ui-sref="menu.songContent">Song 1</ion-item>
             <ion-item ui-sref="menu.songContent">Song 2</ion-item>
 
-            <ion-item ng-repeat="song in ASong | orderBy:'title'">
+            <ion-item ui-sref="menu.songContent" ng-repeat="song in ASong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>

@@ -16,7 +16,6 @@ router.get('/',function(req, res){
 });
 
 router.post('/', function (req, res) {
-  console.log(33333333, req.body);
   var urltitle = (encodeURI(req.body.title)).toString();
   Song.create({
     title : req.body.title,
@@ -55,7 +54,6 @@ router.post('/', function (req, res) {
     urlTitle : urltitle
     })
     .then(function (data) {
-      console.log(4444444444444, data);
       return res.json(data);
     });
 });
