@@ -120,13 +120,24 @@ angular.module('app.songController', [])
     var splitLocationPath = locationPath.split("");
     splitLocationPath.splice(0,24);
     var finalLocationPath = splitLocationPath.join("");
-
     songService.getSong(encodeURI(finalLocationPath))
     .success(function(data){
       $scope.Song = data;
+      console.log(data);
     });
   };
 
+  $scope.getSongToEdit = function(){
+    var locationPath = $location.$$path;
+    var splitLocationPath = locationPath.split("");
+    splitLocationPath.splice(0,21);
+    var finalLocationPath = splitLocationPath.join("");
+    songService.getSong(encodeURI(finalLocationPath))
+    .success(function(data){
+      $scope.Song = data;
+      console.log(data);
+    });
+  };
 
 
 
