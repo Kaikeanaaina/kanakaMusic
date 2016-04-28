@@ -1,7 +1,7 @@
 angular.module('app.songController', [])
 
 .controller('songCtrl', function($scope,$location, songService) {
-  $scope.Songs = [];
+  $scope.Song = [];
   $scope.NumberSong = [];
   $scope.ASong = [];
   $scope.BSong = [];
@@ -100,63 +100,41 @@ angular.module('app.songController', [])
     songService.addSong(song)
     .success(function(data){
       $scope.getAllSongs();
-      // var splitNewSongTitle= data.title.toUpperCase().split("");
-      // if(splitNewSongTitle[0]==="A"){
-      //     $scope.ASong.push(data);
-      //   } else if(splitNewSongTitle[0]==="B"){
-      //     $scope.BSong.push(data);
-      //   } else if(splitNewSongTitle[0]==="C"){
-      //     $scope.CSong.push(data);
-      //   } else if(splitNewSongTitle[0]==="D"){
-      //     $scope.DSong.push(data);
-      //   } else if(splitNewSongTitle[0]==="E"){
-      //     $scope.ESong.push(data);
-      //   } else if(splitNewSongTitle[0]==="F"){
-      //     $scope.FSong.push(data);
-      //   } else if(splitNewSongTitle[0]==="G"){
-      //     $scope.GSong.push(data);
-      //   } else if(splitNewSongTitle[0]==="H"){
-      //     $scope.HSong.push(data);
-      //   } else if(splitNewSongTitle[0]==="I"){
-      //     $scope.ISong.push(data);
-      //   } else if(splitNewSongTitle[0]==="J"){
-      //     $scope.JSong.push(data);
-      //   } else if(splitNewSongTitle[0]==="K"){
-      //     $scope.KSong.push(data);
-      //   } else if(splitNewSongTitle[0]==="L"){
-      //     $scope.MSong.push(data);
-      //   } else if(splitNewSongTitle[0]==="M"){
-      //     $scope.MSong.push(data);
-      //   } else if(splitNewSongTitle[0]==="N"){
-      //     $scope.NSong.push(data);
-      //   } else if(splitNewSongTitle[0]==="O"){
-      //     $scope.OSong.push(data);
-      //   } else if(splitNewSongTitle[0]==="P"){
-      //     $scope.PSong.push(data);
-      //   } else if(splitNewSongTitle[0]==="Q"){
-      //     $scope.QSong.push(data);
-      //   } else if(splitNewSongTitle[0]==="R"){
-      //     $scope.RSong.push(data);
-      //   } else if(splitNewSongTitle[0]==="S"){
-      //     $scope.SSong.push(data);
-      //   } else if(splitNewSongTitle[0]==="T"){
-      //     $scope.TSong.push(data);
-      //   } else if(splitNewSongTitle[0]==="U"){
-      //     $scope.USong.push(data);
-      //   } else if(splitNewSongTitle[0]==="V"){
-      //     $scope.VSong.push(data);
-      //   } else if(splitNewSongTitle[0]==="W"){
-      //     $scope.WSong.push(data);
-      //   } else if(splitNewSongTitle[0]==="X"){
-      //     $scope.XSong.push(data);
-      //   } else if(splitNewSongTitle[0]==="Y"){
-      //     $scope.YSong.push(data);
-      //   } else if(splitNewSongTitle[0]==="Z"){
-      //     $scope.ZSong.push(data);
-      //   } else {
-      //     $scope.NumberSong.push(data);
-      //   }
+      //*********ATTENTION*************
+            //*********ATTENTION*************
+                  //*********ATTENTION*************
+                        //*********ATTENTION*************
+                              //*********ATTENTION*************
+      // can't figure out if i like how it doesn't refresh
+      // if it doesn't refrest after adding a song
+        //it might be good so the home page doesn't mess up if you lose connection
+        // then again you should add a song without internet connection
+      //if it does refresh after adding a song
+        //it will be up to date realtime
       $location.url('/home');
     });
   };
+
+  $scope.getSong = function(){
+    var locationPath = $location.$$path;
+    var splitLocationPath = locationPath.split("");
+    splitLocationPath.splice(0,24);
+    var finalLocationPath = splitLocationPath.join("");
+
+    songService.getSong(encodeURI(finalLocationPath))
+    .success(function(data){
+      $scope.Song = data;
+    });
+  };
+
+
+
+
+
+
+
+
+
+
+
 });
