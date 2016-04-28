@@ -32,15 +32,15 @@
         <ion-list>
             <ion-item class="item-divider">A</ion-item>
 
-            <ion-item ui-sref="menu.songContent">Song 1</ion-item>
+            <ion-item ng-href="/#/side-menu/song/content/1">Song 1</ion-item>
             <ion-item ui-sref="menu.songContent">Song 2</ion-item>
 
-            <ion-item ui-sref="menu.songContent" ng-repeat="song in ASong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
-                  <a>{{song.title}}</a>
+            <ion-item ng-href="/#/side-menu/song/content/{{song.title}}" ng-repeat="song in ASong | orderBy:'title'">
+                <div class="row responsive-sm">
+                  <div>
+                    <a>{{song.title}}</a>
+                  </div>
                 </div>
-              </div>
             </ion-item>
 
             <ion-item class="item-divider">B</ion-item>
