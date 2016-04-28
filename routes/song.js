@@ -59,20 +59,20 @@ router.post('/', function (req, res) {
 });
 
 
-router.get('/new', function(req, res) {
-  res.render('song/new');
-});
-
-// router.get('/:id', function(req, res) {
-//   Song.findOne({
-//     where: {
-//       urlTitle: encodeURI(req.params.id)
-//     }
-//   })
-//   .then(function(song){
-//     res.json(song);
-//   });
+// router.get('/new', function(req, res) {
+//   res.render('song/new');
 // });
+
+router.get('/:id', function(req, res) {
+  Song.findOne({
+    where: {
+      urlTitle: encodeURI(req.params.id)
+    }
+  })
+  .then(function(song){
+    return res.json(song);
+  });
+});
 
 
 
