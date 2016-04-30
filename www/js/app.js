@@ -31,8 +31,13 @@ angular.module('app', ['ionic','app.routes', 'app.songServices', 'app.directives
   $stateProvider
 
 
+  .state('menu', {
+    url: '/side-menu',
+    templateUrl: 'templates/menu.html',
+    abstract:true
+  })
 
-      .state('menu.home', {
+  .state('menu.home', {
     url: '/home',
     views: {
       'side-menu21': {
@@ -58,11 +63,6 @@ angular.module('app', ['ionic','app.routes', 'app.songServices', 'app.directives
     controller: 'gigsCtrl'
   })
 
-  .state('menu', {
-    url: '/side-menu',
-    templateUrl: 'templates/menu.html',
-    abstract:true
-  })
 
   .state('menu.addNewSong', {
     url: '/add NewSong',
@@ -79,6 +79,16 @@ angular.module('app', ['ionic','app.routes', 'app.songServices', 'app.directives
     views: {
       'side-menu21': {
         templateUrl: 'templates/editSong.html',
+        controller: 'songCtrl'
+      }
+    }
+  })
+
+  .state('menu.songContent', {
+    url: '/song/content/:id',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/songContent.html',
         controller: 'songCtrl'
       }
     }
@@ -104,21 +114,46 @@ angular.module('app', ['ionic','app.routes', 'app.songServices', 'app.directives
     }
   })
 
-  .state('addRecordLabel', {
-    url: '/addRecordLabel',
-    templateUrl: 'templates/addRecordLabel.html',
-    controller: 'recordLabelCtrl'
-  })
-
-  .state('menu.editRecordLabel', {
-    url: '/recordLabels/edit/:id',
+  .state('menu.artistInformation', {
+    url: '/artist/info/:id',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/editRecordLabel.html',
+        templateUrl: 'templates/artistInformation.html',
+        controller: 'artistCtrl'
+      }
+    }
+  })
+
+  .state('menu.artistContext', {
+    url: '/artist/context/:id',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/artistContext.html',
+        controller: 'artistCtrl'
+      }
+    }
+  })
+
+  .state('menu.bandMembers', {
+    url: '/artist/:id/members',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/bandMembers.html',
+        controller: 'bandMemberCtrl'
+      }
+    }
+  })
+
+  .state('menu.recordLabels', {
+    url: '/recordLabels',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/recordLabels.html',
         controller: 'recordLabelCtrl'
       }
     }
   })
+
 
   .state('menu.addNewAlbum', {
     url: '/addNewAlbum',
@@ -140,12 +175,28 @@ angular.module('app', ['ionic','app.routes', 'app.songServices', 'app.directives
     }
   })
 
-  .state('menu.songContent', {
-    url: '/song/content/:id',
+  .state('menu.albumPage', {
+    url: '/album/:id',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/songContent.html',
-        controller: 'songCtrl'
+        templateUrl: 'templates/albumPage.html',
+        controller: 'albumCtrl'
+      }
+    }
+  })
+
+  .state('addRecordLabel', {
+    url: '/addRecordLabel',
+    templateUrl: 'templates/addRecordLabel.html',
+    controller: 'recordLabelCtrl'
+  })
+
+  .state('menu.editRecordLabel', {
+    url: '/recordLabels/edit/:id',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/editRecordLabel.html',
+        controller: 'recordLabelCtrl'
       }
     }
   })
@@ -170,34 +221,10 @@ angular.module('app', ['ionic','app.routes', 'app.songServices', 'app.directives
     }
   })
 
-  .state('menu.artistInformation', {
-    url: '/artist/info/:id',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/artistInformation.html',
-        controller: 'artistCtrl'
-      }
-    }
-  })
-
-  .state('menu.artistContext', {
-    url: '/artist/context/:id',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/artistContext.html',
-        controller: 'artistCtrl'
-      }
-    }
-  })
-
-  .state('menu.albumPage', {
-    url: '/album/:id',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/albumPage.html',
-        controller: 'albumCtrl'
-      }
-    }
+  .state('dateOfTheGigs', {
+    url: '/gigs/day/:id',
+    templateUrl: 'templates/dateOfTheGigs.html',
+    controller: 'gigCtrl'
   })
 
   .state('menu.settings', {
@@ -210,15 +237,6 @@ angular.module('app', ['ionic','app.routes', 'app.songServices', 'app.directives
     }
   })
 
-  .state('menu.recordLabels', {
-    url: '/recordLabels',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/recordLabels.html',
-        controller: 'recordLabelCtrl'
-      }
-    }
-  })
 
   .state('menu.privacyPolicy', {
     url: '/privacyPolicy',
@@ -240,21 +258,7 @@ angular.module('app', ['ionic','app.routes', 'app.songServices', 'app.directives
     }
   })
 
-  .state('dateOfTheGigs', {
-    url: '/gigs/day/:id',
-    templateUrl: 'templates/dateOfTheGigs.html',
-    controller: 'gigCtrl'
-  })
 
-  .state('menu.bandMembers', {
-    url: '/artist/:id/members',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/bandMembers.html',
-        controller: 'bandMemberCtrl'
-      }
-    }
-  })
 
   .state('menu.login', {
     url: '/login',
