@@ -1,38 +1,137 @@
 module.exports = function(sequelize, DataTypes) {
   var Song = sequelize.define("Song", {
-    title: DataTypes.STRING,
-    description : DataTypes.TEXT,
-    urlTitle: DataTypes.TEXT,
-    line1: DataTypes.STRING,
-    line2: DataTypes.STRING,
-    line3: DataTypes.STRING,
-    line4: DataTypes.STRING,
-    line5: DataTypes.STRING,
-    line6: DataTypes.STRING,
-    line7: DataTypes.STRING,
-    line8: DataTypes.STRING,
-    line9: DataTypes.STRING,
-    line10: DataTypes.STRING,
-    line11: DataTypes.STRING,
-    line12: DataTypes.STRING,
-    line13: DataTypes.STRING,
-    line14: DataTypes.STRING,
-    line15: DataTypes.STRING,
-    line16: DataTypes.STRING,
-    line17: DataTypes.STRING,
-    line18: DataTypes.STRING,
-    line19: DataTypes.STRING,
-    line20: DataTypes.STRING,
-    line21: DataTypes.STRING,
-    line22: DataTypes.STRING,
-    line23: DataTypes.STRING,
-    line24: DataTypes.STRING,
-    line25: DataTypes.STRING,
-    line26: DataTypes.STRING,
-    line27: DataTypes.STRING,
-    line28: DataTypes.STRING,
-    line29: DataTypes.STRING,
-    line30: DataTypes.STRING,
+    title : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: false
+    },
+    description : {
+      type: DataTypes.STRING( 3000 ),
+      allowNull: true,
+    },
+    urlTitle : {
+      type: DataTypes.STRING( 500 ),
+      allowNull: true,
+    },
+    line1 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line2 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line3 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line4 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line5 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line6 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line7 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line8 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line9 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line10 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line11 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line12 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line13 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line14 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line15 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line16 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line17 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line18 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line19 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line20 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line21 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line22 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line23 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line24 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line25 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line26 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line27 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line28 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line29 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
+    line30 : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true,
+    },
   }, {
     classMethods: {
       associate : function(models) {
