@@ -66,26 +66,11 @@ router.post('/', function (req, res) {
 router.get('/:id', function(req, res) {
   Song.findOne({
     where: {
-      urlTitle: encodeURI(req.params.id)
+      id: encodeURI(req.params.id)
     }
   })
   .then(function(song){
     return res.json(song);
-  });
-});
-
-
-
-router.get('/:id/edit', function(req, res){
-  Song.findAll({
-    where: {
-      urltitle: encodeURI(req.params.id)
-    }
-  })
-  .then(function(data){
-    res.render('song/edit', {
-      song : data[0]
-    });
   });
 });
 
@@ -129,11 +114,11 @@ router.put('/:id', function(req, res){
     urlTitle : encodeURI(req.body.title)
   }, {
     where : {
-      urlTitle : encodeURI(req.body.routeParams)
+      id : req.params.id
     }
   })
   .then(function(song){
-    res.json(song);
+    return res.json(song);
   });
 });
 
@@ -147,5 +132,7 @@ router.delete('/:id', function(req, res){
     return res.json(data);
   });
 });
+
+
 
 module.exports = router;
