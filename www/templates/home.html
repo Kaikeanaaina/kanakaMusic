@@ -20,7 +20,7 @@
 
         <ion-list>
             <ion-item class="item-divider">#</ion-item>
-            <ion-item ng-repeat="song in NumberSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in NumberSong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -35,7 +35,7 @@
             <ion-item ng-href="/#/side-menu/song/content/1">Song 1</ion-item>
             <ion-item ui-sref="menu.songContent">Song 2</ion-item>
 
-            <ion-item ng-href="/#/side-menu/song/content/{{song.title}}" ng-repeat="song in ASong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in ASong | orderBy:'title'">
                 <div class="row responsive-sm">
                   <div>
                     <a>{{song.title}}</a>
@@ -45,8 +45,7 @@
 
             <ion-item class="item-divider">B</ion-item>
 
-            <ion-item ui-sref="menu.songContent">Song 3</ion-item>
-            <ion-item ng-repeat="song in BSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in BSong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -55,7 +54,7 @@
             </ion-item>
 
             <ion-item class="item-divider">C</ion-item>
-            <ion-item ng-repeat="song in CSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in CSong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -66,7 +65,7 @@
             <ion-item class="item-divider">D</ion-item>
 
             <ion-item ui-sref="menu.artistContext">Artist 1</ion-item>
-            <ion-item ng-repeat="song in DSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in DSong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -75,7 +74,7 @@
             </ion-item>
 
             <ion-item class="item-divider">E</ion-item>
-            <ion-item ng-repeat="song in ESong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in ESong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -84,7 +83,7 @@
             </ion-item>
 
             <ion-item class="item-divider">F</ion-item>
-            <ion-item ng-repeat="song in FSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in FSong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -93,7 +92,7 @@
             </ion-item>
 
             <ion-item class="item-divider">G</ion-item>
-            <ion-item ng-repeat="song in GSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in GSong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -102,7 +101,7 @@
             </ion-item>
 
             <ion-item class="item-divider">H</ion-item>
-            <ion-item ng-repeat="song in HSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in HSong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -111,7 +110,7 @@
             </ion-item>
 
             <ion-item class="item-divider">I</ion-item>
-            <ion-item ng-repeat="song in ISong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in ISong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -120,7 +119,7 @@
             </ion-item>
 
             <ion-item class="item-divider">J</ion-item>
-            <ion-item ng-repeat="song in JSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in JSong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -129,7 +128,7 @@
             </ion-item>
 
             <ion-item class="item-divider">K</ion-item>
-            <ion-item ng-repeat="song in KSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in KSong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -138,7 +137,7 @@
             </ion-item>
 
             <ion-item class="item-divider">L</ion-item>
-            <ion-item ng-repeat="song in LSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in LSong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -147,7 +146,7 @@
             </ion-item>
 
             <ion-item class="item-divider">M</ion-item>
-            <ion-item ng-repeat="song in MSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in MSong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -156,7 +155,7 @@
             </ion-item>
 
             <ion-item class="item-divider">N</ion-item>
-            <ion-item ng-repeat="song in NSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in NSong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -165,7 +164,7 @@
             </ion-item>
 
             <ion-item class="item-divider">O</ion-item>
-            <ion-item ng-repeat="song in OSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in OSong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -174,7 +173,7 @@
             </ion-item>
 
             <ion-item class="item-divider">P</ion-item>
-            <ion-item ng-repeat="song in PSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in PSong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -183,7 +182,7 @@
             </ion-item>
 
             <ion-item class="item-divider">Q</ion-item>
-            <ion-item ng-repeat="song in QSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in QSong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -192,7 +191,7 @@
             </ion-item>
 
             <ion-item class="item-divider">R</ion-item>
-            <ion-item ng-repeat="song in RSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in RSong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -201,7 +200,7 @@
             </ion-item>
 
             <ion-item class="item-divider">S</ion-item>
-            <ion-item ng-repeat="song in SSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in SSong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -210,7 +209,7 @@
             </ion-item>
 
             <ion-item class="item-divider">T</ion-item>
-            <ion-item ng-repeat="song in TSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in TSong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -219,7 +218,7 @@
             </ion-item>
 
             <ion-item class="item-divider">U</ion-item>
-            <ion-item ng-repeat="song in USong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in USong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -228,7 +227,7 @@
             </ion-item>
 
             <ion-item class="item-divider">V</ion-item>
-            <ion-item ng-repeat="song in VSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in VSong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -237,7 +236,7 @@
             </ion-item>
 
             <ion-item class="item-divider">W</ion-item>
-            <ion-item ng-repeat="song in WSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in WSong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -246,7 +245,7 @@
             </ion-item>
 
             <ion-item class="item-divider">X</ion-item>
-            <ion-item ng-repeat="song in XSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in XSong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -255,7 +254,7 @@
             </ion-item>
 
             <ion-item class="item-divider">Y</ion-item>
-            <ion-item ng-repeat="song in YSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in YSong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
@@ -264,7 +263,7 @@
             </ion-item>
 
             <ion-item class="item-divider">Z</ion-item>
-            <ion-item ng-repeat="song in ZSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in ZSong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
                   <a>{{song.title}}</a>
