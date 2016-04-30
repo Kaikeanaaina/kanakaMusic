@@ -41,14 +41,23 @@ app.get('/', function(req,res){
     });
 });
 
+app.use( methodOverride(function( req, res ) {
+  if( req.body && typeof req.body === 'object' && '_method' in req.body ) {
+    var method = req.body._method;
+    delete req.body._method;
+    return method;
+  }
+}));
+
 //         this is for error access control error, if appears
 app.all('/*', function(req, res, next) {
  res.header("Access-Control-Allow-Origin", "*");
  res.header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type");
- res.header("Access-Control-Allow-Methods", "GET, PUT, POST");
+ res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
  next();
 
 });
+
 
 app.use('/songs', require('./routes/song.js') );
 app.use('/artist', require('./routes/artist.js'));
