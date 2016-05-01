@@ -30,6 +30,34 @@ angular.module('app.songController', [])
   $scope.YSong = [];
   $scope.ZSong = [];
 
+  $scope.Artist = [];
+  $scope.NumberArtist = [];
+  $scope.AArtist = [];
+  $scope.BArtist = [];
+  $scope.CArtist = [];
+  $scope.DArtist = [];
+  $scope.EArtist = [];
+  $scope.FArtist = [];
+  $scope.GArtist = [];
+  $scope.HArtist = [];
+  $scope.IArtist = [];
+  $scope.JArtist = [];
+  $scope.KArtist = [];
+  $scope.LArtist = [];
+  $scope.MArtist = [];
+  $scope.NArtist = [];
+  $scope.OArtist = [];
+  $scope.PArtist = [];
+  $scope.QArtist = [];
+  $scope.RArtist = [];
+  $scope.SArtist = [];
+  $scope.TArtist = [];
+  $scope.UArtist = [];
+  $scope.VArtist = [];
+  $scope.WArtist = [];
+  $scope.XArtist = [];
+  $scope.YArtist = [];
+  $scope.ZArtist = [];
 
   $scope.getAllSongs = function(){
     songService.getAllSongs()
@@ -100,6 +128,7 @@ angular.module('app.songController', [])
     songService.addSong(song)
     .success(function(data){
       $scope.getAllSongs();
+
       //*********ATTENTION*************
             //*********ATTENTION*************
                   //*********ATTENTION*************
@@ -123,7 +152,6 @@ angular.module('app.songController', [])
     songService.getSong(encodeURI(finalLocationPath))
     .success(function(data){
       $scope.Song = data;
-      console.log(data);
     });
   };
 
