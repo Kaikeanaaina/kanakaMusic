@@ -1,5 +1,5 @@
-<ion-view title="Home" id="page1">
-    <ion-content padding="true" class="has-header" ng-init="getAllSongs()">
+<ion-view title="Artists" id="page1">
+    <ion-content padding="true" class="has-header" ng-init="getAllArtist()">
 
         <form class="list">
             <a ui-sref="menu.addNewSong" id="home-button2" style="font-weight:300;" class="button button-positive button-small button-block">Add New Song</a>
@@ -16,20 +16,24 @@
 
             <!-- this is where the filter button is for now -->
         <div class="button-bar">
-          <button id="home-button15" style="border-radius:10px 10px 10px 10px;" class="button button-positive  button-block">Songs</button>
+          <button id="home-button15" ui-sref="menu.song" style="border-radius:10px 10px 10px 10px;" class="button button-positive  button-block">Songs</button>
             <!-- pressing this button will show all the song arrays, the ion-list will have a ng-show/ng-hide -->
 
 
-            <button id="home-button16" style="border-radius:10px 10px 10px 10px;" class="button button-positive  button-block">Artists</button>
+            <button id="home-button16" ui-sref="menu.artist" style="border-radius:10px 10px 10px 10px;" class="button button-positive  button-block">Artists</button>
               <!--  pressing this button will show all the artist arrays, the ion-list will have a ng-show/ng-hide-->
         </div>
 
+
+
+
+
         <ion-list>
             <ion-item class="item-divider">#</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in NumberSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repeat="artist in NumberArtist orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
@@ -38,32 +42,29 @@
         <ion-list>
             <ion-item class="item-divider">A</ion-item>
 
-            <ion-item ng-href="/#/side-menu/song/content/1">Song 1</ion-item>
-            <ion-item ui-sref="menu.songContent">Song 2</ion-item>
-
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in ASong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in AArtist orderBy:'name'">
                 <div class="row responsive-sm">
                   <div>
-                    <a>{{song.title}}</a>
+                    <a>{{artist.name}}</a>
                   </div>
                 </div>
             </ion-item>
 
             <ion-item class="item-divider">B</ion-item>
 
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in BSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in BArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">C</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in CSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in CArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
@@ -71,208 +72,209 @@
             <ion-item class="item-divider">D</ion-item>
 
             <ion-item ui-sref="menu.artistContext">Artist 1</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in DSong | orderBy:'title'">
+
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in DArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">E</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in ESong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in EArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">F</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in FSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in FArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">G</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in GSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in GArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">H</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in HSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in HArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">I</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in ISong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in IArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">J</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in JSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in JArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">K</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in KSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in KArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">L</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in LSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in LArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">M</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in MSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in MArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">N</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in NSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in NArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">O</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in OSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in OArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">P</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in PSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in PArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">Q</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in QSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in QArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">R</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in RSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in RArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">S</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in SSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in SArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">T</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in TSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in TArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">U</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in USong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in UArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">V</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in VSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in VArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">W</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in WSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in WArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">X</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in XSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in XArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">Y</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in YSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in YArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">Z</ion-item>
-            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in ZSong | orderBy:'title'">
+            <ion-item ng-href="/#/side-menu/home/artist/content/{{artist.id}}" ng-repartist"song in ZArtist | orderBy:'name'">
               <div class="row responsive-sm">
                 <div>
-                  <a>{{song.title}}</a>
+                  <a>{{artist.name}}</a>
                 </div>
               </div>
             </ion-item>

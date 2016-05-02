@@ -37,15 +37,59 @@ angular.module('app', ['ionic','app.routes', 'app.songServices', 'app.directives
     abstract:true
   })
 
-  .state('menu.home', {
-    url: '/home',
+  .state('menu.song', {
+    url: '/songs',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/home.html',
+        templateUrl: 'templates/songList.html',
         controller: 'songCtrl'
       }
     }
   })
+
+  .state('menu.artist', {
+    url: '/artists',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/songList.html',
+        controller: 'songCtrl'
+      }
+    }
+  })
+
+//the menu.home / home.html template will have the tabs nav element on it, need to make a html for it
+//this state doesn't need anything in the controller it's a similar example to the DashCtrl
+// the meny.home will also have the script src="" to the other templates, it will have the script tags
+
+  // .state('menu.home', {
+  //   url: '/home',
+  //   views: {
+  //   templateUrl: 'templates/home.html',
+  //   }
+  // })
+
+//need to make the html specically for songlist.html
+  // .state('menu.home.song', {
+  //   url: '/song',
+  //   views: {
+  //     'tabs-song': {
+  //       templateUrl: 'templates/songlist.html',
+  //       controller: 'songCtrl'
+  //     }
+  //   }
+  // })
+
+//need to make the html specifically for the artist.html
+  // .state('menu.home.artist', {
+  //   url: '/artist',
+  //   views: {
+  //     'tabs-artist': {
+  //       templateUrl: 'templates/artistlist.html',
+  //       controller: 'ArtistCtrl'
+  //     }
+  //   }
+  // })
+
 
   .state('menu.gigs', {
     url: '/gigs',
@@ -65,7 +109,7 @@ angular.module('app', ['ionic','app.routes', 'app.songServices', 'app.directives
 
 
   .state('menu.addNewSong', {
-    url: '/add NewSong',
+    url: '/addNewSong',
     views: {
       'side-menu21': {
         templateUrl: 'templates/addNewSong.html',
@@ -270,7 +314,7 @@ angular.module('app', ['ionic','app.routes', 'app.songServices', 'app.directives
     }
   });
 
-$urlRouterProvider.otherwise('/side-menu/home');
+$urlRouterProvider.otherwise('/side-menu/songs');
 
 
 

@@ -1,4 +1,4 @@
-<ion-view title="Home" id="page1">
+<ion-view title="Song" id="page1">
     <ion-content padding="true" class="has-header" ng-init="getAllSongs()">
 
         <form class="list">
@@ -16,11 +16,11 @@
 
             <!-- this is where the filter button is for now -->
         <div class="button-bar">
-          <button id="home-button15" style="border-radius:10px 10px 10px 10px;" class="button button-positive  button-block">Songs</button>
+          <button id="home-button15" ui-sref="menu.song" style="border-radius:10px 10px 10px 10px;" class="button button-positive  button-block">Songs</button>
             <!-- pressing this button will show all the song arrays, the ion-list will have a ng-show/ng-hide -->
 
 
-            <button id="home-button16" style="border-radius:10px 10px 10px 10px;" class="button button-positive  button-block">Artists</button>
+            <button id="home-button16" ui-sref="menu.artist" style="border-radius:10px 10px 10px 10px;" class="button button-positive  button-block">Artists</button>
               <!--  pressing this button will show all the artist arrays, the ion-list will have a ng-show/ng-hide-->
         </div>
 
