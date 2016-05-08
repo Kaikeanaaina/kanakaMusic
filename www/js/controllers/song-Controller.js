@@ -1,6 +1,8 @@
 angular.module('app.songController', [])
 
 .controller('songCtrl', function($scope,$location, songService) {
+  console.log('song controller reached');
+
   $scope.Song = [];
   $scope.NumberSong = [];
   $scope.ASong = [];
@@ -407,6 +409,9 @@ angular.module('app.songController', [])
     });
   };
 
+  $scope.changeGenre = function(){
+    console.log('CHANGING THE GENRE');
+  };
 
 
 
