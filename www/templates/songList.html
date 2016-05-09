@@ -2,6 +2,8 @@
 
     <ion-content padding="true" class="has-header" ng-init="getAllSongs()">
 
+
+
         <form class="list">
             <a ui-sref="menu.addNewSong" id="home-button2" style="font-weight:300;" class="button button-positive button-small button-block">Add New Song</a>
             <a ui-sref="menu.addNewArtist" id="home-button18" class="button button-positive button-small button-block">Add New Artist</a>
@@ -39,9 +41,6 @@
         <ion-list>
             <ion-item class="item-divider">A</ion-item>
 
-            <ion-item ng-href="/#/side-menu/song/content/1">Song 1</ion-item>
-            <ion-item ui-sref="menu.songContent">Song 2</ion-item>
-
             <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in ASong | orderBy:'title'">
                 <div class="row responsive-sm">
                   <div>
@@ -71,7 +70,6 @@
 
             <ion-item class="item-divider">D</ion-item>
 
-            <ion-item ui-sref="menu.artistContext">Artist 1</ion-item>
             <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in DSong | orderBy:'title'">
               <div class="row responsive-sm">
                 <div>
