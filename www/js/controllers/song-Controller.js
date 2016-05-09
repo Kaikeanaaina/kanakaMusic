@@ -1,7 +1,6 @@
 angular.module('app.songController', [])
 
 .controller('songCtrl', function($scope,$location, songService) {
-  console.log('song controller reached');
 
   $scope.Song = [];
   $scope.NumberSong = [];
@@ -32,34 +31,6 @@ angular.module('app.songController', [])
   $scope.YSong = [];
   $scope.ZSong = [];
 
-  $scope.Artist = [];
-  $scope.NumberArtist = [];
-  $scope.AArtist = [];
-  $scope.BArtist = [];
-  $scope.CArtist = [];
-  $scope.DArtist = [];
-  $scope.EArtist = [];
-  $scope.FArtist = [];
-  $scope.GArtist = [];
-  $scope.HArtist = [];
-  $scope.IArtist = [];
-  $scope.JArtist = [];
-  $scope.KArtist = [];
-  $scope.LArtist = [];
-  $scope.MArtist = [];
-  $scope.NArtist = [];
-  $scope.OArtist = [];
-  $scope.PArtist = [];
-  $scope.QArtist = [];
-  $scope.RArtist = [];
-  $scope.SArtist = [];
-  $scope.TArtist = [];
-  $scope.UArtist = [];
-  $scope.VArtist = [];
-  $scope.WArtist = [];
-  $scope.XArtist = [];
-  $scope.YArtist = [];
-  $scope.ZArtist = [];
 
   $scope.getAllSongs = function(){
     songService.getAllSongs()
@@ -404,7 +375,7 @@ angular.module('app.songController', [])
   $scope.deleteSong = function(){
     songService.deleteSong($scope.Song)
     .success(function(data){
-      $location.url('side-menu/home');
+      $location.url('side-menu/home/songs');
 
     });
   };
