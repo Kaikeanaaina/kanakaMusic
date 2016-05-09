@@ -23,13 +23,10 @@ angular.module('app.songServices', [])
   };
 
   this.editSong = function(songPath, song){
-    console.log(4444444, songPath);
-    console.log(5555555, song);
     return $http.put(domain + '/songs/' + songPath, song);
   };
 
   this.deleteSong = function(song){
-    console.log(22222222, song);
     return $http.delete(domain + '/songs/' + song.id, song);
 
   };
