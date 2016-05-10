@@ -98,6 +98,16 @@ angular.module('app.songController', [])
   };
 
   $scope.addSong = function(song){
+    if(song=== null || song === undefined){
+      console.log('there needs to be a property');
+      return $location.url('/side-menu/addNewSong');
+    }
+
+    if(song.title.length===0){
+      console.log('there needs to be value in name');
+      return $location.url('/side-menu/addNewSong');
+    }
+
     songService.addSong(song)
     .success(function(data){
       $scope.getAllSongs();
@@ -113,7 +123,7 @@ angular.module('app.songController', [])
         // then again you should add a song without internet connection
       //if it does refresh after adding a song
         //it will be up to date realtime
-      $location.url('/home');
+      return $location.url('/home');
     });
   };
 
