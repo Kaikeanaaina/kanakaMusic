@@ -71,21 +71,6 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
 
 
 
-  .state('menu.gigs', {
-    url: '/gigs',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/gigs.html',
-        controller: 'gigCtrl'
-      }
-    }
-  })
-
-  .state('gigsCalendar', {
-    url: '/gigs/calendar',
-    templateUrl: 'templates/gigsCalendar.html',
-    controller: 'gigsCtrl'
-  })
 
 
   .state('menu.addNewSong', {
@@ -128,6 +113,16 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     }
   })
 
+  .state('menu.artistContext', {
+    url: '/artist/context/:id',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/artistContext.html',
+        controller: 'artistCtrl'
+      }
+    }
+  })
+
   .state('menu.editArtist', {
     url: '/artist/edit/:id',
     views: {
@@ -148,16 +143,6 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     }
   })
 
-  .state('menu.artistContext', {
-    url: '/artist/context/:id',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/artistContext.html',
-        controller: 'artistCtrl'
-      }
-    }
-  })
-
   .state('menu.bandMembers', {
     url: '/artist/:id/members',
     views: {
@@ -166,6 +151,22 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
         controller: 'bandMemberCtrl'
       }
     }
+  })
+
+  .state('menu.gigs', {
+    url: '/gigs',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/gigs.html',
+        controller: 'gigCtrl'
+      }
+    }
+  })
+
+  .state('gigsCalendar', {
+    url: '/gigs/calendar',
+    templateUrl: 'templates/gigsCalendar.html',
+    controller: 'gigsCtrl'
   })
 
   .state('menu.recordLabels', {
