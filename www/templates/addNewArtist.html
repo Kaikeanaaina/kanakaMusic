@@ -3,7 +3,7 @@
         <form class="list">
             <label class="item item-input" name="Artist">
                 <span class="input-label">Artist Name</span>
-                <input type="text" placeholder="Artist Name">
+                <input type="text" placeholder="Artist Name" ng-model="artist.name">
             </label>
             <div class="spacer" style="width: 300px; height: 7px;"></div>
             <ion-list></ion-list>
@@ -14,7 +14,14 @@
                 </select>
             </label>
             <button id="addNewArtist-button7" class="button button-positive  button-block">Add New Record Label</button>
-            <button id="addNewArtist-button19" class="button button-balanced button-large button-block">Submit New Artist</button>
+
+            <label class="item item-input" name="description" for="description">
+                <span class="input-label">Description</span>
+                <input type="text" placeholder="Description" id="description" ng-model="artist.description">
+            </label>
+
+            <button id="addNewArtist-button19" class="button button-balanced button-large button-block" ng-click="addArtist(artist); artist = null">Submit New Artist</button>
+
         </form>
     </ion-content>
 </ion-view>
