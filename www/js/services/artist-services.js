@@ -11,7 +11,6 @@ angular.module('app.artistServices', [])
   }
 
   this.getAllArtists = function(){
-    console.log('22222222');
     return $http.get(domain + '/artists');
   };
 
