@@ -24,6 +24,29 @@ router.post('/',function(req, res){
   });
 });
 
+router.get('/:id', function(req, res) {
+  console.log('get 33333333333');
+  Artist.findOne({
+    where: {
+      id: encodeURI(req.params.id)
+    }
+  })
+  .then(function(artist){
+    console.log('get 4444444', artist);
+    return res.json(artist);
+  });
+});
+
+router.delete('/:id', function(req, res){
+  Artist.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(function(data){
+    return res.json(data);
+  });
+});
 
 module.exports = router;
 
