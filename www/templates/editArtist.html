@@ -1,22 +1,29 @@
-<ion-view title="Edit Artist" id="page16">
+<ion-view title="Edit {{Artist.name}}" id="page16" ng-init="getArtistToEdit()">
     <ion-content padding="true" class="has-header">
         <form class="list">
+
             <label class="item item-input" name="Artist">
                 <span class="input-label">Artist Name</span>
-                <input type="text" placeholder="Artist Name">
+                <input type="text" placeholder="{{Artist.name}}">
             </label>
+
             <div class="spacer" style="width: 300px; height: 7px;"></div>
-            <ion-list></ion-list>
+
             <label class="item item-select">
                 <span class="input-label">Record Label</span>
                 <select>
                     <option></option>
                 </select>
             </label>
+
             <button id="editArtist-button27" class="button button-positive  button-block">Add New Record Label</button>
-            <button id="editArtist-button28" class="button button-balanced button-large button-block">Edit Artist</button>
+
+            <button id="editArtist-button28" class="button button-balanced button-large button-block" ng-click="editArtist()">Edit Artist</button>
+
             <div class="spacer" style="width: 300px; height: 228px;"></div>
-            <button id="editArtist-button30" class="button button-assertive  button-block">Delete Artist</button>
+
+            <button id="editArtist-button30" class="button button-assertive  button-block" ng-click="deleteArtist()">Delete Artist</button>
+
         </form>
     </ion-content>
 </ion-view>
