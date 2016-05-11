@@ -14,21 +14,6 @@
             </label>
         </form>
 
-
-            <!-- this is where the filter button is for now -->
-        <div class="button-bar">
-          <button id="home-button15" ui-sref="menu.song" style="border-radius:10px 10px 10px 10px;" class="button button-positive  button-block">Songs</button>
-            <!-- pressing this button will show all the song arrays, the ion-list will have a ng-show/ng-hide -->
-
-
-            <button id="home-button16" ui-sref="menu.artist" style="border-radius:10px 10px 10px 10px;" class="button button-positive  button-block">Artists</button>
-              <!--  pressing this button will show all the artist arrays, the ion-list will have a ng-show/ng-hide-->
-        </div>
-
-
-
-
-
         <ion-list>
             <ion-item class="item-divider">#</ion-item>
             <ion-item ng-href="/#/side-menu/artist/content/{{artist.id}}" ng-repeat="artist in NumberArtist | orderBy:'name'">
@@ -70,7 +55,7 @@
 
             <ion-item class="item-divider">D</ion-item>
 
-            <ion-item ui-sref="menu.artistContext">Artist 1</ion-item>
+            <ion-item ui-sref="menu.artistContent">Artist 1</ion-item>
 
             <ion-item ng-href="/#/side-menu/artist/content/{{artist.id}}" ng-repeat="artist in DArtist | orderBy:'name'">
               <div class="row responsive-sm">
