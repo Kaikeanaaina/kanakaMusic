@@ -68,11 +68,6 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     }
   })
 
-
-
-
-
-
   .state('menu.addNewSong', {
     url: '/addNewSong',
     views: {
@@ -113,11 +108,11 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     }
   })
 
-  .state('menu.artistContext', {
-    url: '/artist/context/:id',
+  .state('menu.artistContent', {
+    url: '/artist/content/:id',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/artistContext.html',
+        templateUrl: 'templates/artistContent.html',
         controller: 'artistCtrl'
       }
     }
