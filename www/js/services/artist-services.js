@@ -19,12 +19,10 @@ angular.module('app.artistServices', [])
   };
 
   this.getArtist = function(artistName){
-    console.log(' get  2222222', artistName);
     return $http.get(domain + '/artists/' + artistName);
   };
 
   this.editArtist = function(artistPath, artist){
-    console.log('222222', artistPath, artist);
     return $http.put(domain + '/artists/' + artistPath, artist);
   };
 
