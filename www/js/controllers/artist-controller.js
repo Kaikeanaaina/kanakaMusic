@@ -126,7 +126,7 @@ angular.module('app.artistController', [])
         // then again you should add a song without internet connection
       //if it does refresh after adding a song
         //it will be up to date realtime
-       return $location.url('/side-menu/home/artists');
+      return $state.go('menu.home.artist');
     });
   };
 
@@ -142,29 +142,13 @@ angular.module('app.artistController', [])
   };
 
   $scope.getArtistToEdit = function(){
-    console.log('edit page 111111111');
     var locationPath = $location.$$path;
     var splitLocationPath = locationPath.split("");
     splitLocationPath.splice(0,23);
     var finalLocationPath = splitLocationPath.join("");
     artistService.getArtist(finalLocationPath)
     .success(function(data){
-      console.log('edit page 55555555');
       $scope.Artist = data;
-    });
-  };
-
-  $scope.getArtistForInformation = function(){
-    console.log('band info page 111111111');
-    var locationPath = $location.$$path;
-    var splitLocationPath = locationPath.split("");
-    splitLocationPath.splice(0,23);
-    var finalLocationPath = splitLocationPath.join("");
-    artistService.getArtist(finalLocationPath)
-    .success(function(data){
-      console.log('band info page 55555555');
-      $scope.Artist = data;
-      console.log(data, $scope.Artist);
     });
   };
 
@@ -178,8 +162,20 @@ $scope.editArtist = function(artist){
 
     if(artist.hasOwnProperty("name")){
 
-      if(!artist.hasOwnProperty("id")){
-        artist.id = $scope.Artist.id;
+      if(!artist.hasOwnProperty("facebook")){
+        artist.facebook = $scope.Artist.facebook;
+      }
+      if(!artist.hasOwnProperty("instagram")){
+        artist.instagram = $scope.Artist.instagram;
+      }
+      if(!artist.hasOwnProperty("twitter")){
+        artist.twitter = $scope.Artist.twitter;
+      }
+      if(!artist.hasOwnProperty("bookingPhoneNumber")){
+        artist.bookingPhoneNumber = $scope.Artist.bookingPhoneNumber;
+      }
+      if(!artist.hasOwnProperty("bookingEmail")){
+        artist.bookingEmail = $scope.Artist.bookingEmail;
       }
       if(!artist.hasOwnProperty("RecordLabelId") || artist.RecordLabelId.length===0){
         artist.RecordLabelId = $scope.Artist.RecordLabelId;
@@ -193,7 +189,7 @@ $scope.editArtist = function(artist){
 
       artistService.editArtist($scope.Artist.id, artist)
       .success(function(data){
-
+        $scope.getArtistToEdit();
         $location.url('side-menu/artist/content/'+ $scope.Artist.id);
       });
     } else {
@@ -204,6 +200,21 @@ $scope.editArtist = function(artist){
       if(!artist.hasOwnProperty("name")){
         artist.name = $scope.Artist.name;
       }
+      if(!artist.hasOwnProperty("facebook")){
+        artist.facebook = $scope.Artist.facebook;
+      }
+      if(!artist.hasOwnProperty("instagram")){
+        artist.instagram = $scope.Artist.instagram;
+      }
+      if(!artist.hasOwnProperty("twitter")){
+        artist.twitter = $scope.Artist.twitter;
+      }
+      if(!artist.hasOwnProperty("bookingPhoneNumber")){
+        artist.bookingPhoneNumber = $scope.Artist.bookingPhoneNumber;
+      }
+      if(!artist.hasOwnProperty("bookingEmail")){
+        artist.bookingEmail = $scope.Artist.bookingEmail;
+      }
       if(!artist.hasOwnProperty("RecordLabelId") || artist.RecordLabelId.length===0){
         artist.RecordLabelId = $scope.Artist.RecordLabelId;
       }
@@ -217,7 +228,7 @@ $scope.editArtist = function(artist){
 
       artistService.editArtist($scope.Artist.id, artist)
       .success(function(data){
-
+        $scope.getArtistToEdit();
         $location.url('side-menu/artist/content/'+ $scope.Artist.id);
       });
     }
@@ -228,6 +239,7 @@ $scope.editArtist = function(artist){
     console.log('delete this artist');
     artistService.deleteArtist($scope.Artist)
     .success(function(data){
+      $scope.getAllArtists();
       return $state.go('menu.home.artist');
 
 
