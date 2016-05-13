@@ -16,6 +16,7 @@ router.get('/',function(req, res){
 router.post('/',function(req, res){
   Artist.create({
     name : req.body.name,
+    description : req.body.description,
     RecordLabelId: req.body.RecordLabelId,
     PublisherId: req.body.PublisherId
   })
@@ -33,6 +34,25 @@ router.get('/:id', function(req, res) {
   })
   .then(function(artist){
     console.log('get 4444444', artist);
+    return res.json(artist);
+  });
+});
+
+router.put('/:id', function(req, res){
+  console.log('333333', req.body);
+  Artist.update(
+  {
+    updatedAt : 'now()',
+    name : req.body.name,
+    RecordLabelId : req.body.RecordLabelId,
+    PublisherId : req.body.PublisherId,
+    description : req.body.description
+  }, {
+    where : {
+      id : req.params.id
+    }
+  })
+  .then(function(artist){
     return res.json(artist);
   });
 });
