@@ -16,6 +16,11 @@ router.get('/',function(req, res){
 router.post('/',function(req, res){
   Artist.create({
     name : req.body.name,
+    facebook : req.body.facebook,
+    instagram : req.body.instagram,
+    twitter : req.body.twitter,
+    bookingPhoneNumber : req.body.bookingPhoneNumber,
+    bookingEmail : req.body.bookingEmail,
     description : req.body.description,
     RecordLabelId: req.body.RecordLabelId,
     PublisherId: req.body.PublisherId
@@ -44,9 +49,14 @@ router.put('/:id', function(req, res){
   {
     updatedAt : 'now()',
     name : req.body.name,
+    facebook : req.body.facebook,
+    instagram : req.body.instagram,
+    twitter : req.body.twitter,
+    bookingPhoneNumber : req.body.bookingPhoneNumber,
+    bookingEmail : req.body.bookingEmail,
+    description : req.body.description,
     RecordLabelId : req.body.RecordLabelId,
     PublisherId : req.body.PublisherId,
-    description : req.body.description
   }, {
     where : {
       id : req.params.id
