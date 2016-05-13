@@ -128,16 +128,6 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     }
   })
 
-  .state('menu.artistInformation', {
-    url: '/artist/info/:id',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/artistInformation.html',
-        controller: 'artistCtrl'
-      }
-    }
-  })
-
   .state('menu.bandMembers', {
     url: '/artist/:id/members',
     views: {
