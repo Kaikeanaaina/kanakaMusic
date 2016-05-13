@@ -19,6 +19,26 @@
                 <span class="input-label">Description</span>
                 <input type="text" placeholder="Description" id="description" ng-model="artist.description">
             </label>
+            <label class="item item-input">
+                <span class="input-label">Facebook</span>
+                <input type="text" placeholder="facebook link" ng-model="artist.facebook">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Instagram</span>
+                <input type="text" placeholder="@username" ng-model="artist.instagram">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Twitter</span>
+                <input type="text" placeholder="@username" ng-model="artist.twitter">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Booking Phone Number</span>
+                <input type="text" placeholder="(111)222-3333" ng-model="artist.bookingPhoneNumber">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Booking Email</span>
+                <input type="text" placeholder="email@kanakamusic.com" ng-model="artist.bookingEmail">
+            </label>
 
             <button id="addNewArtist-button19" class="button button-balanced button-large button-block" ng-click="addArtist(artist); artist = null">Submit New Artist</button>
 
