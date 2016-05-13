@@ -4,7 +4,7 @@
 
             <label class="item item-input" name="Artist">
                 <span class="input-label">Artist Name</span>
-                <input type="text" placeholder="{{Artist.name}}">
+                <input type="text" placeholder="{{Artist.name}}" ng-model="artist.name">
             </label>
 
             <div class="spacer" style="width: 300px; height: 7px;"></div>
@@ -18,7 +18,12 @@
 
             <button id="editArtist-button27" class="button button-positive  button-block">Add New Record Label</button>
 
-            <button id="editArtist-button28" class="button button-balanced button-large button-block" ng-click="editArtist()">Edit Artist</button>
+            <label class="item item-input" name="description" for="description">
+                <span class="input-label">Description</span>
+                <input type="text" placeholder="{{Artist.description}}" id="editDescription" ng-model="artist.description">
+            </label>
+
+            <button id="editArtist-button28" class="button button-balanced button-large button-block" ng-click="editArtist(artist); artist = null ">Edit Artist</button>
 
             <div class="spacer" style="width: 300px; height: 228px;"></div>
 
