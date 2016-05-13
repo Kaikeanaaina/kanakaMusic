@@ -24,6 +24,7 @@ angular.module('app.artistServices', [])
   };
 
   this.editArtist = function(artistPath, artist){
+    console.log('222222', artistPath, artist);
     return $http.put(domain + '/artists/' + artistPath, artist);
   };
 
