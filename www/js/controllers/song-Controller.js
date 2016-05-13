@@ -152,7 +152,7 @@ angular.module('app.songController', [])
   $scope.editSong = function(song){
 
     if(song===undefined || song === null){
-      return $location.url('side-menu/song/content/'+ $scope.Song.title);
+      return $location.url('side-menu/song/content/'+ $scope.Song.id);
     }
 
     if(song.hasOwnProperty("title")){
@@ -262,7 +262,6 @@ angular.module('app.songController', [])
 
       songService.editSong($scope.Song.id, song)
       .success(function(data){
-
         $location.url('side-menu/song/content/'+ $scope.Song.id);
       });
     } else {
