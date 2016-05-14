@@ -162,6 +162,9 @@ $scope.editArtist = function(artist){
 
     if(artist.hasOwnProperty("name")){
 
+      if(!artist.hasOwnProperty("id")){
+        artist.id = $scope.Artist.id;
+      }
       if(!artist.hasOwnProperty("facebook")){
         artist.facebook = $scope.Artist.facebook;
       }
@@ -176,12 +179,6 @@ $scope.editArtist = function(artist){
       }
       if(!artist.hasOwnProperty("bookingEmail")){
         artist.bookingEmail = $scope.Artist.bookingEmail;
-      }
-      if(!artist.hasOwnProperty("RecordLabelId") || artist.RecordLabelId.length===0){
-        artist.RecordLabelId = $scope.Artist.RecordLabelId;
-      }
-      if(!artist.hasOwnProperty("PublisherId") || artist.PublisherId.length===0){
-        artist.PublisherId = $scope.Artist.PublisherId;
       }
       if(!artist.hasOwnProperty("description") || artist.description.length===0){
         artist.description = $scope.Artist.description;
@@ -214,12 +211,6 @@ $scope.editArtist = function(artist){
       }
       if(!artist.hasOwnProperty("bookingEmail")){
         artist.bookingEmail = $scope.Artist.bookingEmail;
-      }
-      if(!artist.hasOwnProperty("RecordLabelId") || artist.RecordLabelId.length===0){
-        artist.RecordLabelId = $scope.Artist.RecordLabelId;
-      }
-      if(!artist.hasOwnProperty("PublisherId") || artist.PublisherId.length===0){
-        artist.PublisherId = $scope.Artist.PublisherId;
       }
       if(!artist.hasOwnProperty("description") || artist.description.length===0){
         artist.description = $scope.Artist.description;
