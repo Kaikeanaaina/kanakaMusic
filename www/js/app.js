@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServices', 'app.artistController', 'app.artistServices', 'app.directives', 'app.gigController', 'app.recordLabelController','app.albumController','app.settingController','app.bandMemberController'])
+angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServices', 'app.artistController', 'app.artistServices', 'app.albumController','app.albumServices', 'app.directives', 'app.gigController', 'app.recordLabelController','app.settingController','app.bandMemberController'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -158,8 +158,18 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     url: '/recordLabels',
     views: {
       'side-menu21': {
-        templateUrl: 'templates/recordLabels.html',
+        templateUrl: 'templates/recordLabelList.html',
         controller: 'recordLabelCtrl'
+      }
+    }
+  })
+
+  .state('menu.albums', {
+    url: '/albums',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/albumList.html',
+        controller: 'albumCtrl'
       }
     }
   })
@@ -268,6 +278,15 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     }
   })
 
+  .state('menu.frequentlyAskedQuestions', {
+    url: '/frequentlyAskedQuestions',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/frequentlyAskedQuestions.html',
+        controller: 'settingCtrl'
+      }
+    }
+  })
 
 
   .state('menu.login', {
