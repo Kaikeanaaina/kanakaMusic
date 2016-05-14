@@ -14,11 +14,53 @@ router.get('/',function(req, res){
 });
 
 router.post('/',function(req, res){
-  Album.create({
-    title : req.body.title
-  })
+  Album.create(req.body)
   .then(function(album){
     return res.json(album);
+  });
+});
+
+router.get('/:id', function(req, res) {
+  console.log('get 33333333333');
+  Album.findOne({
+    where: {
+      id: encodeURI(req.params.id)
+    }
+  })
+  .then(function(album){
+    console.log('get 4444444', album);
+    return res.json(album);
+  });
+});
+
+router.put('/:id', function(req, res){
+  console.log('333333', req.body);
+  Album.update(
+  {
+    updatedAt : 'now()',
+    title : req.body.title,
+    description : req.body.description,
+    RecordLabelId : req.body.RecordLabelId,
+    PublisherId : req.body.PublisherId,
+  }, {
+    where : {
+      id : req.params.id
+    }
+  })
+  .then(function(artist){
+    return res.json(artist);
+  });
+});
+
+
+router.delete('/:id', function(req, res){
+  Album.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(function(data){
+    return res.json(data);
   });
 });
 
