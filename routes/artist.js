@@ -54,9 +54,7 @@ router.put('/:id', function(req, res){
     twitter : req.body.twitter,
     bookingPhoneNumber : req.body.bookingPhoneNumber,
     bookingEmail : req.body.bookingEmail,
-    description : req.body.description,
-    RecordLabelId : req.body.RecordLabelId,
-    PublisherId : req.body.PublisherId,
+    description : req.body.description
   }, {
     where : {
       id : req.params.id
