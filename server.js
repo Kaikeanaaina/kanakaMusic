@@ -61,7 +61,7 @@ app.all('/*', function(req, res, next) {
 
 app.use('/songs', require('./routes/song.js') );
 app.use('/artists', require('./routes/artist.js'));
-app.use('/album', require('./routes/album.js'));
+app.use('/albums', require('./routes/album.js'));
 app.use('/recordLabel', require('./routes/recordLabel.js'));
 app.use('/publisher', require('./routes/publisher.js'));
 
