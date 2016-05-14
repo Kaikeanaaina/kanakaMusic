@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods : {
       associate : function(models) {
-        RecordLabel.hasMany(models.Artist);
+        RecordLabel.hasMany(models.Album);
       }
     }
   });
