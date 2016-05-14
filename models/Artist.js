@@ -31,8 +31,6 @@ module.exports = function(sequelize, DataTypes) {
     }, {
     classMethods : {
       associate : function(models) {
-        Artist.belongsTo(models.RecordLabel);
-        Artist.belongsTo(models.Publisher);
         Artist.hasMany(models.Album);
         Artist.hasMany(models.Song);
         Artist.hasMany(models.Gigs);
