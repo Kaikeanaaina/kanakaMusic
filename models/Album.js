@@ -1,11 +1,19 @@
 module.exports = function(sequelize, DataTypes) {
   var Album = sequelize.define("Album", {
-    title: DataTypes.STRING,
-    record_label : DataTypes.STRING
+    title : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: false
+    },
+    description : {
+      type: DataTypes.STRING( 255 ),
+      allowNull: true
+    },
   }, {
     classMethods : {
       associate : function(models) {
         Album.belongsTo(models.Artist);
+        Album.belongsTo(models.RecordLabel);
+        Album.belongsTo(models.Publisher);
         Album.hasMany(models.Song);
       }
     }
