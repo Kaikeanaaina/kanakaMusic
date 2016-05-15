@@ -3,9 +3,9 @@
         <form class="list">
             <label class="item item-input">
                 <span class="input-label">Record Label</span>
-                <input type="text" placeholder="name">
+                <input type="text" placeholder="name" ng-model="recordLabel.name">
             </label>
-            <button id="addRecordLabel-button9" class="button button-balanced  button-block">Submit New Record Label</button>
+            <button id="addRecordLabel-button9" class="button button-balanced  button-block" ng-click="addRecordLabel(recordLabel); recordLabel = null">Submit New Record Label</button>
         </form>
     </ion-content>
 </ion-view>
