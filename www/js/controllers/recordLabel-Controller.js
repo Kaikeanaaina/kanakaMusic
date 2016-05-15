@@ -37,58 +37,58 @@ angular.module('app.recordLabelController', [])
     .success(function(data){
 
       for(var i = 0;i<data.length;i++){
-        var splitTitle = data[i].title.toUpperCase().split("");
-        if(splitTitle[0]==="A"){
+        var splitName = data[i].name.toUpperCase().split("");
+        if(splitName[0]==="A"){
           $scope.ARecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="B"){
+        } else if(splitName[0]==="B"){
           $scope.BRecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="C"){
+        } else if(splitName[0]==="C"){
           $scope.CRecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="D"){
+        } else if(splitName[0]==="D"){
           $scope.DRecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="E"){
+        } else if(splitName[0]==="E"){
           $scope.ERecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="F"){
+        } else if(splitName[0]==="F"){
           $scope.FRecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="G"){
+        } else if(splitName[0]==="G"){
           $scope.GRecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="H"){
+        } else if(splitName[0]==="H"){
           $scope.HRecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="I"){
+        } else if(splitName[0]==="I"){
           $scope.IRecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="J"){
+        } else if(splitName[0]==="J"){
           $scope.JRecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="K"){
+        } else if(splitName[0]==="K"){
           $scope.KRecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="L"){
+        } else if(splitName[0]==="L"){
           $scope.MRecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="M"){
+        } else if(splitName[0]==="M"){
           $scope.MRecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="N"){
+        } else if(splitName[0]==="N"){
           $scope.NRecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="O"){
+        } else if(splitName[0]==="O"){
           $scope.ORecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="P"){
+        } else if(splitName[0]==="P"){
           $scope.PRecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="Q"){
+        } else if(splitName[0]==="Q"){
           $scope.QRecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="R"){
+        } else if(splitName[0]==="R"){
           $scope.RRecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="S"){
+        } else if(splitName[0]==="S"){
           $scope.SRecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="T"){
+        } else if(splitName[0]==="T"){
           $scope.TRecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="U"){
+        } else if(splitName[0]==="U"){
           $scope.URecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="V"){
+        } else if(splitName[0]==="V"){
           $scope.VRecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="W"){
+        } else if(splitName[0]==="W"){
           $scope.WRecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="X"){
+        } else if(splitName[0]==="X"){
           $scope.XRecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="Y"){
+        } else if(splitName[0]==="Y"){
           $scope.YRecordLabel.push(data[i]);
-        } else if(splitTitle[0]==="Z"){
+        } else if(splitName[0]==="Z"){
           $scope.ZRecordLabel.push(data[i]);
         } else {
           $scope.NumberRecordLabel.push(data[i]);
@@ -134,89 +134,56 @@ angular.module('app.recordLabelController', [])
     });
   };
 
-  $scope.getRecordLabel = function(){
-    var locationPath = $location.$$path;
-    var splitLocationPath = locationPath.split("");
-    splitLocationPath.splice(0,17);
-    var finalLocationPath = splitLocationPath.join("");
-    recordLabelService.getrecordLabel(encodeURI(finalLocationPath))
-    .success(function(data){
-      console.log('getting recordLabel', data);
-     $scope.RecordLabel = data;
-    });
-  };
-
   $scope.getRecordLabelToEdit = function(){
     var locationPath = $location.$$path;
     var splitLocationPath = locationPath.split("");
-    splitLocationPath.splice(0,22);
+    splitLocationPath.splice(0,28);
     var finalLocationPath = splitLocationPath.join("");
-    recordLabelService.getrecordLabel(finalLocationPath)
+    recordLabelService.getRecordLabel(finalLocationPath)
     .success(function(data){
-      console.log("11111111 get recordLabel to edit", data);
       $scope.RecordLabel = data;
     });
   };
 
-$scope.editrecordLabel = function(recordLabel){
-    if(recordLabel===undefined || recordLabel === null){
-      return $location.url('side-menu/recordLabel/'+ $scope.recordLabel.id);
+$scope.editRecordLabel = function(recordLabel){
+  console.log('1111111', recordLabel);
+    if(recordLabel===undefined || recordLabel === null || recordLabel.name.length===0){
+      return $location.url('side-menu/recordLabel/'+ $scope.RecordLabel.id);
     }
-
-    if(recordLabel.hasOwnProperty("title")){
-
+console.log('222222');
+    if(recordLabel.hasOwnProperty("name")){
+console.log('333333', recordLabel, $scope.RecordLabel);
       if(!recordLabel.hasOwnProperty("id")){
-        recordLabel.id = $scope.recordLabel.id;
-      }
-      if(!recordLabel.hasOwnProperty("RecordLabelId") || recordLabel.RecordLabelId.length===0){
-        recordLabel.RecordLabelId = $scope.recordLabel.RecordLabelId;
-      }
-      if(!recordLabel.hasOwnProperty("PublisherId") || recordLabel.PublisherId.length===0){
-        recordLabel.PublisherId = $scope.recordLabel.PublisherId;
-      }
-      if(!recordLabel.hasOwnProperty("description") || recordLabel.description.length===0){
-        recordLabel.description = $scope.recordLabel.description;
+        recordLabel.id = $scope.RecordLabel.id;
       }
 
-      recordLabelService.editrecordLabel($scope.recordLabel.id, recordLabel)
+      recordLabelService.editRecordLabel($scope.RecordLabel.id, recordLabel)
       .success(function(data){
-        $scope.getrecordLabelToEdit();
-        $location.url('side-menu/recordLabel/'+ $scope.recordLabel.id);
+        $state.go("menu.recordLabels");
+
       });
     } else {
 
       if(!recordLabel.hasOwnProperty("id")){
-        recordLabel.id = $scope.recordLabel.id;
+        recordLabel.id = $scope.RecordLabel.id;
       }
-      if(!recordLabel.hasOwnProperty("title")){
-        recordLabel.title = $scope.recordLabel.title;
-      }
-      if(!recordLabel.hasOwnProperty("RecordLabelId") || recordLabel.RecordLabelId.length===0){
-        recordLabel.RecordLabelId = $scope.recordLabel.RecordLabelId;
-      }
-      if(!recordLabel.hasOwnProperty("PublisherId") || recordLabel.PublisherId.length===0){
-        recordLabel.PublisherId = $scope.recordLabel.PublisherId;
-      }
-      if(!recordLabel.hasOwnProperty("description") || recordLabel.description.length===0){
-        recordLabel.description = $scope.recordLabel.description;
+      if(!recordLabel.hasOwnProperty("name")){
+        recordLabel.name = $scope.RecordLabel.name;
       }
 
-
-      recordLabelService.editrecordLabel($scope.recordLabel.id, recordLabel)
+      recordLabelService.editRecordLabel($scope.RecordLabel.id, recordLabel)
       .success(function(data){
-        $scope.getrecordLabelToEdit();
-        $location.url('side-menu/recordLabel/'+ $scope.recordLabel.id);
+        $state.go("menu.recordLabels");
       });
     }
 
   };
 
-  $scope.deleterecordLabel = function(){
+  $scope.deleteRecordLabel = function(){
     console.log('delete this recordLabel');
-    recordLabelService.deleterecordLabel($scope.recordLabel)
+    recordLabelService.deleteRecordLabel($scope.RecordLabel)
     .success(function(data){
-      $scope.getAllrecordLabels();
-      return $state.go('menu.recordLabels');
+      $state.go('menu.recordLabels');
 
     });
   };
