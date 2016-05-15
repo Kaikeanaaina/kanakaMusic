@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServices', 'app.artistController', 'app.artistServices', 'app.albumController','app.albumServices', 'app.directives', 'app.gigController', 'app.recordLabelController','app.settingController','app.bandMemberController'])
+angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServices', 'app.artistController', 'app.artistServices', 'app.albumController','app.albumServices', 'app.directives', 'app.gigController', 'app.recordLabelController','app.recordLabelServices','app.settingController','app.bandMemberController'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -154,15 +154,6 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     controller: 'gigsCtrl'
   })
 
-  .state('menu.recordLabels', {
-    url: '/recordLabels',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/recordLabelList.html',
-        controller: 'recordLabelCtrl'
-      }
-    }
-  })
 
   .state('menu.albums', {
     url: '/albums',
@@ -205,10 +196,24 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     }
   })
 
-  .state('addRecordLabel', {
-    url: '/addRecordLabel',
-    templateUrl: 'templates/addRecordLabel.html',
-    controller: 'recordLabelCtrl'
+  .state('menu.recordLabels', {
+    url: '/recordLabels',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/recordLabelList.html',
+        controller: 'recordLabelCtrl'
+      }
+    }
+  })
+
+  .state('menu.addNewRecordLabel', {
+    url: '/addNewRecordLabel',
+    views: {
+      'side-menu21' : {
+        templateUrl: 'templates/addNewRecordLabel.html',
+        controller: 'recordLabelCtrl'
+      }
+    }
   })
 
   .state('menu.editRecordLabel', {
