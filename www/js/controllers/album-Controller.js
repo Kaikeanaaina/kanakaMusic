@@ -2,7 +2,6 @@ angular.module('app.albumController', [])
 
 
 .controller('albumCtrl', function($scope, $state, $location, albumService) {
-  console.log('this is the album controller');
 
   $scope.Album = [];
   $scope.NumberAlbum = [];
@@ -101,7 +100,6 @@ angular.module('app.albumController', [])
   };
 
   $scope.addAlbum = function(album){
-    console.log('111111111', album);
 
     if(!album.title){
       console.log('there need to be a album name property');
@@ -144,7 +142,6 @@ angular.module('app.albumController', [])
     var finalLocationPath = splitLocationPath.join("");
     albumService.getAlbum(encodeURI(finalLocationPath))
     .success(function(data){
-      console.log(data);
      $scope.Album = data;
     });
   };
@@ -154,7 +151,6 @@ angular.module('app.albumController', [])
     var splitLocationPath = locationPath.split("");
     splitLocationPath.splice(0,22);
     var finalLocationPath = splitLocationPath.join("");
-    console.log(splitLocationPath);
     albumService.getAlbum(finalLocationPath)
     .success(function(data){
       $scope.Album = data;
@@ -162,8 +158,6 @@ angular.module('app.albumController', [])
   };
 
 $scope.editAlbum = function(album){
-  console.log('edit 111111111', $scope.Album, album);
-
     if(album===undefined || album === null){
       return $location.url('side-menu/album/'+ $scope.Album.id);
     }
@@ -217,7 +211,6 @@ $scope.editAlbum = function(album){
   };
 
   $scope.deleteAlbum = function(){
-    console.log('delete this album');
     albumService.deleteAlbum($scope.Album)
     .success(function(data){
       $scope.getAllAlbums();
