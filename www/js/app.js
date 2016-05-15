@@ -217,7 +217,7 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
   })
 
   .state('menu.editRecordLabel', {
-    url: '/recordLabels/edit/:id',
+    url: '/recordLabel/edit/:id',
     views: {
       'side-menu21': {
         templateUrl: 'templates/editRecordLabel.html',
