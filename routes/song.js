@@ -58,11 +58,6 @@ router.post('/', function (req, res) {
     });
 });
 
-
-// router.get('/new', function(req, res) {
-//   res.render('song/new');
-// });
-
 router.get('/:id', function(req, res) {
   Song.findOne({
     where: {
