@@ -162,7 +162,7 @@ $scope.editAlbum = function(album){
       return $location.url('side-menu/album/'+ $scope.Album.id);
     }
 
-    if(album.hasOwnProperty("title")){
+    if(album.hasOwnProperty("title") && album.title.length!==0){
 
       if(!album.hasOwnProperty("id")){
         album.id = $scope.Album.id;
