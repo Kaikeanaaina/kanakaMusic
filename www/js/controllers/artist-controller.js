@@ -160,7 +160,7 @@ $scope.editArtist = function(artist){
       return $location.url('side-menu/artist/content/'+ $scope.Artist.id);
     }
 
-    if(artist.hasOwnProperty("name")){
+    if(artist.hasOwnProperty("name") && artist.name.length!==0){
 
       if(!artist.hasOwnProperty("id")){
         artist.id = $scope.Artist.id;
