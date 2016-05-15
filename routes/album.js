@@ -21,20 +21,17 @@ router.post('/',function(req, res){
 });
 
 router.get('/:id', function(req, res) {
-  console.log('get 33333333333');
   Album.findOne({
     where: {
       id: encodeURI(req.params.id)
     }
   })
   .then(function(album){
-    console.log('get 4444444', album);
     return res.json(album);
   });
 });
 
 router.put('/:id', function(req, res){
-  console.log('333333', req.body);
   Album.update(
   {
     updatedAt : 'now()',
@@ -47,8 +44,8 @@ router.put('/:id', function(req, res){
       id : req.params.id
     }
   })
-  .then(function(artist){
-    return res.json(artist);
+  .then(function(album){
+    return res.json(album);
   });
 });
 
