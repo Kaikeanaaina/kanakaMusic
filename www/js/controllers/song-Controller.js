@@ -155,7 +155,7 @@ angular.module('app.songController', [])
       return $location.url('side-menu/song/content/'+ $scope.Song.id);
     }
 
-    if(song.hasOwnProperty("title")){
+    if(song.hasOwnProperty("title") && song.title.length!==0){
 
       if(!song.hasOwnProperty("id")){
         song.id = $scope.Song.id;
