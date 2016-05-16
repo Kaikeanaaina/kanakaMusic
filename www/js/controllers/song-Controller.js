@@ -123,7 +123,7 @@ angular.module('app.songController', [])
         // then again you should add a song without internet connection
       //if it does refresh after adding a song
         //it will be up to date realtime
-      return $location.url('/home');
+      return $state.go('menu.home.song');
     });
   };
 
@@ -262,7 +262,7 @@ angular.module('app.songController', [])
 
       songService.editSong($scope.Song.id, song)
       .success(function(data){
-        $location.url('side-menu/song/content/'+ $scope.Song.id);
+        return $location.url('side-menu/song/content/'+ $scope.Song.id);
       });
     } else {
 
@@ -375,7 +375,7 @@ angular.module('app.songController', [])
       songService.editSong($scope.Song.id, song)
       .success(function(data){
 
-        $location.url('side-menu/song/content/'+ $scope.Song.id);
+        return $location.url('side-menu/song/content/'+ $scope.Song.id);
       });
     }
 
@@ -384,7 +384,7 @@ angular.module('app.songController', [])
   $scope.deleteSong = function(){
     songService.deleteSong($scope.Song)
     .success(function(data){
-      $location.url('side-menu/home/songs');
+      return $state.go('menu.home.song');
 
     });
   };
