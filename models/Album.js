@@ -13,7 +13,6 @@ module.exports = function(sequelize, DataTypes) {
       associate : function(models) {
         Album.belongsTo(models.Artist);
         Album.belongsTo(models.RecordLabel);
-        Album.belongsTo(models.Publisher);
         Album.hasMany(models.Song);
       }
     }
