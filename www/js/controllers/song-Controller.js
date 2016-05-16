@@ -1,6 +1,6 @@
 angular.module('app.songController', [])
 
-.controller('songCtrl', function($scope,$location, songService) {
+.controller('songCtrl', function($scope,$state,$location, songService) {
 
   $scope.Song = [];
   $scope.NumberSong = [];
@@ -61,7 +61,7 @@ angular.module('app.songController', [])
         } else if(splitTitle[0]==="K"){
           $scope.KSong.push(data[i]);
         } else if(splitTitle[0]==="L"){
-          $scope.MSong.push(data[i]);
+          $scope.LSong.push(data[i]);
         } else if(splitTitle[0]==="M"){
           $scope.MSong.push(data[i]);
         } else if(splitTitle[0]==="N"){
@@ -110,8 +110,6 @@ angular.module('app.songController', [])
 
     songService.addSong(song)
     .success(function(data){
-      $scope.getAllSongs();
-
       //*********ATTENTION*************
             //*********ATTENTION*************
                   //*********ATTENTION*************
@@ -384,7 +382,7 @@ angular.module('app.songController', [])
   $scope.deleteSong = function(){
     songService.deleteSong($scope.Song)
     .success(function(data){
-      return $state.go('menu.home.song');
+    return $state.go('menu.home.song');
 
     });
   };
