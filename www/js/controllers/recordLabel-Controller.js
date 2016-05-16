@@ -145,9 +145,8 @@ angular.module('app.recordLabelController', [])
   };
 
 $scope.editRecordLabel = function(recordLabel){
-  console.log('1111111', recordLabel);
     if(recordLabel===undefined || recordLabel === null || recordLabel.name.length===0){
-      return $location.url('side-menu/recordLabel/'+ $scope.RecordLabel.id);
+      return $state.go('menu.recordLabels');
     }
     if(recordLabel.hasOwnProperty("name")){
       if(!recordLabel.hasOwnProperty("id")){
@@ -179,7 +178,7 @@ $scope.editRecordLabel = function(recordLabel){
   $scope.deleteRecordLabel = function(){
     recordLabelService.deleteRecordLabel($scope.RecordLabel)
     .success(function(data){
-      return $state.go('menu.recordLabels');
+      return $state.go("menu.recordLabels");
 
     });
   };
