@@ -103,7 +103,7 @@ angular.module('app.albumController', [])
 
     if(!album.title){
       console.log('there need to be a album name property');
-      return $location.url('/side-menu/addNewAlbum');
+      return $state.go('menu.addNewAlbum');
     }
 
     // if(!album.ArtistId){
@@ -113,7 +113,7 @@ angular.module('app.albumController', [])
 
     if(album.title.length===0 || album=== null || album === undefined){
       console.log('there needs to be value in name');
-      return $location.url('/side-menu/addNewAlbum');
+      return $state.go('menu.addNewAlbum');
     }
 
     albumService.addAlbum(album)
@@ -170,9 +170,6 @@ $scope.editAlbum = function(album){
       if(!album.hasOwnProperty("RecordLabelId") || album.RecordLabelId.length===0){
         album.RecordLabelId = $scope.Album.RecordLabelId;
       }
-      if(!album.hasOwnProperty("PublisherId") || album.PublisherId.length===0){
-        album.PublisherId = $scope.Album.PublisherId;
-      }
       if(!album.hasOwnProperty("description") || album.description.length===0){
         album.description = $scope.Album.description;
       }
@@ -180,7 +177,7 @@ $scope.editAlbum = function(album){
       albumService.editAlbum($scope.Album.id, album)
       .success(function(data){
         $scope.getAlbumToEdit();
-        $location.url('side-menu/album/'+ $scope.Album.id);
+        return $location.url('side-menu/album/'+ $scope.Album.id);
       });
     } else {
 
@@ -193,9 +190,6 @@ $scope.editAlbum = function(album){
       if(!album.hasOwnProperty("RecordLabelId") || album.RecordLabelId.length===0){
         album.RecordLabelId = $scope.Album.RecordLabelId;
       }
-      if(!album.hasOwnProperty("PublisherId") || album.PublisherId.length===0){
-        album.PublisherId = $scope.Album.PublisherId;
-      }
       if(!album.hasOwnProperty("description") || album.description.length===0){
         album.description = $scope.Album.description;
       }
@@ -204,7 +198,7 @@ $scope.editAlbum = function(album){
       albumService.editAlbum($scope.Album.id, album)
       .success(function(data){
         $scope.getAlbumToEdit();
-        $location.url('side-menu/album/'+ $scope.Album.id);
+        return $location.url('side-menu/album/'+ $scope.Album.id);
       });
     }
 
