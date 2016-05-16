@@ -1,4 +1,4 @@
-<ion-view title="Add New Album" id="page9">
+<ion-view title="Add New Album" id="page9" ng-init="getAllArtists()">
     <ion-content padding="true" class="has-header">
         <form class="list">
             <label class="item item-input">
@@ -7,8 +7,8 @@
             </label>
             <label class="item item-select" name="artist">
                 <span class="input-label">Artist</span>
-                <select>
-                    <option></option>
+                <select ng-repeat="artist in BArtist | orderBy:'name'">
+                    <option>{{artist.name}}</option>
                 </select>
             </label>
             <label class="item item-input" name="description">

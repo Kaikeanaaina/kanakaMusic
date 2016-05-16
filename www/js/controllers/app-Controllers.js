@@ -462,7 +462,6 @@ angular.module('app.Controllers', [])
         return $location.url('side-menu/song/content/'+ $scope.Song.id);
       });
     }
-
   };
 
   $scope.deleteSong = function(){
@@ -667,7 +666,6 @@ angular.module('app.Controllers', [])
         $location.url('side-menu/artist/content/'+ $scope.Artist.id);
       });
     }
-
   };
 
   $scope.deleteArtist = function(){
@@ -848,7 +846,6 @@ angular.module('app.Controllers', [])
         return $location.url('side-menu/album/'+ $scope.Album.id);
       });
     }
-
   };
 
   $scope.deleteAlbum = function(){
@@ -1000,7 +997,6 @@ angular.module('app.Controllers', [])
         return $state.go("menu.recordLabels");
       });
     }
-
   };
 
   $scope.deleteRecordLabel = function(){
