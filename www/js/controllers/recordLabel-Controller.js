@@ -98,11 +98,10 @@ angular.module('app.recordLabelController', [])
   };
 
   $scope.addRecordLabel = function(recordLabel){
-    console.log('111111111', recordLabel);
 
     if(!recordLabel.name){
       console.log('there need to be a recordLabel name property');
-      return $location.url('/side-menu/addNewRecordLabel');
+      return $state.go('menu.addNewRecordLabel');
     }
 
     // if(!recordLabel.ArtistId){
@@ -112,7 +111,7 @@ angular.module('app.recordLabelController', [])
 
     if(recordLabel.name.length===0 || recordLabel=== null || recordLabel === undefined){
       console.log('there needs to be value in name');
-      return $location.url('/side-menu/addNewRecordLabel');
+      return $state.go('menu.addNewRecordLabel');
     }
 
     recordLabelService.addRecordLabel(recordLabel)
@@ -150,16 +149,14 @@ $scope.editRecordLabel = function(recordLabel){
     if(recordLabel===undefined || recordLabel === null || recordLabel.name.length===0){
       return $location.url('side-menu/recordLabel/'+ $scope.RecordLabel.id);
     }
-console.log('222222');
     if(recordLabel.hasOwnProperty("name")){
-console.log('333333', recordLabel, $scope.RecordLabel);
       if(!recordLabel.hasOwnProperty("id")){
         recordLabel.id = $scope.RecordLabel.id;
       }
 
       recordLabelService.editRecordLabel($scope.RecordLabel.id, recordLabel)
       .success(function(data){
-        $state.go("menu.recordLabels");
+        return $state.go("menu.recordLabels");
 
       });
     } else {
@@ -173,17 +170,16 @@ console.log('333333', recordLabel, $scope.RecordLabel);
 
       recordLabelService.editRecordLabel($scope.RecordLabel.id, recordLabel)
       .success(function(data){
-        $state.go("menu.recordLabels");
+        return $state.go("menu.recordLabels");
       });
     }
 
   };
 
   $scope.deleteRecordLabel = function(){
-    console.log('delete this recordLabel');
     recordLabelService.deleteRecordLabel($scope.RecordLabel)
     .success(function(data){
-      $state.go('menu.recordLabels');
+      return $state.go('menu.recordLabels');
 
     });
   };
