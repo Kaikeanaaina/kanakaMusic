@@ -61,7 +61,7 @@ angular.module('app.recordLabelController', [])
         } else if(splitName[0]==="K"){
           $scope.KRecordLabel.push(data[i]);
         } else if(splitName[0]==="L"){
-          $scope.MRecordLabel.push(data[i]);
+          $scope.LRecordLabel.push(data[i]);
         } else if(splitName[0]==="M"){
           $scope.MRecordLabel.push(data[i]);
         } else if(splitName[0]==="N"){

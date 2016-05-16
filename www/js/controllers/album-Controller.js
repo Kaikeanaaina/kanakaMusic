@@ -63,7 +63,7 @@ angular.module('app.albumController', [])
         } else if(splitTitle[0]==="K"){
           $scope.KAlbum.push(data[i]);
         } else if(splitTitle[0]==="L"){
-          $scope.MAlbum.push(data[i]);
+          $scope.LAlbum.push(data[i]);
         } else if(splitTitle[0]==="M"){
           $scope.MAlbum.push(data[i]);
         } else if(splitTitle[0]==="N"){

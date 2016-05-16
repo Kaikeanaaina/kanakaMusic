@@ -62,7 +62,7 @@ angular.module('app.artistController', [])
         } else if(splitName[0]==="K"){
           $scope.KArtist.push(data[i]);
         } else if(splitName[0]==="L"){
-          $scope.MArtist.push(data[i]);
+          $scope.LArtist.push(data[i]);
         } else if(splitName[0]==="M"){
           $scope.MArtist.push(data[i]);
         } else if(splitName[0]==="N"){
