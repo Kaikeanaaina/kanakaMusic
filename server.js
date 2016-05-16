@@ -16,7 +16,6 @@ var Song = db.Song;
 var Artist = db.Artist;
 var Album = db.Album;
 var RecordLabel = db.RecordLabel;
-var Publisher = db.Publisher;
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended:true}));
@@ -63,7 +62,7 @@ app.use('/songs', require('./routes/song.js') );
 app.use('/artists', require('./routes/artist.js'));
 app.use('/albums', require('./routes/album.js'));
 app.use('/recordLabels', require('./routes/recordLabel.js'));
-app.use('/publishers', require('./routes/publisher.js'));
+
 
 
 
