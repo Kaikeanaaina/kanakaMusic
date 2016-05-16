@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServices', 'app.artistController', 'app.artistServices', 'app.albumController','app.albumServices', 'app.directives', 'app.gigController', 'app.recordLabelController','app.recordLabelServices','app.settingController','app.bandMemberController'])
+angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songServices', 'app.artistServices','app.albumServices', 'app.directives', 'app.gigController', 'app.recordLabelServices','app.settingController','app.bandMemberController'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -42,7 +42,7 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     views: {
       'side-menu21': {
         templateUrl: 'templates/home.html',
-        controller: 'songCtrl'
+        controller: 'kanakaMusicCtrl'
       }
     },
     abstract: true
@@ -53,8 +53,7 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     views: {
       'tabs-view': {
         templateUrl: 'templates/songlist.html',
-        controller: 'songCtrl'
-      }
+        controller: 'kanakaMusicCtrl'      }
     }
   })
 
@@ -63,7 +62,7 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     views: {
       'tabs-view': {
         templateUrl: 'templates/artistlist.html',
-        controller: 'artistCtrl'
+        controller: 'kanakaMusicCtrl'
       }
     }
   })
@@ -73,8 +72,7 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     views: {
       'side-menu21': {
         templateUrl: 'templates/addNewSong.html',
-        controller: 'songCtrl'
-      }
+        controller: 'kanakaMusicCtrl'      }
     }
   })
 
@@ -83,8 +81,7 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     views: {
       'side-menu21': {
         templateUrl: 'templates/editSong.html',
-        controller: 'songCtrl'
-      }
+        controller: 'kanakaMusicCtrl'      }
     }
   })
 
@@ -93,8 +90,7 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     views: {
       'side-menu21': {
         templateUrl: 'templates/songContent.html',
-        controller: 'songCtrl'
-      }
+        controller: 'kanakaMusicCtrl'      }
     }
   })
 
@@ -103,8 +99,7 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     views: {
       'side-menu21': {
         templateUrl: 'templates/addNewArtist.html',
-        controller: 'artistCtrl'
-      }
+        controller: 'kanakaMusicCtrl'      }
     }
   })
 
@@ -113,8 +108,7 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     views: {
       'side-menu21': {
         templateUrl: 'templates/artistContent.html',
-        controller: 'artistCtrl'
-      }
+        controller: 'kanakaMusicCtrl'      }
     }
   })
 
@@ -123,8 +117,7 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     views: {
       'side-menu21': {
         templateUrl: 'templates/editArtist.html',
-        controller: 'artistCtrl'
-      }
+        controller: 'kanakaMusicCtrl'      }
     }
   })
 
@@ -160,8 +153,7 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     views: {
       'side-menu21': {
         templateUrl: 'templates/albumList.html',
-        controller: 'albumCtrl'
-      }
+        controller: 'kanakaMusicCtrl'      }
     }
   })
 
@@ -171,8 +163,7 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     views: {
       'side-menu21': {
         templateUrl: 'templates/addNewAlbum.html',
-        controller: 'albumCtrl'
-      }
+        controller: 'kanakaMusicCtrl'      }
     }
   })
 
@@ -181,8 +172,7 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     views: {
       'side-menu21': {
         templateUrl: 'templates/editAlbum.html',
-        controller: 'albumCtrl'
-      }
+        controller: 'kanakaMusicCtrl'      }
     }
   })
 
@@ -191,8 +181,7 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     views: {
       'side-menu21': {
         templateUrl: 'templates/albumPage.html',
-        controller: 'albumCtrl'
-      }
+        controller: 'kanakaMusicCtrl'      }
     }
   })
 
@@ -201,8 +190,7 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     views: {
       'side-menu21': {
         templateUrl: 'templates/recordLabelList.html',
-        controller: 'recordLabelCtrl'
-      }
+        controller: 'kanakaMusicCtrl'      }
     }
   })
 
@@ -211,8 +199,7 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     views: {
       'side-menu21' : {
         templateUrl: 'templates/addNewRecordLabel.html',
-        controller: 'recordLabelCtrl'
-      }
+        controller: 'kanakaMusicCtrl'      }
     }
   })
 
@@ -221,8 +208,7 @@ angular.module('app', ['ionic','app.routes', 'app.songController', 'app.songServ
     views: {
       'side-menu21': {
         templateUrl: 'templates/editRecordLabel.html',
-        controller: 'recordLabelCtrl'
-      }
+        controller: 'kanakaMusicCtrl'      }
     }
   })
 
