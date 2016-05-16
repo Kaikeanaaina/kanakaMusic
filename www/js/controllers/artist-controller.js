@@ -103,12 +103,12 @@ angular.module('app.artistController', [])
 
     if(!artist.name){
       console.log('there need to be a artist name property');
-      return $location.url('/side-menu/addNewArtist');
+      return $state.go('menu.addNewArtist');
     }
 
     if(artist.name.length===0 || artist=== null || artist === undefined){
       console.log('there needs to be value in name');
-      return $location.url('/side-menu/addNewArtist');
+      return $state.go('menu.addNewArtist');
     }
 
     artistService.addArtist(artist)
