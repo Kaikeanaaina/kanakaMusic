@@ -32,6 +32,7 @@ angular.module('app.Controllers', [])
   $scope.ZSong = [];
 
   $scope.Artist = [];
+  $scope.Artists = [];
   $scope.NumberArtist = [];
   $scope.AArtist = [];
   $scope.BArtist = [];
@@ -61,6 +62,7 @@ angular.module('app.Controllers', [])
   $scope.ZArtist = [];
 
   $scope.Album = [];
+  $scope.Albums = [];
   $scope.NumberAlbum = [];
   $scope.AAlbum = [];
   $scope.BAlbum = [];
@@ -90,6 +92,7 @@ angular.module('app.Controllers', [])
   $scope.ZAlbum = [];
 
   $scope.RecordLabel = [];
+  $scope.RecordLabels = [];
   $scope.NumberRecordLabel = [];
   $scope.ARecordLabel = [];
   $scope.BRecordLabel = [];
@@ -186,13 +189,27 @@ angular.module('app.Controllers', [])
   $scope.addSong = function(song){
     if(song=== null || song === undefined){
       console.log('there needs to be a property');
-      return $location.url('/side-menu/addNewSong');
+      return $state.go('menu.addNewSong');
     }
 
     if(song.title.length===0){
       console.log('there needs to be value in name');
-      return $location.url('/side-menu/addNewSong');
+      return $state.go('menu.addNewSong');
     }
+
+    if(!song.ArtistId){
+      console.log('there needs to be ArtistId');
+      return $state.go('menu.addNewSong');
+    }
+
+    if(!song.AlbumId){
+      console.log('there needs to be AlbumId');
+      return $state.go('menu.addNewSong');
+    }
+
+
+    console.log(song);
+
 
     songService.addSong(song)
     .success(function(data){
@@ -219,6 +236,14 @@ angular.module('app.Controllers', [])
     songService.getSong(encodeURI(finalLocationPath))
     .success(function(data){
       $scope.Song = data;
+      artistService.getArtist(data.ArtistId)
+      .success(function(data){
+        $scope.Artist = data;
+      });
+      albumService.getAlbum(data.AlbumId)
+      .success(function(data){
+        $scope.Album = data;
+      });
     });
   };
 
@@ -230,6 +255,14 @@ angular.module('app.Controllers', [])
     songService.getSong(finalLocationPath)
     .success(function(data){
       $scope.Song = data;
+      artistService.getArtist(data.ArtistId)
+      .success(function(data){
+        $scope.Artist = data;
+      });
+      albumService.getAlbum(data.AlbumId)
+      .success(function(data){
+        $scope.Album = data;
+      });
     });
   };
 
@@ -482,6 +515,7 @@ angular.module('app.Controllers', [])
     .success(function(data){
 
       for(var i = 0;i<data.length;i++){
+        $scope.Artists.push(data[i]);
         var splitName = data[i].name.toUpperCase().split("");
         if(splitName[0]==="A"){
           $scope.AArtist.push(data[i]);
@@ -582,6 +616,17 @@ angular.module('app.Controllers', [])
     artistService.getArtist(encodeURI(finalLocationPath))
     .success(function(data){
      $scope.Artist = data;
+     /////////////////////
+     console.log('1111111111', data);
+     albumService.getSpecificAlbums(data.id)
+      .success(function(data){
+        console.log('555555555', data);
+        $scope.Albums = data;
+      });
+      // albumService.getAlbum(data.AlbumId)
+      // .success(function(data){
+      //   $scope.Album = data;
+      // });
     });
   };
 
@@ -684,6 +729,7 @@ angular.module('app.Controllers', [])
     .success(function(data){
 
       for(var i = 0;i<data.length;i++){
+        $scope.Albums.push(data[i]);
         var splitTitle = data[i].title.toUpperCase().split("");
         if(splitTitle[0]==="A"){
           $scope.AAlbum.push(data[i]);
@@ -746,20 +792,25 @@ angular.module('app.Controllers', [])
 
   $scope.addAlbum = function(album){
 
+    if(album=== null || album === undefined || album.title.length===0 ){
+      console.log('there needs to be value in name');
+      return $state.go('menu.addNewAlbum');
+    }
+
     if(!album.title){
       console.log('there need to be a album name property');
       return $state.go('menu.addNewAlbum');
     }
 
-    // if(!album.ArtistId){
-    //   console.log('there need to be a album artist property');
-    //   return $location.url('/side-menu/addNewAlbum');
-    // }
-
-    if(album.title.length===0 || album=== null || album === undefined){
-      console.log('there needs to be value in name');
-      return $state.go('menu.addNewAlbum');
+    if(!album.ArtistId){
+      console.log('there need to be a album artist property');
+      return $location.url('/side-menu/addNewAlbum');
     }
+    if(!album.RecordLabelId){
+      console.log('there need to be a album RecordLabel property');
+      return $location.url('/side-menu/addNewAlbum');
+    }
+
 
     albumService.addAlbum(album)
     .success(function(data){
@@ -776,7 +827,7 @@ angular.module('app.Controllers', [])
         // then again you should add a song without internet connection
       //if it does refresh after adding a song
         //it will be up to date realtime
-      return $state.go('menu.albums');
+      return $state.go('menu.addNewSong');
     });
   };
 
@@ -788,6 +839,14 @@ angular.module('app.Controllers', [])
     albumService.getAlbum(encodeURI(finalLocationPath))
     .success(function(data){
      $scope.Album = data;
+      recordLabelService.getRecordLabel(data.RecordLabelId)
+      .success(function(data){
+        $scope.RecordLabel = data;
+      });
+      artistService.getArtist(data.ArtistId)
+      .success(function(data){
+        $scope.Artist = data;
+      });
     });
   };
 
@@ -862,6 +921,7 @@ angular.module('app.Controllers', [])
     .success(function(data){
 
       for(var i = 0;i<data.length;i++){
+        $scope.RecordLabels.push(data[i]);
         var splitName = data[i].name.toUpperCase().split("");
         if(splitName[0]==="A"){
           $scope.ARecordLabel.push(data[i]);

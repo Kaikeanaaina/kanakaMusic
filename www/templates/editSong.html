@@ -1,4 +1,4 @@
-<ion-view title="Edit: {{Song.title}}" id="page15" ng-init="getSongToEdit()">
+<ion-view title="Edit: {{Song.title}}" id="page15" ng-init="getSongToEdit(); getAllArtists(); getAllAlbums()">
     <ion-content padding="true" class="has-header">
         <form class="list">
 
@@ -11,19 +11,23 @@
 
             <div class="spacer" style="width: 300px; height: 15px;"></div>
 
+
+            <p>old artist: <strong>{{Artist.name}}</strong></p>
             <label class="item item-select" name="artist">
-                <span class="input-label" >Artist</span>
-                <select>
-                    <option></option>
+                <span class="input-label">Artist</span>
+                <select ng-model="song.ArtistId">
+                    <option ng-repeat="artist in Artists | orderBy:'name'" ng-value="{{artist.id}}" value="{{artist.id}}">{{artist.name}}</option>
                 </select>
             </label>
 
+
             <a ui-sref="menu.addNewArtist" id="editSong-button23" style="font-weight:300;" class="button button-positive button-small button-block">Add New Artist</a>
 
+            <p>old album: <strong>{{Album.title}}</strong></p>
             <label class="item item-select" name="album">
                 <span class="input-label">Album</span>
-                <select>
-                    <option></option>
+                <select ng-model="song.AlbumId">
+                    <option ng-repeat="album in Albums | orderBy:'title'" name='kainoa' ng-value="{{album.id}}" value="{{album.id}}">{{album.title}}</option>
                 </select>
             </label>
 

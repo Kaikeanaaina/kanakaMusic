@@ -15,7 +15,6 @@ angular.module('app.recordLabelServices', [])
   };
 
   this.addRecordLabel = function(recordLabel){
-    console.log('222222', recordLabel);
     return $http.post(domain + '/recordLabels', recordLabel);
   };
 
@@ -24,12 +23,10 @@ angular.module('app.recordLabelServices', [])
   };
 
   this.editRecordLabel = function(recordLabelPath, recordLabel){
-    console.log('4444444', recordLabelPath,recordLabel);
     return $http.put(domain + '/recordLabels/' + recordLabelPath, recordLabel);
   };
 
   this.deleteRecordLabel = function(recordLabel){
-    console.log('222222', recordLabel);
     return $http.delete(domain + '/recordLabels/' + recordLabel.id, recordLabel);
   };
 

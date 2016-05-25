@@ -7,14 +7,13 @@
 //     };
 //   });
 
-angular.module('app.songFilter',[])
-  .filter('titleFilter', function(){
-    return function(collection, startingAlphabet){
-      return collection.filter(function(song){
-        var splitTitle = song.title.toUpperCase().split("");
-        if(splitTitle[0]=== startingAlphabet){
-          return song;
-        }
+angular.module('app.Filters',[])
+  .filter('albumFilter', function(){
+    return function(collection, ArtistId){
+      return collection.filter(function(album){
+
+          return album.ArtistId===ArtistId;
+
       });
     };
   });

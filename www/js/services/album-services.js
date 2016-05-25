@@ -22,6 +22,11 @@ angular.module('app.albumServices', [])
     return $http.get(domain + '/albums/' + albumName);
   };
 
+  this.getSpecificAlbums = function(ArtistId){
+    console.log('222222222', ArtistId);
+    return $http.get(domain + '/albums/ofArtist/' + ArtistId);
+  };
+
   this.editAlbum = function(albumPath, album){
     return $http.put(domain + '/albums/' + albumPath, album);
   };
