@@ -61,6 +61,19 @@ router.post('/', function (req, res) {
     });
 });
 
+router.get('/ofArtist/:id', function(req, res) {
+  console.log('33333333', req.body);
+  Song.findAll({
+    where: {
+      ArtistId: encodeURI(req.params.id)
+    }
+  })
+  .then(function(songs){
+    console.log('444444444', songs);
+    return res.json(songs);
+  });
+});
+
 router.get('/:id', function(req, res) {
     console.log("get 111111111111111111111111111",req.body);
 
