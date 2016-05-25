@@ -23,7 +23,6 @@ angular.module('app.albumServices', [])
   };
 
   this.getSpecificAlbums = function(ArtistId){
-    console.log('222222222', ArtistId);
     return $http.get(domain + '/albums/ofArtist/' + ArtistId);
   };
 
