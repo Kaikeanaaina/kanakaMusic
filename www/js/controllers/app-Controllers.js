@@ -616,14 +616,11 @@ angular.module('app.Controllers', [])
     artistService.getArtist(encodeURI(finalLocationPath))
     .success(function(data){
      $scope.Artist = data;
-     /////////////////////
-     console.log('1111111111', data);
       albumService.getSpecificAlbums(data.id)
       .success(function(data){
-        console.log('555555555', data);
         $scope.Albums = data;
       });
-      songService.getSpecificSongs(data.id)
+      songService.getSpecificSongsFromArtist(data.id)
       .success(function(data){
         $scope.Songs = data;
       });
@@ -640,7 +637,6 @@ angular.module('app.Controllers', [])
       $scope.Artist = data;
     });
   };
-
 
   $scope.editArtist = function(artist){
 
@@ -719,8 +715,6 @@ angular.module('app.Controllers', [])
     .success(function(data){
       $scope.getAllArtists();
       return $state.go('menu.home.artist');
-
-
     });
   };
 
@@ -811,7 +805,6 @@ angular.module('app.Controllers', [])
       return $location.url('/side-menu/addNewAlbum');
     }
 
-
     albumService.addAlbum(album)
     .success(function(data){
       $scope.getAllAlbums();
@@ -846,6 +839,10 @@ angular.module('app.Controllers', [])
       artistService.getArtist(data.ArtistId)
       .success(function(data){
         $scope.Artist = data;
+      });
+      songService.getSpecificSongsFromAlbum(data.id)
+      .success(function(data){
+        $scope.Songs = data;
       });
     });
   };
@@ -898,7 +895,6 @@ angular.module('app.Controllers', [])
         album.description = $scope.Album.description;
       }
 
-
       albumService.editAlbum($scope.Album.id, album)
       .success(function(data){
         $scope.getAlbumToEdit();
@@ -912,7 +908,6 @@ angular.module('app.Controllers', [])
     .success(function(data){
       $scope.getAllAlbums();
       return $state.go('menu.albums');
-
     });
   };
 
@@ -1041,7 +1036,6 @@ angular.module('app.Controllers', [])
       recordLabelService.editRecordLabel($scope.RecordLabel.id, recordLabel)
       .success(function(data){
         return $state.go("menu.recordLabels");
-
       });
     } else {
 
@@ -1063,7 +1057,6 @@ angular.module('app.Controllers', [])
     recordLabelService.deleteRecordLabel($scope.RecordLabel)
     .success(function(data){
       return $state.go("menu.recordLabels");
-
     });
   };
 

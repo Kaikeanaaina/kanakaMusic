@@ -30,9 +30,12 @@ angular.module('app.songServices', [])
     return $http.delete(domain + '/songs/' + song.id, song);
   };
 
-  this.getSpecificSongs = function(ArtistId){
-    console.log('222222222', ArtistId);
+  this.getSpecificSongsFromArtist = function(ArtistId){
     return $http.get(domain + '/songs/ofArtist/' + ArtistId);
+  };
+
+  this.getSpecificSongsFromAlbum = function(AlbumId){
+    return $http.get(domain + '/songs/ofAlbum/' + AlbumId);
   };
 
 }]);

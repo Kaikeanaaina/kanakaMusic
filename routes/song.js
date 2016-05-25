@@ -16,7 +16,6 @@ router.get('/',function(req, res){
 });
 
 router.post('/', function (req, res) {
-    console.log("post 111111111111111111111111111",req.body);
 
   var urltitle = (encodeURI(req.body.title)).toString();
   Song.create({
@@ -62,20 +61,28 @@ router.post('/', function (req, res) {
 });
 
 router.get('/ofArtist/:id', function(req, res) {
-  console.log('33333333', req.body);
   Song.findAll({
     where: {
       ArtistId: encodeURI(req.params.id)
     }
   })
   .then(function(songs){
-    console.log('444444444', songs);
+    return res.json(songs);
+  });
+});
+
+router.get('/ofAlbum/:id', function(req, res) {
+  Song.findAll({
+    where: {
+      AlbumId: encodeURI(req.params.id)
+    }
+  })
+  .then(function(songs){
     return res.json(songs);
   });
 });
 
 router.get('/:id', function(req, res) {
-    console.log("get 111111111111111111111111111",req.body);
 
   Song.findOne({
     where: {
