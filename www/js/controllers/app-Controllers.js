@@ -618,15 +618,15 @@ angular.module('app.Controllers', [])
      $scope.Artist = data;
      /////////////////////
      console.log('1111111111', data);
-     albumService.getSpecificAlbums(data.id)
+      albumService.getSpecificAlbums(data.id)
       .success(function(data){
         console.log('555555555', data);
         $scope.Albums = data;
       });
-      // albumService.getAlbum(data.AlbumId)
-      // .success(function(data){
-      //   $scope.Album = data;
-      // });
+      songService.getSpecificSongs(data.id)
+      .success(function(data){
+        $scope.Songs = data;
+      });
     });
   };
 
