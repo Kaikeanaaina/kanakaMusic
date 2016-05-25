@@ -23,12 +23,12 @@
         </ion-list>
 
         <div class="spacer" style="width: 300px; height: 27px;"></div>
+
         <ion-list>
             <ion-item class="item-divider">Songs</ion-item>
-            <ion-item ui-sref="menu.songContent">Song 1</ion-item>
-            <ion-item ui-sref="menu.songContent">Song 2</ion-item>
-            <ion-item ui-sref="menu.songContent">Song 3</ion-item>
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in Songs">{{song.title}}</ion-item>
         </ion-list>
+
         <div class="spacer" style="width: 300px; height: 10px;"></div>
         <div style="color:#000000;">
             <p>Facebook:   {{Artist.facebook}}</p>
