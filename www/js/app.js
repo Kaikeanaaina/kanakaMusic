@@ -48,20 +48,39 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
     abstract: true
   })
 
-  .state('menu.home.song', {
-    url: '/songs',
+  .state('menu.home.hawaiianSong', {
+    url: '/hawaiianSongs',
     views: {
       'tabs-view': {
-        templateUrl: 'templates/songlist.html',
+        templateUrl: 'templates/hawaiianSonglist.html',
         controller: 'kanakaMusicCtrl'      }
     }
   })
 
-  .state('menu.home.artist', {
-    url: '/artists',
+  .state('menu.home.contemporarySong', {
+    url: '/contemporarySongs',
     views: {
       'tabs-view': {
-        templateUrl: 'templates/artistlist.html',
+        templateUrl: 'templates/contemporarySonglist.html',
+        controller: 'kanakaMusicCtrl'      }
+    }
+  })
+
+  .state('menu.home.hawaiianArtist', {
+    url: '/hawaiianArtists',
+    views: {
+      'tabs-view': {
+        templateUrl: 'templates/hawaiianArtistlist.html',
+        controller: 'kanakaMusicCtrl'
+      }
+    }
+  })
+
+  .state('menu.home.contemporaryArtist', {
+    url: '/contemporaryArtists',
+    views: {
+      'tabs-view': {
+        templateUrl: 'templates/contemporaryArtistlist.html',
         controller: 'kanakaMusicCtrl'
       }
     }
@@ -290,7 +309,7 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
     }
   });
 
-$urlRouterProvider.otherwise('/side-menu/home/songs');
+$urlRouterProvider.otherwise('/side-menu/home/hawaiianSongs');
 
 
 
