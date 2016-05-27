@@ -12,6 +12,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING( 500 ),
       allowNull: true,
     },
+    type : {
+      type: DataTypes.STRING (10),
+      allowNull: false,
+    },
     line1 : {
       type: DataTypes.STRING( 255 ),
       allowNull: true,
