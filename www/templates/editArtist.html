@@ -18,6 +18,15 @@
 
             <button id="editArtist-button27" class="button button-positive  button-block">Add New Record Label</button>
 
+            <p>old artist type: <strong>{{Artist.type}}</strong></p>
+            <label class="item item-select" name="type">
+                <span class="input-label">Type</span>
+                <select ng-model="artist.type">
+                    <option ng-value="hawaiian" value="hawaiian">Hawaiian</option>
+                    <option ng-value="english" value="english">English</option>
+                </select>
+            </label>
+
             <label class="item item-input" name="description" for="description">
                 <span class="input-label">Description</span>
                 <textarea placeholder="{{Artist.description}}" id="editDescription" ng-model="artist.description"></textarea>
