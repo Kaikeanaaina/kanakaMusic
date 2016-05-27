@@ -8,6 +8,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING( 255 ),
       allowNull: true
     },
+    type : {
+      type: DataTypes.STRING( 10 ),
+      allowNull: false
+    },
     facebook : {
       type: DataTypes.STRING( 255 ),
       allowNull: true
