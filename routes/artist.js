@@ -16,6 +16,7 @@ router.get('/',function(req, res){
 router.post('/',function(req, res){
   Artist.create({
     name : req.body.name,
+    type : req.body.type,
     facebook : req.body.facebook,
     instagram : req.body.instagram,
     twitter : req.body.twitter,
@@ -44,6 +45,7 @@ router.put('/:id', function(req, res){
   {
     updatedAt : 'now()',
     name : req.body.name,
+    type : req.body.type,
     facebook : req.body.facebook,
     instagram : req.body.instagram,
     twitter : req.body.twitter,
