@@ -53,7 +53,8 @@ router.post('/', function (req, res) {
     description : req.body.description,
     urlTitle : urltitle,
     ArtistId : req.body.ArtistId,
-    AlbumId : req.body.AlbumId
+    AlbumId : req.body.AlbumId,
+    type : req.body.type
     })
     .then(function (data) {
       return res.json(data);
@@ -132,6 +133,7 @@ router.put('/:id', function(req, res){
     line29 : req.body.line29,
     line30 : req.body.line30,
     description : req.body.description,
+    type : req.body.type,
     urlTitle : encodeURI(req.body.title)
   }, {
     where : {
