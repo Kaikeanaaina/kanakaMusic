@@ -33,6 +33,15 @@
 
             <a ui-sref="menu.addNewAlbum" id="editSong-button24" style="font-weight:300;" class="button button-positive button-small button-block">Add New Album</a>
 
+            <p>old song type: <strong>{{Song.type}}</strong></p>
+            <label class="item item-select" name="type">
+                <span class="input-label">Type</span>
+                <select ng-model="song.type">
+                    <option ng-value="hawaiian" value="hawaiian">Hawaiian</option>
+                    <option ng-value="contemporary" value="contemporary">Contemporary</option>
+                </select>
+            </label>
+
             <label class="item item-input" name="description">
                 <span class="input-label">Description</span>
                 <textarea placeholder="{{Song.description}}" ng-model="song.description"></textarea>
