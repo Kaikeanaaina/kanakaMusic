@@ -180,7 +180,6 @@ angular.module('app.Controllers', [])
   $scope.ZRecordLabel = [];
 
   $scope.getAllSongs = function(){
-    console.log($scope);
     songService.getAllSongs()
     .success(function(data){
 
@@ -421,7 +420,7 @@ angular.module('app.Controllers', [])
         // then again you should add a song without internet connection
       //if it does refresh after adding a song
         //it will be up to date realtime
-      return $state.go('menu.home.song');
+      return $state.go('menu.home.hawaiianSong');
     });
   };
 
@@ -703,7 +702,7 @@ angular.module('app.Controllers', [])
   $scope.deleteSong = function(){
     songService.deleteSong($scope.Song)
     .success(function(data){
-    return $state.go('menu.home.song');
+    return $state.go('menu.home.hawaiianSong');
 
     });
   };
@@ -942,7 +941,7 @@ angular.module('app.Controllers', [])
         // then again you should add a song without internet connection
       //if it does refresh after adding a song
         //it will be up to date realtime
-      return $state.go('menu.home.artist');
+      return $state.go('menu.home.hawaiianArtist');
     });
   };
 
@@ -1058,7 +1057,7 @@ angular.module('app.Controllers', [])
     artistService.deleteArtist($scope.Artist)
     .success(function(data){
       $scope.getAllArtists();
-      return $state.go('menu.home.artist');
+      return $state.go('menu.home.hawaiianArtist');
     });
   };
 
