@@ -1,6 +1,19 @@
 angular.module('app.Controllers', [])
 
-.controller('kanakaMusicCtrl', function($scope,$state,$location, songService, artistService, albumService, recordLabelService) {
+.controller('kanakaMusicCtrl', function($scope,$state,$location, $ionicPopup, songService, artistService, albumService, recordLabelService, loginService) {
+
+  $scope.data = {};
+
+  $scope.login = function() {
+    loginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
+        $state.go('menu.home.hawaiianSong');
+    }).error(function(data) {
+        var alertPopup = $ionicPopup.alert({
+            title: 'Login failed!',
+            template: 'Please check your credentials!'
+        });
+    });
+  };
 
   $scope.Song = [];
   $scope.NumberContemporarySong = [];
