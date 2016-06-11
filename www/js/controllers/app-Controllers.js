@@ -1,10 +1,11 @@
 angular.module('app.Controllers', [])
 
-.controller('kanakaMusicCtrl', function($scope,$state,$location, $ionicPopup, songService, artistService, albumService, recordLabelService, loginService) {
+.controller('kanakaMusicCtrl', function( $scope,$state,$location, $ionicPopup, $rootScope, songService, artistService, albumService, recordLabelService, loginService) {
 
   $scope.data = {};
 
   $scope.login = function() {
+    console.log(11111111, $scope.data.username, $scope.data.password);
     loginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
         $state.go('menu.home.hawaiianSong');
     }).error(function(data) {
@@ -12,6 +13,57 @@ angular.module('app.Controllers', [])
             title: 'Login failed!',
             template: 'Please check your credentials!'
         });
+    });
+  };
+
+  $scope.registerUser = function(user){
+    console.log(1111111);
+    $scope.data = {};
+    var myPopup = $ionicPopup.show({
+      template: ' Enter Email <input type="text" ng-model="data.userEmail"><br> Enter Confirm Email <input type="text" ng-model="data.confirmUserEmail"> <br> Enter Password <input type="password" ng-model="data.userPassword"><br>Enter Confirm Password  <input type="password" ng-model="data.confirmPassword" > ',
+      title: 'Register User',
+      subTitle: 'Please use normal things',
+      scope: $scope,
+      buttons: [{
+        text: 'Cancel'
+      }, {
+        text: '<b>Save</b>',
+        type: 'button-positive',
+        onTap: function(e) {
+          if (!$scope.data.userPassword || !$scope.data.userEmail) {
+            //don't allow the user to close unless he enters wifi password
+            e.preventDefault();
+          } else {
+            return $scope.data;
+          }
+        }
+      }, ]
+    });
+
+    myPopup.then(function(res) {
+      if (res) {
+        if(res.userEmail === res.confirmUserEmail && res.userPassword == res.confirmPassword){
+          console.log('credentials matched');
+          //this is where we register
+          //service
+          loginService.registerUser(res)
+          .success(function(data){
+            console.log(88888888, data);
+            if(!data.hasOwnProperty('email')){
+              return $state.go('menu.login');
+            } else{
+              $rootScope.loggedInUser = data;
+              console.log(999999999, $rootScope);
+              return $state.go('menu.home.hawaiianSong');
+            }
+          });
+        } else {
+          console.log('credentials not matched');
+          // this is where the error message will return
+        }
+      } else {
+        console.log('Enter credentials');
+      }
     });
   };
 
