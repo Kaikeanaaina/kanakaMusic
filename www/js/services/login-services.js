@@ -1,25 +1,22 @@
 angular.module('app.loginServices', [])
 
-.service('loginService', function($q) {
-    return {
-        loginUser: function(name, pw) {
-            var deferred = $q.defer();
-            var promise = deferred.promise;
+.service('loginService', function($q, $http) {
+  var isCordovaApp = document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') === -1;
+  var domain;
+  if(!isCordovaApp){
+    domain = 'http://localhost:4000';
+  }
+  if(isCordovaApp){
+    domain = '.';
+  }
 
-            if (name == 'user' && pw == 'secret') {
-                deferred.resolve('Welcome ' + name + '!');
-            } else {
-                deferred.reject('Wrong credentials.');
-            }
-            promise.success = function(fn) {
-                promise.then(fn);
-                return promise;
-            };
-            promise.error = function(fn) {
-                promise.then(null, fn);
-                return promise;
-            };
-            return promise;
-        }
-    };
+  this.registerUser = function(user){
+    console.log(2222222, user);
+    return $http.post(domain + '/users/register', user);
+  };
+
+  this.loginUser = function(user , pw){
+    console.log(2222, user, pw);
+    return $http.get(domain + '/users/login', user, pw);
+  };
 });
