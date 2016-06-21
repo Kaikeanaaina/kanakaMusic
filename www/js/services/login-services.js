@@ -15,8 +15,12 @@ angular.module('app.loginServices', [])
     return $http.post(domain + '/users/register', user);
   };
 
-  this.loginUser = function(user , pw){
-    console.log(2222, user, pw);
-    return $http.get(domain + '/users/login', user, pw);
+  this.loginUser = function(user){
+    console.log(2222, user);
+    return $http.post(domain + '/users/login', user);
+  };
+
+  this.logOutUser = function() {
+    return $http.get(domain + '/users/logout');
   };
 });
