@@ -4,10 +4,13 @@ var router = express.Router();
 var db = require('./../models');
 var User = db.User;
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
 var flash = require('connect-flash');
 var passport = require('passport');
+var session = require('express-session');
 var LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require('bcrypt');
+// var CONFIG = require('./config.js');
 
 var auth = function(req, res, next){
   if (!req.isAuthenticated()) {
@@ -17,25 +20,61 @@ var auth = function(req, res, next){
   }
 };
 
-router.use(bodyParser.json());
-app.use(flash());
+router.use(bodyParser.json({ extended: false }));
+router.use(cookieParser());
 
+// **************** once this is on, it crashes because the CONFIG is wrong
+// // add optional secret key to our session
+// app.use(session(CONFIG.SESSION));
+
+//initiallize passport project in Express
+app.use(passport.initialize());
+
+//set passport session middleware to persist login sessions
+app.use(passport.session());
+
+//in order to maintain persistent log in session,
+//the authentication user must be serialized to the session.
+//The user will be deserialized when each subsequent request is made.
 passport.serializeUser(function(user, done) {
-  done(null, user);
+  //user is passed in from Local Strategy
+  //user is attached to req.user
+  return done(null, user);
 });
 passport.deserializeUser(function(user, done) {
-  done(null, user);
+  return done(null, user);
 });
+
+// passport.use(new LocalStrategy(
+//   function( username, password, done){
+//     var isAuthenticated = authenticate(username,password);
+//     if(!isAuthenticated){ // not authenticated
+//       return done(null,false); // No error, but credentials don't match
+//     }
+
+//     var user = {
+//       name : 'Bob',
+//       role: 'Admin',
+//       color: 'green'
+//     }
+
+//     return done(null,user); //authenticated
+//   }
+// ));
+
 
 passport.use(new LocalStrategy({
     passReqToCallback: true
   },
   function(req, username, password, done){
+    console.log(1111222222,req.body);
+     console.log(222223333333,username);
+     console.log(333333444444,password);
     var user = null;
     console.log('1111111');
 
     User.findOne({
-      username : username
+      email : username
     })
     .then(function(data){
       console.log('222222');
@@ -60,6 +99,34 @@ passport.use(new LocalStrategy({
     });
   }
 ));
+
+function authenticate(username,password){
+  var CREDENTIALS = CONFIG.CREDENTIALS;
+  var USERNAME = CREDENTIALS.USERNAME;
+  var PASSWORD = CREDENTIALS.PASSWORD;
+
+  return (username === USERNAME && password === PASSWORD);
+}
+
+function isAuthenticated(req,res,next){
+  if(!req.isAuthenticated()){
+    return res.redirect('/login');
+  }
+  return next();
+}
+
+
+router.post('/login', passport.authenticate('local'), function(req, res) {
+  console.log(33333333);
+  // return res.json(req.user.dataValues);
+});
+
+router.post('/login', passport.authenticate('local', { successRedirect: '/',
+                                                    failureRedirect: '/#/side-menu/login',
+                                                    failureFlash: 'Invalid username or password.',
+                                                    successFlash: 'Welcome!' }), function(req, res){
+  res.redirect('/#//side-menu/home/hawaiianSongs');
+});
 
 router.post('/register',function(req,res){
   console.log(33333333, req.body);
@@ -92,7 +159,7 @@ router.post('/register',function(req,res){
           //and let them know that username already exists
           //can't register that username
           console.log(7070707070707, 'user name already exists');
-      res.json( new Error('username already exists'));
+      return res.json( new Error('username already exists'));
     }
 
   });
@@ -103,31 +170,17 @@ router.route( '/loggedIn', function ( req, res ) {
   res.send( req.isAuthenticated() ? req.user : '0' );
 });
 
-
-router.route( '/login' )
-  .get( function ( req, res ) {
-    console.log(333333, 'i made it');
-    //res.sendFile('../www/index.html', { root : __dirname });
-  })
-  .post(
-    passport.authenticate('local', { failWithError: true }),
-  function(req, res, next) {
-    // handle success
-    if (req.xhr) { return res.json({ id: req.user.id }); }
-    return res.send('/');
-  },
-  function(err, req, res, next) {
-    // handle error
-    if (req.xhr) { return res.json(err); }
-    return res.send('/login');
-  }
-);
+// router.get('/login', function(req, res){
+//   console.log(333333333);
+// });
 
 
-router.route( '/logout' )
-  .get( function ( req, res ) {
-    req.logout();
-    res.redirect( '/#/' );
-  });
+router.get('/logout', function(req, res){
+  req.logout();
+  return res.json();
+
+});
+
+
 
 module.exports = router;
