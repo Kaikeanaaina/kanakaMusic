@@ -5,9 +5,11 @@ angular.module('app.Controllers', [])
   $scope.data = {};
 
   $scope.login = function() {
-    console.log(11111111, $scope.data.username, $scope.data.password);
-    loginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
-        $state.go('menu.home.hawaiianSong');
+    console.log(11111111, $scope.data);
+    loginService.loginUser($scope.data).success(function(data) {
+        $rootScope.loggedInUser = data;
+        console.log($rootScope);
+        return $state.go('menu.home.hawaiianSong');
     }).error(function(data) {
         var alertPopup = $ionicPopup.alert({
             title: 'Login failed!',
