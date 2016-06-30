@@ -5,11 +5,18 @@ angular.module('app.Controllers', [])
   $scope.data = {};
 
   $scope.login = function() {
-    console.log(11111111, $scope.data);
     loginService.loginUser($scope.data).success(function(data) {
         $rootScope.loggedInUser = data;
         console.log($rootScope);
-        return $state.go('menu.home.hawaiianSong');
+        if($rootScope.loggedInUser.type === "haku"){
+          return $state.go('adminMenu.home.HawaiianSong');
+        }
+        if($rootScope.loggedInUser.type === "user"){
+          return $state.go('menu.home.hawaiianSong');
+        }
+        else{
+          console.log('error');
+        }
     }).error(function(data) {
         var alertPopup = $ionicPopup.alert({
             title: 'Login failed!',
