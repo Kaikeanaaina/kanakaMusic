@@ -74,10 +74,12 @@ passport.use(new LocalStrategy({
     console.log('1111111');
 
     User.findOne({
-      email : username
+        where:{
+          email : username
+        }
     })
     .then(function(data){
-      console.log('222222');
+      console.log('222222', data);
       user = data;
       if(!user){
         console.log('333333', 'there are no user found');
@@ -101,7 +103,7 @@ passport.use(new LocalStrategy({
 ));
 
 function authenticate(username,password){
-  var CREDENTIALS = CONFIG.CREDENTIALS;
+  var CREDENTIALS = User.CREDENTIALS;
   var USERNAME = CREDENTIALS.USERNAME;
   var PASSWORD = CREDENTIALS.PASSWORD;
 
@@ -116,16 +118,11 @@ function isAuthenticated(req,res,next){
 }
 
 
-router.post('/login', passport.authenticate('local'), function(req, res) {
-  console.log(33333333);
-  // return res.json(req.user.dataValues);
-});
-
-router.post('/login', passport.authenticate('local', { successRedirect: '/',
-                                                    failureRedirect: '/#/side-menu/login',
+router.post('/login', passport.authenticate('local', {
                                                     failureFlash: 'Invalid username or password.',
                                                     successFlash: 'Welcome!' }), function(req, res){
-  res.redirect('/#//side-menu/home/hawaiianSongs');
+  console.log(7777777);
+  return res.json(req.user.dataValues);
 });
 
 router.post('/register',function(req,res){
