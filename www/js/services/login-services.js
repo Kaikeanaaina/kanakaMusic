@@ -11,7 +11,6 @@ angular.module('app.loginServices', [])
   }
 
   this.registerUser = function(user){
-    console.log(2222222, user);
     return $http.post(domain + '/users/register', user);
   };
 
