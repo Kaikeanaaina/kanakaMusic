@@ -86,6 +86,61 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
     }
   })
 
+  .state('adminMenu', {
+    url: '/side-menu',
+    templateUrl: 'templates/menu.html',
+    abstract:true
+  })
+
+  .state('adminMenu.home', {
+    url: '/home',
+    views: {
+      'side-menu21': {
+        templateUrl: 'templates/home.html',
+        controller: 'kanakaMusicCtrl'
+      }
+    },
+    abstract: true
+  })
+
+    .state('adminMenu.home.HawaiianSong', {
+    url: '/hawaiianSongs',
+    views: {
+      'tabs-view': {
+        templateUrl: 'templates/adminHawaiianSonglist.html',
+        controller: 'kanakaMusicCtrl'      }
+    }
+  })
+
+  .state('adminMenu.home.ContemporarySong', {
+    url: '/contemporarySongs',
+    views: {
+      'tabs-view': {
+        templateUrl: 'templates/adminContemporarySonglist.html',
+        controller: 'kanakaMusicCtrl'      }
+    }
+  })
+
+  .state('adminMenu.home.HawaiianArtist', {
+    url: '/hawaiianArtists',
+    views: {
+      'tabs-view': {
+        templateUrl: 'templates/adminHawaiianArtistlist.html',
+        controller: 'kanakaMusicCtrl'
+      }
+    }
+  })
+
+  .state('adminMenu.home.ContemporaryArtist', {
+    url: '/contemporaryArtists',
+    views: {
+      'tabs-view': {
+        templateUrl: 'templates/adminContemporaryArtistlist.html',
+        controller: 'kanakaMusicCtrl'
+      }
+    }
+  })
+
   .state('menu.addNewSong', {
     url: '/addNewSong',
     views: {
