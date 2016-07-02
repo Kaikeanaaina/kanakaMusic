@@ -1,12 +1,9 @@
-<ion-view title="Hawaiian Songs" id="page1" name="tabs-view">
+<ion-view title="Hawaiian Songs" id="page1" name="adminTabs-view">
 
     <ion-content padding="true" class="has-header" ng-init="getAllSongs()">
 
-        <h1>this is the admin page!!@#$#@#$@#$#$</h1>
-
         <form class="list">
             <a ui-sref="menu.addNewSong" id="home-button2" style="font-weight:300;" class="button button-positive button-small button-block">Add New Song</a>
-            <a ui-sref="menu.addNewArtist" id="home-button18" class="button button-positive button-small button-block">Add New Artist</a>
         </form>
 
         <form class="list">
@@ -15,8 +12,6 @@
                 <input type="search" placeholder="search">
             </label>
         </form>
-
-        <a id="genreButton" style="font-weight:300;" class="button button-positive button-small button-block" ng-click="Hawaiian=!Hawaiian">Change Genre</a>
 
         <ion-list>
             <ion-item class="item-divider">#</ion-item>
