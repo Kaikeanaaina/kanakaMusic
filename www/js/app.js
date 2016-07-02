@@ -87,16 +87,16 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
   })
 
   .state('adminMenu', {
-    url: '/side-menu',
-    templateUrl: 'templates/menu.html',
+    url: '/adminSide-menu',
+    templateUrl: 'templates/adminMenu.html',
     abstract:true
   })
 
   .state('adminMenu.home', {
-    url: '/home',
+    url: '/adminHome',
     views: {
-      'side-menu21': {
-        templateUrl: 'templates/home.html',
+      'side-menu20': {
+        templateUrl: 'templates/adminHome.html',
         controller: 'kanakaMusicCtrl'
       }
     },
@@ -104,9 +104,9 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
   })
 
     .state('adminMenu.home.HawaiianSong', {
-    url: '/hawaiianSongs',
+    url: '/adminHawaiianSongs',
     views: {
-      'tabs-view': {
+      'adminTabs-view': {
         templateUrl: 'templates/adminHawaiianSonglist.html',
         controller: 'kanakaMusicCtrl'      }
     }
@@ -115,7 +115,7 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
   .state('adminMenu.home.ContemporarySong', {
     url: '/contemporarySongs',
     views: {
-      'tabs-view': {
+      'adminTabs-view': {
         templateUrl: 'templates/adminContemporarySonglist.html',
         controller: 'kanakaMusicCtrl'      }
     }
@@ -124,7 +124,7 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
   .state('adminMenu.home.HawaiianArtist', {
     url: '/hawaiianArtists',
     views: {
-      'tabs-view': {
+      'adminTabs-view': {
         templateUrl: 'templates/adminHawaiianArtistlist.html',
         controller: 'kanakaMusicCtrl'
       }
@@ -134,7 +134,7 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
   .state('adminMenu.home.ContemporaryArtist', {
     url: '/contemporaryArtists',
     views: {
-      'tabs-view': {
+      'adminTabs-view': {
         templateUrl: 'templates/adminContemporaryArtistlist.html',
         controller: 'kanakaMusicCtrl'
       }
