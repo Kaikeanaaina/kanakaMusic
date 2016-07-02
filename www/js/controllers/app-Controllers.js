@@ -7,11 +7,13 @@ angular.module('app.Controllers', [])
   $scope.login = function() {
     loginService.loginUser($scope.data).success(function(data) {
         $rootScope.loggedInUser = data;
-        console.log($rootScope);
+        console.log(88888888,$rootScope);
         if($rootScope.loggedInUser.type === "haku"){
+          console.log(99999999999);
           return $state.go('adminMenu.home.HawaiianSong');
         }
         if($rootScope.loggedInUser.type === "user"){
+          console.log(101010101010101010);
           return $state.go('menu.home.hawaiianSong');
         }
         else{
@@ -26,7 +28,6 @@ angular.module('app.Controllers', [])
   };
 
   $scope.registerUser = function(user){
-    console.log(1111111);
     $scope.data = {};
     var myPopup = $ionicPopup.show({
       template: ' Enter Email <input type="text" ng-model="data.userEmail"><br> Enter Confirm Email <input type="text" ng-model="data.confirmUserEmail"> <br> Enter Password <input type="password" ng-model="data.userPassword"><br>Enter Confirm Password  <input type="password" ng-model="data.confirmPassword" > ',
@@ -57,12 +58,10 @@ angular.module('app.Controllers', [])
           //service
           loginService.registerUser(res)
           .success(function(data){
-            console.log(88888888, data);
             if(!data.hasOwnProperty('email')){
               return $state.go('menu.login');
             } else{
               $rootScope.loggedInUser = data;
-              console.log(999999999, $rootScope);
               return $state.go('menu.home.hawaiianSong');
             }
           });
@@ -254,6 +253,7 @@ angular.module('app.Controllers', [])
   $scope.ZRecordLabel = [];
 
   $scope.getAllSongs = function(){
+    console.log('getting all songs');
     songService.getAllSongs()
     .success(function(data){
 
