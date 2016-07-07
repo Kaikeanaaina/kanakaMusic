@@ -7,13 +7,10 @@ angular.module('app.Controllers', [])
   $scope.login = function() {
     loginService.loginUser($scope.data).success(function(data) {
         $rootScope.loggedInUser = data;
-        console.log(88888888,$rootScope);
         if($rootScope.loggedInUser.type === "haku"){
-          console.log(99999999999);
           return $state.go('adminMenu.home.HawaiianSong');
         }
         if($rootScope.loggedInUser.type === "user"){
-          console.log(101010101010101010);
           return $state.go('menu.home.hawaiianSong');
         }
         else{
@@ -456,27 +453,27 @@ angular.module('app.Controllers', [])
   $scope.addSong = function(song){
     if(song=== null || song === undefined){
       console.log('there needs to be a property');
-      return $state.go('menu.addNewSong');
+      return $state.go('adminMenu.addNewSong');
     }
 
     if(song.title.length===0){
       console.log('there needs to be value in name');
-      return $state.go('menu.addNewSong');
+      return $state.go('adminMenu.addNewSong');
     }
 
     if(!song.ArtistId){
       console.log('there needs to be ArtistId');
-      return $state.go('menu.addNewSong');
+      return $state.go('adminMenu.addNewSong');
     }
 
     if(!song.AlbumId){
       console.log('there needs to be AlbumId');
-      return $state.go('menu.addNewSong');
+      return $state.go('adminMenu.addNewSong');
     }
 
     if(!song.type){
       console.log('there needs to be a type');
-      return $state.go('menu.addNewSong');
+      return $state.go('adminMenu.addNewSong');
     }
 
 
@@ -494,33 +491,53 @@ angular.module('app.Controllers', [])
         // then again you should add a song without internet connection
       //if it does refresh after adding a song
         //it will be up to date realtime
-      return $state.go('menu.home.hawaiianSong');
+      return $state.go('adminMenu.home.HawaiianSong');
     });
   };
 
+    $scope.getAdminSong = function(){
+      var locationPath = $location.$$path;
+      var splitLocationPath = locationPath.split("");
+      splitLocationPath.splice(0,29);
+      var finalLocationPath = splitLocationPath.join("");
+      songService.getSong(encodeURI(finalLocationPath))
+      .success(function(data){
+        $scope.Song = data;
+        artistService.getArtist(data.ArtistId)
+        .success(function(data){
+          $scope.Artist = data;
+        });
+        albumService.getAlbum(data.AlbumId)
+        .success(function(data){
+          $scope.Album = data;
+        });
+      });
+  };
+
   $scope.getSong = function(){
-    var locationPath = $location.$$path;
-    var splitLocationPath = locationPath.split("");
-    splitLocationPath.splice(0,24);
-    var finalLocationPath = splitLocationPath.join("");
-    songService.getSong(encodeURI(finalLocationPath))
-    .success(function(data){
-      $scope.Song = data;
-      artistService.getArtist(data.ArtistId)
+      var userLocationPath = $location.$$path;
+      var userSplitLocationPath = userLocationPath.split("");
+      userSplitLocationPath.splice(0,24);
+      var userFinalLocationPath = userSplitLocationPath.join("");
+      songService.getSong(encodeURI(userFinalLocationPath))
       .success(function(data){
-        $scope.Artist = data;
+        $scope.Song = data;
+        artistService.getArtist(data.ArtistId)
+        .success(function(data){
+          $scope.Artist = data;
+        });
+        albumService.getAlbum(data.AlbumId)
+        .success(function(data){
+          $scope.Album = data;
+        });
       });
-      albumService.getAlbum(data.AlbumId)
-      .success(function(data){
-        $scope.Album = data;
-      });
-    });
   };
 
   $scope.getSongToEdit = function(){
     var locationPath = $location.$$path;
     var splitLocationPath = locationPath.split("");
-    splitLocationPath.splice(0,21);
+    splitLocationPath.splice(0,26);
+    console.log(splitLocationPath);
     var finalLocationPath = splitLocationPath.join("");
     songService.getSong(finalLocationPath)
     .success(function(data){
@@ -539,7 +556,7 @@ angular.module('app.Controllers', [])
   $scope.editSong = function(song){
 
     if(song===undefined || song === null){
-      return $location.url('side-menu/song/content/'+ $scope.Song.id);
+      return $location.url('adminSide-menu/song/content/'+ $scope.Song.id);
     }
 
     if(song.hasOwnProperty("title") && song.title.length!==0){
@@ -652,7 +669,7 @@ angular.module('app.Controllers', [])
 
       songService.editSong($scope.Song.id, song)
       .success(function(data){
-        return $location.url('side-menu/song/content/'+ $scope.Song.id);
+        return $location.url('adminSide-menu/song/content/'+ $scope.Song.id);
       });
     } else {
 
@@ -768,7 +785,7 @@ angular.module('app.Controllers', [])
       songService.editSong($scope.Song.id, song)
       .success(function(data){
 
-        return $location.url('side-menu/song/content/'+ $scope.Song.id);
+        return $location.url('adminSide-menu/song/content/'+ $scope.Song.id);
       });
     }
   };
@@ -776,15 +793,10 @@ angular.module('app.Controllers', [])
   $scope.deleteSong = function(){
     songService.deleteSong($scope.Song)
     .success(function(data){
-    return $state.go('menu.home.hawaiianSong');
+    return $state.go('adminMenu.home.HawaiianSong');
 
     });
   };
-
-  $scope.changeGenre = function(){
-    console.log('CHANGING THE GENRE');
-  };
-
 
   $scope.getAllArtists = function(){
     artistService.getAllArtists()
@@ -992,12 +1004,12 @@ angular.module('app.Controllers', [])
 
     if(!artist.name){
       console.log('there need to be a artist name property');
-      return $state.go('menu.addNewArtist');
+      return $state.go('adminMenu.addNewArtist');
     }
 
     if(artist.name.length===0 || artist=== null || artist === undefined){
       console.log('there needs to be value in name');
-      return $state.go('menu.addNewArtist');
+      return $state.go('adminMenu.addNewArtist');
     }
 
     artistService.addArtist(artist)
@@ -1015,7 +1027,27 @@ angular.module('app.Controllers', [])
         // then again you should add a song without internet connection
       //if it does refresh after adding a song
         //it will be up to date realtime
-      return $state.go('menu.home.hawaiianArtist');
+      return $state.go('adminMenu.home.HawaiianArtist');
+    });
+  };
+
+  $scope.getAdminArtist = function(artist){
+    var locationPath = $location.$$path;
+    var splitLocationPath = locationPath.split("");
+    splitLocationPath.splice(0,31);
+    console.log(splitLocationPath);
+    var finalLocationPath = splitLocationPath.join("");
+    artistService.getArtist(encodeURI(finalLocationPath))
+    .success(function(data){
+     $scope.Artist = data;
+      albumService.getSpecificAlbums(data.id)
+      .success(function(data){
+        $scope.Albums = data;
+      });
+      songService.getSpecificSongsFromArtist(data.id)
+      .success(function(data){
+        $scope.Songs = data;
+      });
     });
   };
 
@@ -1038,6 +1070,7 @@ angular.module('app.Controllers', [])
     });
   };
 
+
   $scope.getArtistToEdit = function(){
     var locationPath = $location.$$path;
     var splitLocationPath = locationPath.split("");
@@ -1052,7 +1085,7 @@ angular.module('app.Controllers', [])
   $scope.editArtist = function(artist){
 
     if(artist===undefined || artist === null){
-      return $location.url('side-menu/artist/content/'+ $scope.Artist.id);
+      return $location.url('adminSide-menu/artist/content/'+ $scope.Artist.id);
     }
 
     if(artist.hasOwnProperty("name") && artist.name.length!==0){
@@ -1085,7 +1118,7 @@ angular.module('app.Controllers', [])
       artistService.editArtist($scope.Artist.id, artist)
       .success(function(data){
         $scope.getArtistToEdit();
-        $location.url('side-menu/artist/content/'+ $scope.Artist.id);
+        $location.url('adminSide-menu/artist/content/'+ $scope.Artist.id);
       });
     } else {
 
@@ -1121,7 +1154,7 @@ angular.module('app.Controllers', [])
       artistService.editArtist($scope.Artist.id, artist)
       .success(function(data){
         $scope.getArtistToEdit();
-        $location.url('side-menu/artist/content/'+ $scope.Artist.id);
+        $location.url('adminSide-menu/artist/content/'+ $scope.Artist.id);
       });
     }
   };
@@ -1131,7 +1164,7 @@ angular.module('app.Controllers', [])
     artistService.deleteArtist($scope.Artist)
     .success(function(data){
       $scope.getAllArtists();
-      return $state.go('menu.home.hawaiianArtist');
+      return $state.go('adminMenu.home.hawaiianArtist');
     });
   };
 
@@ -1205,21 +1238,21 @@ angular.module('app.Controllers', [])
 
     if(album=== null || album === undefined || album.title.length===0 ){
       console.log('there needs to be value in name');
-      return $state.go('menu.addNewAlbum');
+      return $state.go('adminMenu.addNewAlbum');
     }
 
     if(!album.title){
       console.log('there need to be a album name property');
-      return $state.go('menu.addNewAlbum');
+      return $state.go('adminMenu.addNewAlbum');
     }
 
     if(!album.ArtistId){
       console.log('there need to be a album artist property');
-      return $location.url('/side-menu/addNewAlbum');
+      return $location.url('/adminSide-menu/addNewAlbum');
     }
     if(!album.RecordLabelId){
       console.log('there need to be a album RecordLabel property');
-      return $location.url('/side-menu/addNewAlbum');
+      return $location.url('/adminSide-menu/addNewAlbum');
     }
 
     albumService.addAlbum(album)
@@ -1237,7 +1270,7 @@ angular.module('app.Controllers', [])
         // then again you should add a song without internet connection
       //if it does refresh after adding a song
         //it will be up to date realtime
-      return $state.go('menu.addNewSong');
+      return $state.go('adminMenu.addNewSong');
     });
   };
 
@@ -1245,6 +1278,32 @@ angular.module('app.Controllers', [])
     var locationPath = $location.$$path;
     var splitLocationPath = locationPath.split("");
     splitLocationPath.splice(0,17);
+    console.log(splitLocationPath,34343434);
+    var finalLocationPath = splitLocationPath.join("");
+    albumService.getAlbum(encodeURI(finalLocationPath))
+    .success(function(data){
+     $scope.Album = data;
+      recordLabelService.getRecordLabel(data.RecordLabelId)
+      .success(function(data){
+        $scope.RecordLabel = data;
+      });
+      artistService.getArtist(data.ArtistId)
+      .success(function(data){
+        $scope.Artist = data;
+      });
+      songService.getSpecificSongsFromAlbum(data.id)
+      .success(function(data){
+        $scope.Songs = data;
+      });
+    });
+  };
+
+  $scope.getAdminAlbum = function(){
+    console.log('asiudfhasdpfihu');
+    var locationPath = $location.$$path;
+    var splitLocationPath = locationPath.split("");
+    splitLocationPath.splice(0,17);
+    console.log(splitLocationPath);
     var finalLocationPath = splitLocationPath.join("");
     albumService.getAlbum(encodeURI(finalLocationPath))
     .success(function(data){
@@ -1277,7 +1336,7 @@ angular.module('app.Controllers', [])
 
   $scope.editAlbum = function(album){
     if(album===undefined || album === null){
-      return $location.url('side-menu/album/'+ $scope.Album.id);
+      return $location.url('adminSide-menu/album/'+ $scope.Album.id);
     }
 
     if(album.hasOwnProperty("title") && album.title.length!==0){
@@ -1295,7 +1354,7 @@ angular.module('app.Controllers', [])
       albumService.editAlbum($scope.Album.id, album)
       .success(function(data){
         $scope.getAlbumToEdit();
-        return $location.url('side-menu/album/'+ $scope.Album.id);
+        return $location.url('adminSide-menu/album/'+ $scope.Album.id);
       });
     } else {
 
@@ -1315,7 +1374,7 @@ angular.module('app.Controllers', [])
       albumService.editAlbum($scope.Album.id, album)
       .success(function(data){
         $scope.getAlbumToEdit();
-        return $location.url('side-menu/album/'+ $scope.Album.id);
+        return $location.url('adminSide-menu/album/'+ $scope.Album.id);
       });
     }
   };
@@ -1324,7 +1383,7 @@ angular.module('app.Controllers', [])
     albumService.deleteAlbum($scope.Album)
     .success(function(data){
       $scope.getAllAlbums();
-      return $state.go('menu.albums');
+      return $state.go('adminMenu.albums');
     });
   };
 

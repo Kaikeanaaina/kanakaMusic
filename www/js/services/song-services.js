@@ -19,6 +19,7 @@ angular.module('app.songServices', [])
   };
 
   this.getSong = function(songTitle){
+    console.log(333333333);
     return $http.get(domain + '/songs/' + songTitle);
   };
 

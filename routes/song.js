@@ -84,7 +84,6 @@ router.get('/ofAlbum/:id', function(req, res) {
 });
 
 router.get('/:id', function(req, res) {
-
   Song.findOne({
     where: {
       id: encodeURI(req.params.id)

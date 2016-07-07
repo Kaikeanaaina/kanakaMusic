@@ -141,20 +141,49 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
     }
   })
 
-  .state('menu.addNewSong', {
+  .state('adminMenu.gigs', {
+    url: '/gigs',
+    views: {
+      'side-menu20': {
+        templateUrl: 'templates/gigs.html',
+        controller: 'gigCtrl'
+      }
+    }
+  })
+
+  .state('adminMenu.settings', {
+    url: '/settings',
+    views: {
+      'side-menu20': {
+        templateUrl: 'templates/adminSettings.html',
+        controller: 'settingCtrl'
+      }
+    }
+  })
+
+  .state('adminMenu.addNewSong', {
     url: '/addNewSong',
     views: {
-      'side-menu21': {
+      'side-menu20': {
         templateUrl: 'templates/addNewSong.html',
         controller: 'kanakaMusicCtrl'      }
     }
   })
 
-  .state('menu.editSong', {
+  .state('adminMenu.editSong', {
     url: '/song/edit/:id',
     views: {
-      'side-menu21': {
+      'side-menu20': {
         templateUrl: 'templates/editSong.html',
+        controller: 'kanakaMusicCtrl'      }
+    }
+  })
+
+  .state('adminMenu.songContent', {
+    url: '/song/content/:id',
+    views: {
+      'side-menu20': {
+        templateUrl: 'templates/adminSongContent.html',
         controller: 'kanakaMusicCtrl'      }
     }
   })
@@ -168,11 +197,20 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
     }
   })
 
-  .state('menu.addNewArtist', {
+  .state('adminMenu.addNewArtist', {
     url: '/addNewArtist',
     views: {
-      'side-menu21': {
+      'side-menu20': {
         templateUrl: 'templates/addNewArtist.html',
+        controller: 'kanakaMusicCtrl'      }
+    }
+  })
+
+  .state('adminMenu.artistContent', {
+    url: '/artist/content/:id',
+    views: {
+      'side-menu20': {
+        templateUrl: 'templates/adminArtistContent.html',
         controller: 'kanakaMusicCtrl'      }
     }
   })
@@ -232,10 +270,10 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
   })
 
 
-  .state('menu.addNewAlbum', {
+  .state('adminMenu.addNewAlbum', {
     url: '/addNewAlbum',
     views: {
-      'side-menu21': {
+      'side-menu20': {
         templateUrl: 'templates/addNewAlbum.html',
         controller: 'kanakaMusicCtrl'      }
     }
@@ -250,6 +288,14 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
     }
   })
 
+  .state('adminMenu.albumPage', {
+    url: '/album/:id',
+    views: {
+      'side-menu20': {
+        templateUrl: 'templates/albumPage.html',
+        controller: 'kanakaMusicCtrl'      }
+    }
+  })
   .state('menu.albumPage', {
     url: '/album/:id',
     views: {
