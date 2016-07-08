@@ -21,14 +21,12 @@ router.post('/',function(req, res){
 });
 
 router.get('/ofArtist/:id', function(req, res) {
-  console.log('33333333', req.body);
   Album.findAll({
     where: {
       ArtistId: encodeURI(req.params.id)
     }
   })
   .then(function(albums){
-    console.log('444444444', albums);
     return res.json(albums);
   });
 });
