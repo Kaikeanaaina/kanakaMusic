@@ -1277,8 +1277,7 @@ angular.module('app.Controllers', [])
   $scope.getAlbum = function(){
     var locationPath = $location.$$path;
     var splitLocationPath = locationPath.split("");
-    splitLocationPath.splice(0,17);
-    console.log(splitLocationPath,34343434);
+    splitLocationPath.splice(0,22);
     var finalLocationPath = splitLocationPath.join("");
     albumService.getAlbum(encodeURI(finalLocationPath))
     .success(function(data){
@@ -1299,11 +1298,9 @@ angular.module('app.Controllers', [])
   };
 
   $scope.getAdminAlbum = function(){
-    console.log('asiudfhasdpfihu');
     var locationPath = $location.$$path;
     var splitLocationPath = locationPath.split("");
-    splitLocationPath.splice(0,17);
-    console.log(splitLocationPath);
+    splitLocationPath.splice(0,22);
     var finalLocationPath = splitLocationPath.join("");
     albumService.getAlbum(encodeURI(finalLocationPath))
     .success(function(data){
@@ -1323,10 +1320,10 @@ angular.module('app.Controllers', [])
     });
   };
 
-  $scope.getAlbumToEdit = function(){
+  $scope.getAdminAlbumToEdit = function(){
     var locationPath = $location.$$path;
     var splitLocationPath = locationPath.split("");
-    splitLocationPath.splice(0,22);
+    splitLocationPath.splice(0,27);
     var finalLocationPath = splitLocationPath.join("");
     albumService.getAlbum(finalLocationPath)
     .success(function(data){
