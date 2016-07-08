@@ -103,7 +103,7 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
     abstract: true
   })
 
-    .state('adminMenu.home.HawaiianSong', {
+  .state('adminMenu.home.HawaiianSong', {
     url: '/adminHawaiianSongs',
     views: {
       'adminTabs-view': {
@@ -260,11 +260,11 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
   })
 
 
-  .state('menu.albums', {
+  .state('adminMenu.albums', {
     url: '/albums',
     views: {
-      'side-menu21': {
-        templateUrl: 'templates/albumList.html',
+      'side-menu20': {
+        templateUrl: 'templates/adminAlbumList.html',
         controller: 'kanakaMusicCtrl'      }
     }
   })
@@ -279,11 +279,11 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
     }
   })
 
-  .state('menu.editAlbum', {
+  .state('adminMenu.editAlbum', {
     url: '/album/edit/:id',
     views: {
-      'side-menu21': {
-        templateUrl: 'templates/editAlbum.html',
+      'side-menu20': {
+        templateUrl: 'templates/adminEditAlbum.html',
         controller: 'kanakaMusicCtrl'      }
     }
   })
@@ -292,7 +292,7 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
     url: '/album/:id',
     views: {
       'side-menu20': {
-        templateUrl: 'templates/albumPage.html',
+        templateUrl: 'templates/adminAlbumPage.html',
         controller: 'kanakaMusicCtrl'      }
     }
   })
