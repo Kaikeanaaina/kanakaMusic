@@ -8,11 +8,6 @@
             </label>
         </form>
 
-        <form class="list">
-
-            <a ui-sref="menu.addNewRecordLabel" id="home-button18" class="button button-positive button-small button-block">Add New Record Label</a>
-        </form>
-
         <ion-list>
             <ion-item class="item-divider">#</ion-item>
             <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in NumberRecordLabel | orderBy:'name'">
