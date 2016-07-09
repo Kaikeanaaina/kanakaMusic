@@ -1164,7 +1164,7 @@ angular.module('app.Controllers', [])
     artistService.deleteArtist($scope.Artist)
     .success(function(data){
       $scope.getAllArtists();
-      return $state.go('adminMenu.home.hawaiianArtist');
+      return $state.go('adminMenu.home.HawaiianArtist');
     });
   };
 
