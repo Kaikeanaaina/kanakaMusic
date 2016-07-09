@@ -305,6 +305,16 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
     }
   })
 
+  .state('adminMenu.recordLabels', {
+    url: '/recordLabels',
+    views: {
+      'side-menu20': {
+        templateUrl: 'templates/adminRecordLabelList.html',
+        controller: 'kanakaMusicCtrl'      }
+    }
+  })
+
+
   .state('menu.recordLabels', {
     url: '/recordLabels',
     views: {
