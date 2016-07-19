@@ -86,107 +86,7 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
     }
   })
 
-  .state('adminMenu', {
-    url: '/adminSide-menu',
-    templateUrl: 'templates/adminMenu.html',
-    abstract:true
-  })
 
-  .state('adminMenu.home', {
-    url: '/adminHome',
-    views: {
-      'side-menu20': {
-        templateUrl: 'templates/adminHome.html',
-        controller: 'kanakaMusicCtrl'
-      }
-    },
-    abstract: true
-  })
-
-  .state('adminMenu.home.HawaiianSong', {
-    url: '/adminHawaiianSongs',
-    views: {
-      'adminTabs-view': {
-        templateUrl: 'templates/adminHawaiianSonglist.html',
-        controller: 'kanakaMusicCtrl'      }
-    }
-  })
-
-  .state('adminMenu.home.ContemporarySong', {
-    url: '/contemporarySongs',
-    views: {
-      'adminTabs-view': {
-        templateUrl: 'templates/adminContemporarySonglist.html',
-        controller: 'kanakaMusicCtrl'      }
-    }
-  })
-
-  .state('adminMenu.home.HawaiianArtist', {
-    url: '/hawaiianArtists',
-    views: {
-      'adminTabs-view': {
-        templateUrl: 'templates/adminHawaiianArtistlist.html',
-        controller: 'kanakaMusicCtrl'
-      }
-    }
-  })
-
-  .state('adminMenu.home.ContemporaryArtist', {
-    url: '/contemporaryArtists',
-    views: {
-      'adminTabs-view': {
-        templateUrl: 'templates/adminContemporaryArtistlist.html',
-        controller: 'kanakaMusicCtrl'
-      }
-    }
-  })
-
-  .state('adminMenu.gigs', {
-    url: '/gigs',
-    views: {
-      'side-menu20': {
-        templateUrl: 'templates/gigs.html',
-        controller: 'gigCtrl'
-      }
-    }
-  })
-
-  .state('adminMenu.settings', {
-    url: '/settings',
-    views: {
-      'side-menu20': {
-        templateUrl: 'templates/adminSettings.html',
-        controller: 'settingCtrl'
-      }
-    }
-  })
-
-  .state('adminMenu.addNewSong', {
-    url: '/addNewSong',
-    views: {
-      'side-menu20': {
-        templateUrl: 'templates/addNewSong.html',
-        controller: 'kanakaMusicCtrl'      }
-    }
-  })
-
-  .state('adminMenu.editSong', {
-    url: '/song/edit/:id',
-    views: {
-      'side-menu20': {
-        templateUrl: 'templates/editSong.html',
-        controller: 'kanakaMusicCtrl'      }
-    }
-  })
-
-  .state('adminMenu.songContent', {
-    url: '/song/content/:id',
-    views: {
-      'side-menu20': {
-        templateUrl: 'templates/adminSongContent.html',
-        controller: 'kanakaMusicCtrl'      }
-    }
-  })
 
   .state('menu.songContent', {
     url: '/song/content/:id',
@@ -197,38 +97,11 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
     }
   })
 
-  .state('adminMenu.addNewArtist', {
-    url: '/addNewArtist',
-    views: {
-      'side-menu20': {
-        templateUrl: 'templates/addNewArtist.html',
-        controller: 'kanakaMusicCtrl'      }
-    }
-  })
-
-  .state('adminMenu.artistContent', {
-    url: '/artist/content/:id',
-    views: {
-      'side-menu20': {
-        templateUrl: 'templates/adminArtistContent.html',
-        controller: 'kanakaMusicCtrl'      }
-    }
-  })
-
   .state('menu.artistContent', {
     url: '/artist/content/:id',
     views: {
       'side-menu21': {
         templateUrl: 'templates/artistContent.html',
-        controller: 'kanakaMusicCtrl'      }
-    }
-  })
-
-  .state('menu.editArtist', {
-    url: '/artist/edit/:id',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/editArtist.html',
         controller: 'kanakaMusicCtrl'      }
     }
   })
@@ -260,56 +133,12 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
   })
 
 
-  .state('adminMenu.albums', {
-    url: '/albums',
-    views: {
-      'side-menu20': {
-        templateUrl: 'templates/adminAlbumList.html',
-        controller: 'kanakaMusicCtrl'      }
-    }
-  })
 
-
-  .state('adminMenu.addNewAlbum', {
-    url: '/addNewAlbum',
-    views: {
-      'side-menu20': {
-        templateUrl: 'templates/addNewAlbum.html',
-        controller: 'kanakaMusicCtrl'      }
-    }
-  })
-
-  .state('adminMenu.editAlbum', {
-    url: '/album/edit/:id',
-    views: {
-      'side-menu20': {
-        templateUrl: 'templates/adminEditAlbum.html',
-        controller: 'kanakaMusicCtrl'      }
-    }
-  })
-
-  .state('adminMenu.albumPage', {
-    url: '/album/:id',
-    views: {
-      'side-menu20': {
-        templateUrl: 'templates/adminAlbumPage.html',
-        controller: 'kanakaMusicCtrl'      }
-    }
-  })
   .state('menu.albumPage', {
     url: '/album/:id',
     views: {
       'side-menu21': {
         templateUrl: 'templates/albumPage.html',
-        controller: 'kanakaMusicCtrl'      }
-    }
-  })
-
-  .state('adminMenu.recordLabels', {
-    url: '/recordLabels',
-    views: {
-      'side-menu20': {
-        templateUrl: 'templates/adminRecordLabelList.html',
         controller: 'kanakaMusicCtrl'      }
     }
   })
@@ -324,39 +153,11 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
     }
   })
 
-  .state('menu.addNewRecordLabel', {
-    url: '/addNewRecordLabel',
-    views: {
-      'side-menu21' : {
-        templateUrl: 'templates/addNewRecordLabel.html',
-        controller: 'kanakaMusicCtrl'      }
-    }
-  })
-
-  .state('menu.editRecordLabel', {
-    url: '/recordLabel/edit/:id',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/editRecordLabel.html',
-        controller: 'kanakaMusicCtrl'      }
-    }
-  })
-
   .state('menu.gigDetails', {
     url: '/gig/details/:id',
     views: {
       'side-menu21': {
         templateUrl: 'templates/gigDetails.html',
-        controller: 'gigCtrl'
-      }
-    }
-  })
-
-  .state('menu.addNewGig', {
-    url: '/addNewGig',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/addNewGig.html',
         controller: 'gigCtrl'
       }
     }
@@ -405,17 +206,6 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
       'side-menu21': {
         templateUrl: 'templates/frequentlyAskedQuestions.html',
         controller: 'settingCtrl'
-      }
-    }
-  })
-
-
-  .state('menu.login', {
-    url: '/login',
-    views: {
-      'side-menu21': {
-        templateUrl: 'templates/login.html',
-        controller: 'kanakaMusicCtrl'
       }
     }
   });
