@@ -14,20 +14,8 @@ angular.module('app.recordLabelServices', [])
     return $http.get(domain + '/recordLabels');
   };
 
-  this.addRecordLabel = function(recordLabel){
-    return $http.post(domain + '/recordLabels', recordLabel);
-  };
-
   this.getRecordLabel = function(recordLabelName){
     return $http.get(domain + '/recordLabels/' + recordLabelName);
-  };
-
-  this.editRecordLabel = function(recordLabelPath, recordLabel){
-    return $http.put(domain + '/recordLabels/' + recordLabelPath, recordLabel);
-  };
-
-  this.deleteRecordLabel = function(recordLabel){
-    return $http.delete(domain + '/recordLabels/' + recordLabel.id, recordLabel);
   };
 
 }]);
