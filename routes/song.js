@@ -54,7 +54,8 @@ router.post('/', function (req, res) {
     urlTitle : urltitle,
     ArtistId : req.body.ArtistId,
     AlbumId : req.body.AlbumId,
-    type : req.body.type
+    type : req.body.type,
+    visibility : false
     })
     .then(function (data) {
       return res.json(data);
