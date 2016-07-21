@@ -14,21 +14,9 @@ angular.module('app.songServices', [])
     return $http.get(domain + '/songs');
   };
 
-  this.addSong = function(song){
-    return $http.post(domain + '/songs', song);
-  };
-
   this.getSong = function(songTitle){
     console.log(333333333);
     return $http.get(domain + '/songs/' + songTitle);
-  };
-
-  this.editSong = function(songPath, song){
-    return $http.put(domain + '/songs/' + songPath, song);
-  };
-
-  this.deleteSong = function(song){
-    return $http.delete(domain + '/songs/' + song.id, song);
   };
 
   this.getSpecificSongsFromArtist = function(ArtistId){

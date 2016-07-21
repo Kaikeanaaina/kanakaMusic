@@ -14,20 +14,8 @@ angular.module('app.artistServices', [])
     return $http.get(domain + '/artists');
   };
 
-  this.addArtist = function(artist){
-    return $http.post(domain + '/artists', artist);
-  };
-
   this.getArtist = function(artistName){
     return $http.get(domain + '/artists/' + artistName);
-  };
-
-  this.editArtist = function(artistPath, artist){
-    return $http.put(domain + '/artists/' + artistPath, artist);
-  };
-
-  this.deleteArtist = function(artist){
-    return $http.delete(domain + '/artists/' + artist.id, artist);
   };
 
 }]);

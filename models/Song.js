@@ -139,7 +139,7 @@ module.exports = function(sequelize, DataTypes) {
     visibility : {
       type : DataTypes.BOOLEAN,
       allowNull: false
-    },
+    }
   }, {
     classMethods: {
       associate : function(models) {

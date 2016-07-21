@@ -14,24 +14,12 @@ angular.module('app.albumServices', [])
     return $http.get(domain + '/albums');
   };
 
-  this.addAlbum = function(album){
-    return $http.post(domain + '/albums', album);
-  };
-
   this.getAlbum = function(albumName){
     return $http.get(domain + '/albums/' + albumName);
   };
 
   this.getSpecificAlbums = function(ArtistId){
     return $http.get(domain + '/albums/ofArtist/' + ArtistId);
-  };
-
-  this.editAlbum = function(albumPath, album){
-    return $http.put(domain + '/albums/' + albumPath, album);
-  };
-
-  this.deleteAlbum = function(album){
-    return $http.delete(domain + '/albums/' + album.id, album);
   };
 
 }]);
