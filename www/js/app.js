@@ -260,10 +260,10 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
   })
 
 
-  .state('adminMenu.albums', {
+  .state('adminMenu.home.albums', {
     url: '/albums',
     views: {
-      'side-menu20': {
+      'adminTabs-view': {
         templateUrl: 'templates/adminAlbumList.html',
         controller: 'kanakaMusicCtrl'      }
     }
@@ -305,10 +305,10 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
     }
   })
 
-  .state('adminMenu.recordLabels', {
+  .state('adminMenu.home.recordLabels', {
     url: '/recordLabels',
     views: {
-      'side-menu20': {
+      'adminTabs-view': {
         templateUrl: 'templates/adminRecordLabelList.html',
         controller: 'kanakaMusicCtrl'      }
     }
@@ -379,31 +379,31 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
   })
 
 
-  .state('menu.privacyPolicy', {
+  .state('adminMenu.privacyPolicy', {
     url: '/privacyPolicy',
     views: {
-      'side-menu21': {
-        templateUrl: 'templates/privacyPolicy.html',
+      'side-menu20': {
+        templateUrl: 'templates/adminPrivacyPolicy.html',
         controller: 'settingCtrl'
       }
     }
   })
 
-  .state('menu.serviceTerms', {
+  .state('adminMenu.serviceTerms', {
     url: '/serviceTerms',
     views: {
-      'side-menu21': {
-        templateUrl: 'templates/serviceTerms.html',
+      'side-menu20': {
+        templateUrl: 'templates/adminServiceTerms.html',
         controller: 'settingCtrl'
       }
     }
   })
 
-  .state('menu.frequentlyAskedQuestions', {
+  .state('adminMenu.frequentlyAskedQuestions', {
     url: '/frequentlyAskedQuestions',
     views: {
-      'side-menu21': {
-        templateUrl: 'templates/frequentlyAskedQuestions.html',
+      'side-menu20': {
+        templateUrl: 'templates/adminFrequentlyAskedQuestions.html',
         controller: 'settingCtrl'
       }
     }
@@ -420,7 +420,7 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
     }
   });
 
-$urlRouterProvider.otherwise('/side-menu/home/hawaiianSongs');
+$urlRouterProvider.otherwise('/side-menu/login');
 
 
 
