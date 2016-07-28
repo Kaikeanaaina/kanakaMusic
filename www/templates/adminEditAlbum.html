@@ -1,6 +1,10 @@
 <ion-view title="Edit Album" id="page19" ng-init="getAdminAlbumToEdit()">
     <ion-content padding="true" class="has-header">
         <form class="list">
+            <ion-toggle ng-model="album.visibility" toggle-class="toggle-calm">Visible</ion-toggle>
+            <p>Change Visibility Status to : {{album.visibility}}</p>
+            <p>Current Visibility Status : {{Album.visibility}}</p>
+            <br></br>
             <label class="item item-input">
                 <span class="input-label">Album Title</span>
                 <input type="text" placeholder="{{Album.title}}" ng-model="album.title">
