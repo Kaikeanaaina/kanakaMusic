@@ -4,6 +4,11 @@
 
             <input type="hidden" ng-model="song.id"></input>
 
+            <ion-toggle ng-model="song.visibility" toggle-class="toggle-calm">Visible</ion-toggle>
+            <p>Change Visibility Status to : {{song.visibility}}</p>
+            <p>Current Visibility Status : {{Song.visibility}}</p>
+            <br></br>
+
             <label class="item item-input" name="songTitle">
                 <span class="input-label">Song Title</span>
                 <input type="text" placeholder="{{Song.title}}" ng-model="song.title">
