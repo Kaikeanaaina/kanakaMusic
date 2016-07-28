@@ -22,7 +22,8 @@ router.post('/',function(req, res){
     twitter : req.body.twitter,
     bookingPhoneNumber : req.body.bookingPhoneNumber,
     bookingEmail : req.body.bookingEmail,
-    description : req.body.description
+    description : req.body.description,
+    visibility : false
   })
   .then(function(artist){
     return res.json(artist);
