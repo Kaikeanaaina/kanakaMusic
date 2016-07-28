@@ -186,6 +186,8 @@ angular.module('app.Controllers', [])
     songService.getAllSongs()
     .success(function(data){
 
+      console.log(data);
+
       for(var i = 0;i<data.length;i++){
         var splitTitle = data[i].title.toUpperCase().split("");
         if(splitTitle[0]==="A"){
