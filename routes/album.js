@@ -14,7 +14,13 @@ router.get('/',function(req, res){
 });
 
 router.post('/',function(req, res){
-  Album.create(req.body)
+  Album.create({
+    title : req.body.title,
+    description : req.body.description,
+    visibility : false,
+    ArtistId : req.body.ArtistId,
+    RecordLabelId : req.body.RecordLabelId
+  })
   .then(function(album){
     return res.json(album);
   });
