@@ -134,6 +134,7 @@ router.put('/:id', function(req, res){
     line30 : req.body.line30,
     description : req.body.description,
     type : req.body.type,
+    visibility : req.body.visibility,
     urlTitle : encodeURI(req.body.title)
   }, {
     where : {
