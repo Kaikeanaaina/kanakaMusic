@@ -561,6 +561,9 @@ angular.module('app.Controllers', [])
 
     if(song.hasOwnProperty("title") && song.title.length!==0){
 
+      if(!song.hasOwnProperty("visibility")){
+        song.visibility = $scope.Song.visibility;
+      }
       if(!song.hasOwnProperty("id")){
         song.id = $scope.Song.id;
       }
@@ -673,6 +676,9 @@ angular.module('app.Controllers', [])
       });
     } else {
 
+      if(!song.hasOwnProperty("visibility")){
+        song.visibility = $scope.Song.visibility;
+      }
       if(!song.hasOwnProperty("id")){
         song.id = $scope.Song.id;
       }
@@ -1114,6 +1120,9 @@ angular.module('app.Controllers', [])
       if(!artist.hasOwnProperty("description") || artist.description.length===0){
         artist.description = $scope.Artist.description;
       }
+      if(!artist.hasOwnProperty("visibility")){
+        artist.visibility = $scope.Artist.visibility;
+      }
 
       artistService.editArtist($scope.Artist.id, artist)
       .success(function(data){
@@ -1148,6 +1157,9 @@ angular.module('app.Controllers', [])
       }
       if(!artist.hasOwnProperty("description") || artist.description.length===0){
         artist.description = $scope.Artist.description;
+      }
+      if(!artist.hasOwnProperty("visibility")){
+        artist.visibility = $scope.Artist.visibility;
       }
 
 
@@ -1347,6 +1359,9 @@ angular.module('app.Controllers', [])
       if(!album.hasOwnProperty("description") || album.description.length===0){
         album.description = $scope.Album.description;
       }
+      if(!album.hasOwnProperty("visibility")){
+        album.visibility = $scope.Album.visibility;
+      }
 
       albumService.editAlbum($scope.Album.id, album)
       .success(function(data){
@@ -1366,6 +1381,9 @@ angular.module('app.Controllers', [])
       }
       if(!album.hasOwnProperty("description") || album.description.length===0){
         album.description = $scope.Album.description;
+      }
+      if(!album.hasOwnProperty("visibility")){
+        album.visibility = $scope.Album.visibility;
       }
 
       albumService.editAlbum($scope.Album.id, album)
@@ -1482,7 +1500,7 @@ angular.module('app.Controllers', [])
         // then again you should add a song without internet connection
       //if it does refresh after adding a song
         //it will be up to date realtime
-      return $state.go('menu.recordLabels');
+      return $state.go('adminMenu.home.recordLabels');
     });
   };
 
