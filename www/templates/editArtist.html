@@ -2,6 +2,11 @@
     <ion-content padding="true" class="has-header">
         <form class="list">
 
+            <ion-toggle ng-model="artist.visibility" toggle-class="toggle-calm">Visible</ion-toggle>
+            <p>Change Visibility Status to : {{artist.visibility}}</p>
+            <p>Current Visibility Status : {{Artist.visibility}}</p>
+            <br></br>
+
             <label class="item item-input" name="Artist">
                 <span class="input-label">Artist Name</span>
                 <input type="text" placeholder="{{Artist.name}}" ng-model="artist.name">
