@@ -55,7 +55,8 @@ router.put('/:id', function(req, res){
     updatedAt : 'now()',
     title : req.body.title,
     description : req.body.description,
-    RecordLabelId : req.body.RecordLabelId
+    RecordLabelId : req.body.RecordLabelId,
+    visibility : req.body.visibility
   }, {
     where : {
       id : req.params.id
