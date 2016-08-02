@@ -1080,7 +1080,7 @@ angular.module('app.Controllers', [])
   $scope.getArtistToEdit = function(){
     var locationPath = $location.$$path;
     var splitLocationPath = locationPath.split("");
-    splitLocationPath.splice(0,23);
+    splitLocationPath.splice(0,28);
     var finalLocationPath = splitLocationPath.join("");
     artistService.getArtist(finalLocationPath)
     .success(function(data){
@@ -1365,7 +1365,7 @@ angular.module('app.Controllers', [])
 
       albumService.editAlbum($scope.Album.id, album)
       .success(function(data){
-        $scope.getAlbumToEdit();
+        $scope.getAdminAlbumToEdit();
         return $location.url('adminSide-menu/album/'+ $scope.Album.id);
       });
     } else {
@@ -1388,7 +1388,7 @@ angular.module('app.Controllers', [])
 
       albumService.editAlbum($scope.Album.id, album)
       .success(function(data){
-        $scope.getAlbumToEdit();
+        $scope.getAdminAlbumToEdit();
         return $location.url('adminSide-menu/album/'+ $scope.Album.id);
       });
     }
