@@ -224,11 +224,11 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
     }
   })
 
-  .state('menu.editArtist', {
+  .state('adminMenu.editArtist', {
     url: '/artist/edit/:id',
     views: {
-      'side-menu21': {
-        templateUrl: 'templates/editArtist.html',
+      'side-menu20': {
+        templateUrl: 'templates/adminEditArtist.html',
         controller: 'kanakaMusicCtrl'      }
     }
   })
