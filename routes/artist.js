@@ -7,9 +7,13 @@ var Artist = db.Artist;
 router.use(bodyParser.json({ extended : false }));
 
 router.get('/',function(req, res){
-  Artist.findAll()
-    .then(function(artists){
-      return res.json(artists);
+  Artist.findAll({
+    where: {
+      visibility : true
+    }
+  })
+  .then(function(artists){
+    return res.json(artists);
   });
 });
 
