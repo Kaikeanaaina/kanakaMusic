@@ -7,9 +7,13 @@ var Album = db.Album;
 router.use(bodyParser.json({ extended : false }));
 
 router.get('/',function(req, res){
-  Album.findAll()
-    .then(function(data){
-      res.json(data);
+  Album.findAll({
+    where: {
+      visibility : true
+    }
+  })
+  .then(function(data){
+    res.json(data);
   });
 });
 
@@ -23,7 +27,8 @@ router.post('/',function(req, res){
 router.get('/ofArtist/:id', function(req, res) {
   Album.findAll({
     where: {
-      ArtistId: encodeURI(req.params.id)
+      ArtistId: encodeURI(req.params.id),
+      visibility : true
     }
   })
   .then(function(albums){
@@ -35,7 +40,8 @@ router.get('/ofArtist/:id', function(req, res) {
 router.get('/:id', function(req, res) {
   Album.findOne({
     where: {
-      id: encodeURI(req.params.id)
+      id: encodeURI(req.params.id),
+      visibility : true
     }
   })
   .then(function(album){
