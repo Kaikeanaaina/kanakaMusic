@@ -68,7 +68,7 @@ app.use('/users', require('./routes/user.js'));
 
 
 
-var server = app.listen(4000, function(){
+var server = app.listen(4001, function(){
   db.sequelize.sync();
   console.log('SERVER LISTENER CONNECTED TO : ', server.address() );
 });
