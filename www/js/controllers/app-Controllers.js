@@ -692,7 +692,7 @@ angular.module('app.Controllers', [])
   $scope.getAlbum = function(){
     var locationPath = $location.$$path;
     var splitLocationPath = locationPath.split("");
-    splitLocationPath.splice(0,22);
+    splitLocationPath.splice(0,17);
     var finalLocationPath = splitLocationPath.join("");
     albumService.getAlbum(encodeURI(finalLocationPath))
     .success(function(data){
