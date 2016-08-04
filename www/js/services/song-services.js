@@ -4,7 +4,7 @@ angular.module('app.songServices', [])
   var isCordovaApp = document.URL.indexOf('http://') === -1 && document.URL.indexOf('https://') === -1;
   var domain;
   if(!isCordovaApp){
-    domain = 'http://localhost:4000';
+    domain = 'http://localhost:4001';
   }
   if(isCordovaApp){
     domain = '.';
@@ -15,7 +15,6 @@ angular.module('app.songServices', [])
   };
 
   this.getSong = function(songTitle){
-    console.log(333333333);
     return $http.get(domain + '/songs/' + songTitle);
   };
 

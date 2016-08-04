@@ -7,25 +7,13 @@ var Artist = db.Artist;
 router.use(bodyParser.json({ extended : false }));
 
 router.get('/',function(req, res){
-  Artist.findAll()
-    .then(function(artists){
-      return res.json(artists);
-  });
-});
-
-router.post('/',function(req, res){
-  Artist.create({
-    name : req.body.name,
-    type : req.body.type,
-    facebook : req.body.facebook,
-    instagram : req.body.instagram,
-    twitter : req.body.twitter,
-    bookingPhoneNumber : req.body.bookingPhoneNumber,
-    bookingEmail : req.body.bookingEmail,
-    description : req.body.description
+  Artist.findAll({
+    where: {
+      visibility : true
+    }
   })
-  .then(function(artist){
-    return res.json(artist);
+  .then(function(artists){
+    return res.json(artists);
   });
 });
 
@@ -40,38 +28,7 @@ router.get('/:id', function(req, res) {
   });
 });
 
-router.put('/:id', function(req, res){
-  Artist.update(
-  {
-    updatedAt : 'now()',
-    name : req.body.name,
-    type : req.body.type,
-    facebook : req.body.facebook,
-    instagram : req.body.instagram,
-    twitter : req.body.twitter,
-    bookingPhoneNumber : req.body.bookingPhoneNumber,
-    bookingEmail : req.body.bookingEmail,
-    description : req.body.description
-  }, {
-    where : {
-      id : req.params.id
-    }
-  })
-  .then(function(artist){
-    return res.json(artist);
-  });
-});
 
-router.delete('/:id', function(req, res){
-  Artist.destroy({
-    where: {
-      id: req.params.id
-    }
-  })
-  .then(function(data){
-    return res.json(data);
-  });
-});
 
 module.exports = router;
 

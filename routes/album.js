@@ -7,23 +7,21 @@ var Album = db.Album;
 router.use(bodyParser.json({ extended : false }));
 
 router.get('/',function(req, res){
-  Album.findAll()
-    .then(function(data){
-      res.json(data);
-  });
-});
-
-router.post('/',function(req, res){
-  Album.create(req.body)
-  .then(function(album){
-    return res.json(album);
+  Album.findAll({
+    where: {
+      visibility : true
+    }
+  })
+  .then(function(data){
+    res.json(data);
   });
 });
 
 router.get('/ofArtist/:id', function(req, res) {
   Album.findAll({
     where: {
-      ArtistId: encodeURI(req.params.id)
+      ArtistId: encodeURI(req.params.id),
+      visibility : true
     }
   })
   .then(function(albums){
@@ -35,40 +33,12 @@ router.get('/ofArtist/:id', function(req, res) {
 router.get('/:id', function(req, res) {
   Album.findOne({
     where: {
-      id: encodeURI(req.params.id)
+      id: encodeURI(req.params.id),
+      visibility : true
     }
   })
   .then(function(album){
     return res.json(album);
-  });
-});
-
-router.put('/:id', function(req, res){
-  Album.update(
-  {
-    updatedAt : 'now()',
-    title : req.body.title,
-    description : req.body.description,
-    RecordLabelId : req.body.RecordLabelId
-  }, {
-    where : {
-      id : req.params.id
-    }
-  })
-  .then(function(album){
-    return res.json(album);
-  });
-});
-
-
-router.delete('/:id', function(req, res){
-  Album.destroy({
-    where: {
-      id: req.params.id
-    }
-  })
-  .then(function(data){
-    return res.json(data);
   });
 });
 

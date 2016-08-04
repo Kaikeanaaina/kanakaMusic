@@ -132,34 +132,9 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
     controller: 'gigsCtrl'
   })
 
-  .state('adminMenu.home.albums', {
-    url: '/albums',
-    views: {
-      'adminTabs-view': {
-        templateUrl: 'templates/adminAlbumList.html',
-        controller: 'kanakaMusicCtrl'      }
-    }
-  })
 
 
-  .state('adminMenu.addNewAlbum', {
-    url: '/addNewAlbum',
-    views: {
-      'side-menu20': {
-        templateUrl: 'templates/addNewAlbum.html',
-        controller: 'kanakaMusicCtrl'      }
-    }
-  })
-
-  .state('adminMenu.editAlbum', {
-    url: '/album/edit/:id',
-    views: {
-      'side-menu20': {
-        templateUrl: 'templates/adminEditAlbum.html',
-        controller: 'kanakaMusicCtrl'      }
-    }
-  })
-  .state('adminMenu.albumPage', {
+  .state('menu.albumPage', {
     url: '/album/:id',
     views: {
       'side-menu21': {
@@ -168,18 +143,6 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
     }
   })
 
-<<<<<<< HEAD
-  .state('adminMenu.home.recordLabels', {
-    url: '/recordLabels',
-    views: {
-      'adminTabs-view': {
-        templateUrl: 'templates/adminRecordLabelList.html',
-        controller: 'kanakaMusicCtrl'      }
-    }
-  })
-
-=======
->>>>>>> a29062bde59be7b94f240cd9de673d0a6703232e
 
   .state('menu.recordLabels', {
     url: '/recordLabels',
@@ -217,37 +180,37 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
   })
 
 
-  .state('adminMenu.privacyPolicy', {
+  .state('menu.privacyPolicy', {
     url: '/privacyPolicy',
     views: {
-      'side-menu20': {
-        templateUrl: 'templates/adminPrivacyPolicy.html',
+      'side-menu21': {
+        templateUrl: 'templates/privacyPolicy.html',
         controller: 'settingCtrl'
       }
     }
   })
 
-  .state('adminMenu.serviceTerms', {
+  .state('menu.serviceTerms', {
     url: '/serviceTerms',
     views: {
-      'side-menu20': {
-        templateUrl: 'templates/adminServiceTerms.html',
+      'side-menu21': {
+        templateUrl: 'templates/serviceTerms.html',
         controller: 'settingCtrl'
       }
     }
   })
 
-  .state('adminMenu.frequentlyAskedQuestions', {
+  .state('menu.frequentlyAskedQuestions', {
     url: '/frequentlyAskedQuestions',
     views: {
-      'side-menu20': {
-        templateUrl: 'templates/adminFrequentlyAskedQuestions.html',
+      'side-menu21': {
+        templateUrl: 'templates/frequentlyAskedQuestions.html',
         controller: 'settingCtrl'
       }
     }
   });
 
-$urlRouterProvider.otherwise('/side-menu/login');
+$urlRouterProvider.otherwise('/side-menu/home/hawaiianSongs');
 
 
 
