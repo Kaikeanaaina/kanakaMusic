@@ -139,6 +139,14 @@ module.exports = function(sequelize, DataTypes) {
     visibility : {
       type : DataTypes.BOOLEAN,
       allowNull: false
+    },
+    totalViews: {
+      type : DataTypes.INTEGER,
+      allowNull: true
+    },
+    weeklyViews : {
+      type : DataTypes.INTEGER,
+      allowNull: true
     }
   }, {
     classMethods: {
