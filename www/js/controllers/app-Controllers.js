@@ -400,6 +400,11 @@ angular.module('app.Controllers', [])
       });
   };
 
+  $scope.addViewCountToSong = function(){
+    console.log('hit the count');
+    songService.addViewCountToSong();
+  };
+
   $scope.getAllArtists = function(){
     artistService.getAllArtists()
     .success(function(data){
