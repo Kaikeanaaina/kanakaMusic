@@ -52,6 +52,22 @@ router.get('/:id', function(req, res) {
   });
 });
 
+router.put('/:id', function(req,res){
+  Song.update(
+  {
+     totalViews :  req.body.totalViews+=1,
+     weeklyViews : req.body.weeklyViews+=1,
+  }, {
+    where : {
+      id : req.body.id
+    }
+  })
+  .then(function(song){
+    console.log(444444444, song);
+    return res.json(song);
+  });
+
+});
 
 
 module.exports = router;
