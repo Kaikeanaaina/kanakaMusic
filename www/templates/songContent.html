@@ -1,5 +1,6 @@
-<ion-view title="{{Song.title}}" id="page10" ng-init="getSong(); addViewCountToSong()">
+<ion-view title="{{Song.title}}" id="page10" ng-init="getSong(); startTimerForViewCounter()">
     <ion-content padding="true" class="has-header">
+        <h1 style="text-align:center">{{Song.title}}</h1>
         <div id="songContent-markdown5" style="color:#000000;text-align:center;">
             <p>artist: <strong>{{Artist.name}}</strong> - album: <strong>{{Album.title}}</strong></p>
         </div>
