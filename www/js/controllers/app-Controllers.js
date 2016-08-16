@@ -181,7 +181,7 @@ angular.module('app.Controllers', [])
   $scope.YRecordLabel = [];
   $scope.ZRecordLabel = [];
 
-  $scope.doRefresh = function() {
+  $scope.doRefreshSongList = function() {
     songService.getAllSongs()
     .success(function(data){
 
