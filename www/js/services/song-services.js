@@ -18,8 +18,8 @@ angular.module('app.songServices', [])
     return $http.get(domain + '/songs/' + songTitle);
   };
 
-  this.addViewCountToSong = function(song){
-    console.log('do;ifajds;oifjas;odifjads;oifj');
+  this.hoomakaKaUakiNoKaHelu = function(song){
+    return $http.put(domain + '/songs/' + song.id, song);
   };
 
   this.getSpecificSongsFromArtist = function(ArtistId){
