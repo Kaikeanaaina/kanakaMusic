@@ -57,6 +57,7 @@ router.put('/:id', function(req,res){
   {
      totalViews :  req.body.totalViews+=1,
      weeklyViews : req.body.weeklyViews+=1,
+     monthlyViews : req.body.monthlyViews+=1,
   }, {
     where : {
       id : req.body.id
