@@ -667,7 +667,7 @@ angular.module('app.Controllers', [])
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
 
     if($state.current.name === "menu.songContent" && stateSongContent === true && fromState.name !== ""){
-      setTimeout(addCountToViews,3000);
+      setTimeout(addCountToViews,30000);
     }
     if($state.current.name === "menu.songContent"){
       $scope.getSong();
