@@ -212,6 +212,4 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
 
 $urlRouterProvider.otherwise('/side-menu/home/hawaiianSongs');
 
-
-
 });
