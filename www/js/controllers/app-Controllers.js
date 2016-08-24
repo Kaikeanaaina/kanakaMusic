@@ -4,6 +4,8 @@ angular.module('app.Controllers', [])
 
   $scope.data = {};
 
+  $scope.kainoa = true;
+
   $scope.Song = [];
   $scope.NumberContemporarySong = [];
   $scope.AContemporarySong = [];
